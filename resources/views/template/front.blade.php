@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Condor</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{!! url('js/jquery-ui-1.10.4/themes/base/jquery.ui.all.css') !!}" rel="stylesheet" media="screen">
+        <link href="{!! url('bs/css/bootstrap.min.css') !!}" rel="stylesheet" media="screen">
+        <link href="{!! url('css/custom.css') !!}" rel="stylesheet" media="screen">	
+    </head>
+    <body>        
+        <div class="container">
+            <div class="row">
+                @include('template.languages')
+            </div>
+            <div class="row">   
+                <div class="col-sm-12">
+                    @include('template.frontheader')
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    @yield('content')
+                </div>
+            </div>
+
+            <div id="wait-msg" class="col-sm-12" style="display:none;"> 
+                <h3>{!!Lang::choice('messages.attendere',0)!!}</h3> 
+            </div> 
+        </div>
+        <script src="{!! url('http://code.jquery.com/jquery.js') !!}"></script>
+        <script src="{!! url('js/jquery-ui-1.10.4/ui/jquery.ui.core.js') !!}"></script>
+        <script src="{!! url('js/jquery-ui-1.10.4/ui/jquery.ui.widget.js') !!}"></script>
+        <script src="{!! url('js/jquery-ui-1.10.4/ui/jquery.ui.dialog.js') !!}"></script>	
+        <script src="{!! url('js/jquery-ui-1.10.4/ui/jquery.ui.datepicker.js') !!}"></script>
+        <script src="{!! url('js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-it.js') !!}"></script>
+        <script src="{!! url('js/blockui.js') !!}"></script>
+        <script src="{!! url('js/scripts.js') !!}"></script>
+        <script src="{!! url('bs/js/bootstrap.min.js') !!}"></script> 
+    </body>
+</html>

@@ -1,0 +1,116 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 3-ago-2014, 15.17.21
+    Author     : Roberto
+*/
+
+body {
+    background-color: #ececff;
+    padding: 1%;
+}
+
+.col-sm-12 {
+    background-color: #fff;    
+}
+
+body {
+    background-color: #fff;
+}
+
+.ui-autocomplete-loading {
+    background: white url('../img/ajax-loader.gif') right center no-repeat;
+}
+
+.form-input-code {
+    width: 20%;
+}
+
+.form-input-description {
+    width: 100%;
+}
+
+.highlight { background-color: #12a2e2; color: #fff; }
+
+.img-home {
+    width: 50%;
+    height: auto;
+}
+
+.quantity-input {
+    width: 30%;
+}
+
+.dash-detail {
+    display: none;    
+}
+
+.dash-head, .dash-detail {
+    cursor: pointer;
+}
+
+.prezzo {
+    font-weight: bold;
+    color: #900000;
+}
+
+.cart-col-prod {
+    font-weight: bold;
+    color: #00F;
+}
+
+.cart-col-price {
+    font-weight: bold;
+    color: #900000;
+}
+
+.cart-tot-price {
+    font-weight: bold;
+    color: #000;
+}
+
+.address-list,
+.travel-item,
+.payment-item,
+#tbody-lista-prodotti
+{
+    cursor: pointer;
+}
+
+.travel-selection,
+.payment-selection,
+#btn-conferma-ordine {
+    display: none;
+}
+
+
+.flag-img {
+    width: 25px;
+    height: 25px;
+}
+
+textarea {
+    resize: none;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.div-tracking {
+    display: none;
+}
+
+.div-note-stato {
+    display: none;
+}
+
+.address-change,
+.travel-change, 
+.payment-change {
+    display: none;
+}

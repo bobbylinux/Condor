@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'http://condor2.dev',
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Rome',
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'it',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'it',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'SomeRandomString'),
+    'key' => env('APP_KEY', 'IaIdY6QHCIzk26iz4YwDdP2oGIPpUYqU'),
 
     'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -125,6 +125,7 @@ return [
         'Illuminate\Filesystem\FilesystemServiceProvider',
         'Illuminate\Foundation\Providers\FoundationServiceProvider',
         'Illuminate\Hashing\HashServiceProvider',
+        'Illuminate\Html\HtmlServiceProvider',
         'Illuminate\Mail\MailServiceProvider',
         'Illuminate\Pagination\PaginationServiceProvider',
         'Illuminate\Pipeline\PipelineServiceProvider',
@@ -171,7 +172,9 @@ return [
         'Eloquent'  => 'Illuminate\Database\Eloquent\Model',
         'Event'     => 'Illuminate\Support\Facades\Event',
         'File'      => 'Illuminate\Support\Facades\File',
+        'Form'      => 'Illuminate\Html\FormFacade',
         'Hash'      => 'Illuminate\Support\Facades\Hash',
+        'HTML'      => 'Illuminate\Html\HtmlFacade',
         'Input'     => 'Illuminate\Support\Facades\Input',
         'Inspiring' => 'Illuminate\Foundation\Inspiring',
         'Lang'      => 'Illuminate\Support\Facades\Lang',
