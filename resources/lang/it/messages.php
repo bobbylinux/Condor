@@ -54,6 +54,7 @@ return array(
     'articoli' => 'Articoli',
     'articolo_aggiunto' => 'Articolo aggiunto al carrello',
     'modifica_carrello' => 'Modifica il carrello',
+    'torna_al_negozio' => 'Torna al negozio',
     
     /*conferma ordine*/
     'scegli_indirizzo_ordine' => 'Scegli un indirizzo al quale spedire il tuo ordine',

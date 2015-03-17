@@ -1,5 +1,7 @@
 <?php namespace App\Models;
 
+use Illuminate\Support\Facades\Validator as Validator;
+
 class Carrello extends BaseModel {
 
     /**
@@ -105,7 +107,7 @@ class Carrello extends BaseModel {
     }
 
     public function showCarrello($utente_id) {
-        $result = DB::table('carrello')
+        $result = \DB::table('carrello')
                 ->join('listini_detail', 'listini_detail.id', '=', 'carrello.prodotto')
                 ->join('listini_master', 'listini_detail.listino', '=', 'listini_master.id')
                 ->join('prodotti', 'listini_detail.prodotto', '=', 'prodotti.id')
@@ -124,7 +126,7 @@ class Carrello extends BaseModel {
     }
 
     public function getCountCart($utente_id) {
-        $result = DB::table('carrello')
+        $result = \DB::table('carrello')
                 ->join('listini_detail', 'listini_detail.id', '=', 'carrello.prodotto')
                 ->join('listini_master', 'listini_detail.listino', '=', 'listini_master.id')
                 ->join('prodotti', 'listini_detail.prodotto', '=', 'prodotti.id')
@@ -163,14 +165,14 @@ class Carrello extends BaseModel {
      *      
      */
     public function refreshCartItemsNumber() {
-        $utente_carrello = $this->where('utente', '=', Auth::user()->id)->where('cancellato', '=', false)->get();
+        $utente_carrello = $this->where('utente', '=', \Auth::user()->id)->where('cancellato', '=', false)->get();
 
         $numero_articoli = 0;
         foreach ($utente_carrello as $item) {
             $numero_articoli += $item->quantita;
         }
 
-        Session::put('utente_carrello', $numero_articoli);
+        \Session::put('utente_carrello', $numero_articoli);
         return true;
     }
     
@@ -181,7 +183,7 @@ class Carrello extends BaseModel {
      *       
      */
     public function getCartPrice($userid) {
-        $utente_carrello = DB::table('carrello')
+        $utente_carrello = \DB::table('carrello')
                 ->join('listini_detail', 'listini_detail.id', '=', 'carrello.prodotto')
                 ->join('listini_master', 'listini_detail.listino', '=', 'listini_master.id')
                 ->join('prodotti', 'listini_detail.prodotto', '=', 'prodotti.id')

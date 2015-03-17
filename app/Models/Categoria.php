@@ -49,7 +49,7 @@ class Categoria extends BaseModel {
      * @data array
      */
     public function validate($data) {
-        $validation = Validator::make($data, $this->rules, $this->messages);
+        $validation = \Validator::make($data, $this->rules, $this->messages);
 
         if ($validation->fails()) {
             // set errors and return false

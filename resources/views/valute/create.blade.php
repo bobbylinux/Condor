@@ -1,3 +1,4 @@
+@extends('template.back')
 @section('content')
 {!!Form::open(array('url'=>'valute','method'=>'POST'))!!} 
 <div class="row">

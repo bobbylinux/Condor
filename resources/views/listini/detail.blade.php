@@ -1,3 +1,4 @@
+@extends('template.back')
 @section('content')
 <div class="row">
     <div class="col-xs-12">
@@ -130,6 +131,7 @@
                     <thead>
                         <tr class="success">
                             <td>{!!Lang::choice('messages.codice_prodotto',0)!!}</td>
+                            
                             <td>{!!Lang::choice('messages.nome_prodotto',0)!!}</td>
                         </tr>
                     </thead>

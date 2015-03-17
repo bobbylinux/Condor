@@ -1,6 +1,12 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller as BaseController;
+use Illuminate\Support\Facades\Redirect as Redirect;
+use Illuminate\Support\Facades\Response as Response;
+use Illuminate\Support\Facades\Input as Input;
+
+use App\Models\ListinoMaster as ListinoMaster;
+use App\Models\ListinoDetail as ListinoDetail;
 
 class ListiniController extends BaseController {
 
@@ -37,7 +43,7 @@ class ListiniController extends BaseController {
      */
     public function index() {
         $data['listino_lista'] = $this->listino_master->where('cancellato', '=', 'false')->orderBy('nome', 'asc')->paginate(10);
-        $this->layout->content = View::make('listini.index', $data);
+        return view('listini.index', $data);
     }
 
     /**
@@ -46,7 +52,7 @@ class ListiniController extends BaseController {
      * @return Response
      */
     public function create() {
-        $this->layout->content = View::make('listini.create');
+        return view('listini.create');
     }
 
     /**
@@ -90,7 +96,7 @@ class ListiniController extends BaseController {
      */
     public function edit($id) {
         $data['listino'] = $this->listino_master->find($id);
-        $this->layout->content = View::make('listini.edit', $data);
+        return view('listini.edit', $data);
     }
 
     /**
@@ -154,7 +160,7 @@ class ListiniController extends BaseController {
     public function detail($id) {
         $data['listino_master'] = $this->listino_master->find($id);
         $data['listino_detail'] = $this->listino_detail->getDetailForMaster($id);
-        $this->layout->content = View::make('listini.detail', $data);
+        return view('listini.detail', $data);
     }
 
     /**
@@ -251,7 +257,7 @@ class ListiniController extends BaseController {
         $listino_master = $listino_master->getListinoMaster($id);
         $listino_prodotti = new ListiniDetail;
         $listino_prodotti = $listino_prodotti->getDetailsFromMaster($id);
-        $this->layout->content = View::make('listino.detail')->with('listino_dettaglio', $listino_master[0])->with('listino_prodotti', $listino_prodotti);
+        return view('listino_dettaglio');//View::make('listino.detail')->with('listino_dettaglio', $listino_master[0])->with('listino_prodotti', $listino_prodotti);
     }
 
     public function addProductToCatalog() {

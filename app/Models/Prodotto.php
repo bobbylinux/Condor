@@ -1,5 +1,9 @@
 <?php  namespace App\Models;
 
+use Illuminate\Support\Facades\Validator as Validator;
+use Illuminate\Support\Facades\DB as DB;
+
+
 class Prodotto extends BaseModel {
 
     /**
@@ -128,11 +132,11 @@ class Prodotto extends BaseModel {
         switch ($type) {
             case 'like':
                 $arg = array(strtolower("%" . $code . "%"));
-                $result = \DB::table('prodotti')->whereRaw('lower(codice) like ? and cancellato = false order by codice', $arg)->get();
+                $result = DB::table('prodotti')->whereRaw('lower(codice) like ? and cancellato = false order by codice', $arg)->get();
                 break;
             case 'equal':
                 $arg = array(strtolower($code));
-                $result = \DB::table('prodotti')->whereRaw('lower(codice) = ? and cancellato = false order by codice', $arg)->get();
+                $result = DB::table('prodotti')->whereRaw('lower(codice) = ? and cancellato = false order by codice', $arg)->get();
                 break;
         }
         return $result;
@@ -147,11 +151,11 @@ class Prodotto extends BaseModel {
         switch ($type) {
             case 'like':
                 $arg = array(strtolower("%" . $title . "%"));
-                $result = \DB::table('prodotti')->whereRaw('lower(titolo) like ? and cancellato = false order by titolo', $arg)->get();
+                $result = DB::table('prodotti')->whereRaw('lower(titolo) like ? and cancellato = false order by titolo', $arg)->get();
                 break;
             case 'equal':
                 $arg = array(strtolower($title));
-                $result = \DB::table('prodotti')->whereRaw('lower(titolo) = ? and cancellato = false order by titolo', $arg)->get();
+                $result = DB::table('prodotti')->whereRaw('lower(titolo) = ? and cancellato = false order by titolo', $arg)->get();
                 break;
         }
         return $result;
@@ -185,7 +189,7 @@ class Prodotto extends BaseModel {
     }
 
     public function showCategory($id) {
-        $result = \DB::table('prodotti')
+        $result = DB::table('prodotti')
                 ->join('categorie_prodotti', 'categorie_prodotti.prodotto', '=', 'prodotti.id')
                 ->join('listini_detail', 'listini_detail.prodotto', '=', 'prodotti.id')
                 ->join('listini_master', 'listini_detail.listino', '=', 'listini_master.id')
@@ -202,7 +206,7 @@ class Prodotto extends BaseModel {
     }
 
     public function showActives() {
-        $result = \DB::table('prodotti')
+        $result = DB::table('prodotti')
                 ->join('categorie_prodotti', 'categorie_prodotti.prodotto', '=', 'prodotti.id')
                 ->join('listini_detail', 'listini_detail.prodotto', '=', 'prodotti.id')
                 ->join('listini_master', 'listini_detail.listino', '=', 'listini_master.id')

@@ -1,10 +1,18 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input as Input;
+use Illuminate\Support\Facades\Redirect as Redirect;
+use Illuminate\Support\Facades\Response as Response;
+
 use App\Http\Controllers\Controller as BaseController;
+use App\Models\Categoria as Categoria;
+use App\Models\Prodotto as Prodotto;
+use App\Models\Immagine as Immagine;
+use App\Models\CategoriaProdotto as CategoriaProdotto;
+        
 
 class ProdottiController extends BaseController {
 
-    public $layout = 'template.back';
     protected $prodotto;
     protected $immagine;
 
@@ -43,7 +51,7 @@ class ProdottiController extends BaseController {
         /* recupero tutti i prodotti dalla classe modello */
         $data['prodotti_lista'] = $this->prodotto->where('cancellato', '=', 'false')->orderBy('titolo', 'asc')->paginate(10);
         /* creo la vista per la visualizzazione della lista di categorie */
-        $this->layout->content = View::make('prodotti.index', $data);
+        return view('prodotti.index', $data); 
     }
 
     /**
@@ -54,7 +62,7 @@ class ProdottiController extends BaseController {
     public function create() {
         $categoria = new Categoria;
         $data['categorie_lista'] = $categoria->where('cancellato', '=', 'false')->orderBy('nome', 'asc')->lists('nome', 'id');
-        $this->layout->content = View::make('prodotti.create', $data);
+        return view('prodotti.create', $data);
     }
 
     /**
@@ -139,8 +147,7 @@ class ProdottiController extends BaseController {
         $data['categorie'] = CategoriaProdotto::where('prodotto', '=', $id)->get();
         $categoria = new Categoria;
         $data['categorie_lista'] = $categoria->where('cancellato', '=', 'false')->orderBy('nome', 'asc')->lists('nome', 'id');
-
-        $this->layout->content = View::make('prodotti.edit', $data);
+        return view('prodotti.edit', $data);        
     }
 
     /**

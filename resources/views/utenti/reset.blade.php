@@ -1,3 +1,4 @@
+@extends('template.front')
 @section('content')
 <div class="page-header">
     <h2>Reset Password</h2>

@@ -1,3 +1,4 @@
+@extends('template.front')
 @section('navbar_categorie')
 <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categoria <span class="caret"></span></a>

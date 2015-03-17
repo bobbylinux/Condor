@@ -1,10 +1,14 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Redirect as Redirect;
+use Illuminate\Support\Facades\Input as Input;
+use Illuminate\Support\Facades\Response as Response;
+
 use App\Http\Controllers\Controller as BaseController;
+use App\Models\Pagamento as Pagamento;
 
 class PagamentiController extends BaseController {
-
-    public $layout = 'template.back';
+    
     protected $pagamento;
 
     /**
@@ -36,7 +40,7 @@ class PagamentiController extends BaseController {
         /* recupero tutte le categoria dalla classe modello */
         $data['pagamenti_lista'] = $this->pagamento->where('cancellato', '=', 'false')->orderBy('pagamento', 'asc')->paginate(10);
         /* creo la vista per la visualizzazione della lista di categorie */
-        $this->layout->content = View::make('pagamenti.index', $data);
+        return view('pagamenti.index', $data);
     }
 
     /**
@@ -45,7 +49,7 @@ class PagamentiController extends BaseController {
      * @return Response
      */
     public function create() {
-        $this->layout->content = View::make('pagamenti.create');
+        return view('pagamenti.create');
     }
 
     /**
@@ -85,7 +89,7 @@ class PagamentiController extends BaseController {
      */
     public function edit($id) {
         $data['pagamento'] = $this->pagamento->find($id);
-        $this->layout->content = View::make('pagamenti.edit', $data);
+        return view('pagamenti.edit', $data);
     }
 
     /**

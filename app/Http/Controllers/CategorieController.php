@@ -1,10 +1,11 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller as BaseController;
+use App\Models\Categoria as Categoria;
 
 class CategorieController extends BaseController {
 
-    public $layout = 'template.back';
+    //public $layout = 'template.back';
     protected $categoria;
 
     /**
@@ -36,7 +37,7 @@ class CategorieController extends BaseController {
         /* recupero tutte le categoria dalla classe modello */
         $data['categorie_lista'] = $this->categoria->where('cancellato', '=', 'false')->orderBy('nome', 'asc')->paginate(10);
         /* creo la vista per la visualizzazione della lista di categorie */
-        $this->layout->content = View::make('categorie.index', $data);
+        return view('categorie.index',$data);//$this->layout->content = View::make('categorie.index', $data);
     }
 
     /**
@@ -46,7 +47,7 @@ class CategorieController extends BaseController {
      */
     public function create() {
         $data['categorie_padre'] = $this->categoria->where('cancellato', '=', 'false')->orderBy('nome', 'asc')->lists('nome', 'id');
-        $this->layout->content = View::make('categorie.create', $data);
+        return view('categorie.create',$data);//$this->layout->content = View::make('categorie.create', $data);
     }
 
     /**
@@ -56,16 +57,16 @@ class CategorieController extends BaseController {
      */
     public function store() {
         $data = array(
-            'nome' => Input::get('nome_categoria'),
-            'descrizione' => Input::get('descrizione_categoria'),
-            'padre' => Input::get('padre_categoria')
+            'nome' => \Input::get('nome_categoria'),
+            'descrizione' => \Input::get('descrizione_categoria'),
+            'padre' => \Input::get('padre_categoria')
         );
         if ($this->categoria->validate($data)) {
             $result = $this->categoria->store($data);
-            return Redirect::action('CategorieController@index');
+            return \Redirect::action('CategorieController@index');
         } else {
             $errors = $this->categoria->getErrors();
-            return Redirect::action('CategorieController@create')->withInput()->withErrors($errors);
+            return \Redirect::action('CategorieController@create')->withInput()->withErrors($errors);
         }
     }
 
@@ -88,7 +89,7 @@ class CategorieController extends BaseController {
     public function edit($id) {
         $data['categorie_padre'] = $this->categoria->orderBy('nome', 'asc')->get()->lists('nome', 'id');
         $data['categoria'] = $this->categoria->find($id);
-        $this->layout->content = View::make('categorie.edit', $data);
+        return view('categorie.edit',$data);//$this->layout->content = View::make('categorie.edit', $data);
     }
 
     /**
@@ -99,18 +100,18 @@ class CategorieController extends BaseController {
      */
     public function update($id) {
         $data = array(
-            'nome' => Input::get('nome_categoria'),
-            'descrizione' => Input::get('descrizione_categoria'),
-            'padre' => Input::get('padre_categoria')
+            'nome' => \Input::get('nome_categoria'),
+            'descrizione' => \Input::get('descrizione_categoria'),
+            'padre' => \Input::get('padre_categoria')
         );
 
         $categoria = $this->categoria->find($id);
         if ($this->categoria->validate($data)) {
             $categoria->refresh($data);
-            return Redirect::action('CategorieController@index');
+            return \Redirect::action('CategorieController@index');
         } else {
             $errors = $this->categoria->getErrors();
-            return Redirect::action('CategorieController@edit', [$id])->withInput()->withErrors($errors);
+            return \Redirect::action('CategorieController@edit', [$id])->withInput()->withErrors($errors);
         }
     }
 

@@ -1,6 +1,11 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller as BaseController;
+use App\Models\Valuta as Valuta;
+
+use Illuminate\Support\Facades\Redirect as Redirect;
+use Illuminate\Support\Facades\Input as Input;
+use Illuminate\Support\Facades\Response as Response;
 
 class ValuteController extends BaseController {
     
@@ -37,7 +42,7 @@ class ValuteController extends BaseController {
         /* recupero tutti i prodotti dalla classe modello */
         $data['valute_lista'] = $this->valuta->where('cancellato','=','false')->orderBy('nome','asc')->paginate(10);
         /* creo la vista per la visualizzazione della lista di categorie */
-        $this->layout->content = View::make('valute.index', $data);
+        return view('valute.index',$data);
     }
 
     /**
@@ -46,7 +51,7 @@ class ValuteController extends BaseController {
      * @return Response
      */
     public function create() {
-        $this->layout->content = View::make('valute.create');
+        return view('valute.create');
     }
 
     /**
@@ -89,7 +94,7 @@ class ValuteController extends BaseController {
      */
     public function edit($id) {
         $data['valuta'] = $this->valuta->find($id);
-        $this->layout->content = View::make('valute.edit', $data);
+        return view('valute.edit',$data);
     }
 
     /**

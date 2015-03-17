@@ -1,5 +1,8 @@
 <?php namespace App\Models;
 
+use Illuminate\Support\Facades\Validator as Validator;
+use Illuminate\Support\Facades\DB as DB;
+
 class Valuta extends BaseModel {
 
     protected $table = 'valute';
@@ -103,7 +106,7 @@ class Valuta extends BaseModel {
     }
     
     public function getValuta() {
-        $result = \DB::table('valute')
+        $result = DB::table('valute')
                 ->where('cancellato','=',false)
                 ->select('nome','simbolo','sigla')
                 ->first();

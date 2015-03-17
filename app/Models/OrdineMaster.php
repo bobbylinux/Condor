@@ -1,4 +1,7 @@
-<?php
+<?php namespace App\Models;
+
+use Illuminate\Support\Facades\Validator as Validator;
+use Illuminate\Support\Facades\DB as DB;
 
 class OrdineMaster extends BaseModel {
 

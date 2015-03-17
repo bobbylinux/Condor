@@ -1,3 +1,4 @@
+@extends('template.front')
 @section('content')
 @if ($errore)    
     <div class="panel panel-danger">

@@ -1,3 +1,4 @@
+@extends('template.back')
 @section('content')
 <div class="row">
     <div class="col-xs-2">
@@ -6,7 +7,7 @@
 </div>
 <div class='row'>
     <div class="col-xs-12">
-        {!! $pagamenti_lista->links() !!}
+        {!! $pagamenti_lista->render() !!}
     </div>
 </div>
 <div class="row">

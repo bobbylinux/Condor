@@ -1,18 +1,17 @@
-<?php
+<?php  namespace App\Models;
 
-use Illuminate\Auth\UserTrait;
-use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Support\Facades\Validator as Validator;
+use Illuminate\Support\Facades\Hash as Hash;
+use Illuminate\Support\Facades\Mail as Mail;
 
 class Utente extends BaseModel implements AuthenticatableContract, CanResetPasswordContract {
 
-    use UserTrait,
-        RemindableTrait,
-        Authenticatable, 
-        CanResetPassword;
+    use Authenticatable, CanResetPassword;
 
     /**
      * The database table used by the model.

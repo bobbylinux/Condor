@@ -1,10 +1,20 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session as Session;
+use Illuminate\Support\Facades\Input as Input; 
+use Illuminate\Support\Facades\Redirect as Redirect;
+use Illuminate\Support\Facades\Response as Response;
+
 use App\Http\Controllers\Controller as BaseController;
+use App\Models\Prodotto as Prodotto;
+use App\Models\Categoria as Categoria;
+use App\Models\Valuta as Valuta;
+use App\Models\Carrello as Carrello;
+use App\Models\ListinoDetail as ListinoDetail;
 
 class CarrelliController extends BaseController {
 
-    public $layout = 'template.front';
+    //public $layout = 'template.front';
     protected $carrello;
 
     /**
@@ -40,7 +50,7 @@ class CarrelliController extends BaseController {
         $data['valuta'] = $valuta->getValuta();
         $data['categoria_lista'] = $categoria->where('cancellato', '=', 'false')->orderBy('nome')->get();
         $data['carrello_lista'] = $carrello->showCarrello($utente_id);
-        $this->layout->content = View::make('carrello.index', $data);
+        return view('carrello.index',$data);
     }
 
     /**
@@ -77,11 +87,11 @@ class CarrelliController extends BaseController {
                 $result = $carrello->store($data);
             }
             if ($result) {
-                $this->layout->content = View::make('carrello.added');
+                return view('carrello.added');//$this->layout->content = View::make('carrello.added');
             }
         } else {
             $errors = $this->carrello->getErrors();
-            return Redirect::action('CarrelloController@index')->withInput()->withErrors($errors);
+            return Redirect::action('CarrelliController@index')->withInput()->withErrors($errors);
         }
     }
     /**

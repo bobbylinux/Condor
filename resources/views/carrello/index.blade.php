@@ -1,3 +1,4 @@
+@extends('template.front')
 @section('content')
 <div class="row">
     <div class="col-xs-12">
@@ -79,7 +80,7 @@
 
     </div>
     {!!Form::close()!!}
-    @else
+@else
 
     <div class="panel panel-default">
         <div class="panel-body">
@@ -87,5 +88,5 @@
         </div>
     </div>
     <a href="/" class="btn btn-success">{!!Lang::choice('messages.ritorna_alla_homepage',0)!!}</a>
-    @endif
-    @stop
+@endif
+@stop

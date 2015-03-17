@@ -1,3 +1,4 @@
+@extends('template.back')
 @section('content')
 {!!Form::open(array('url'=>'categorie/'.$categoria->id,'method'=>'PUT'))!!} 
 <div class="row">

@@ -54,6 +54,7 @@ return array(
     'articoli' => 'Items',
     'articolo_aggiunto' => 'Object added to your cart',
     'modifica_carrello' => 'Edit cart',
+    'torna_al_negozio' => 'Back to shop',
         
     /*conferma ordine*/
     'scegli_indirizzo_ordine' => 'Select a shipping address',

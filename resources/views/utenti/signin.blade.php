@@ -1,3 +1,4 @@
+@extends('template.front')
 @section('content')
 {!!Form::open(array('url'=>'signin','method'=>'POST'))!!} 
 <div class="row">

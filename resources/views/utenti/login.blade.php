@@ -1,3 +1,4 @@
+@extends('template.front')
 @section('content')
 <div class="page-header">
     <h2>{!!Lang::choice('messages.login_titolo',0)!!}</h2>
@@ -74,6 +75,7 @@
         </div>
     </div>
 </div>
+{!! Form::token() !!}
 {!! Form::close() !!}
 
 @stop
