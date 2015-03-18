@@ -1,6 +1,11 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Redirect as Redirect;
+use Illuminate\Support\Facades\Input as Input;
+use Illuminate\Support\Facades\Response as Response;
+
 use App\Http\Controllers\Controller as BaseController;
+use App\Models\Spedizione as Spedizione;
 
 class SpedizioniController extends BaseController {
 
@@ -36,7 +41,7 @@ class SpedizioniController extends BaseController {
         /* recupero tutti i prodotti dalla classe modello */
         $data['spedizioni_lista'] = $this->spedizione->where('cancellato', '=', 'false')->orderBy('spedizione', 'asc')->paginate(10);
         /* creo la vista per la visualizzazione della lista di categorie */
-        $this->layout->content = View::make('spedizioni.index', $data);
+        return view('spedizioni.index', $data);
     }
 
     /**
@@ -45,7 +50,7 @@ class SpedizioniController extends BaseController {
      * @return Response
      */
     public function create() {
-        $this->layout->content = View::make('spedizioni.create');
+        return view('spedizioni.create');
     }
 
     /**
@@ -87,7 +92,7 @@ class SpedizioniController extends BaseController {
      */
     public function edit($id) {
         $data['spedizione'] = $this->spedizione->find($id);
-        $this->layout->content = View::make('spedizioni.edit', $data);
+        return view('spedizioni.edit', $data);
     }
 
     /**

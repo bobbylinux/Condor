@@ -33,12 +33,12 @@ class Utente extends BaseModel implements AuthenticatableContract, CanResetPassw
      */
     private $rulesPassword = array(
         'username' => 'required|email', // make sure the email is an actual email
-        'password' => 'required|alphaNum|min:3',
+        'password' => 'required|alphaNum|min:6',
         'password_c' => 'Same:password'
     );
     private $rulesLogin = array(
         'username' => 'required|email', // make sure the email is an actual email
-        'password' => 'required|alphaNum|min:3' // password can only be alphanumeric and has to be greater than 3 characters
+        'password' => 'required|alphaNum|min:6' // password can only be alphanumeric and has to be greater than 3 characters
     );
     private $rulesSignin = array(
         'username' => 'required|email|unique:utenti', // make sure the email is an actual email
@@ -47,67 +47,39 @@ class Utente extends BaseModel implements AuthenticatableContract, CanResetPassw
         'password_c' => 'required|Same:password',
         'ruolo_utente' => 'required|integer'
     );
-    
+    private $rulesChangePassword = array(
+        'username' => 'required|email|exists:utenti,username', // make sure the email is an actual email
+    );
     /*regole per validazione modifica utente*/
     private $rules = array(
         'username' => 'required|email', // make sure the email is an actual email
         'ruolo_utente' => 'numeric'
     );
     private $errors = "";
-
-    /**
-     * The function for validate 
-     *
-     * @data array
-     */
-    public function validateLogin($data) {
-        $validation = Validator::make($data, $this->rulesLogin, $this->messages);
-
-        if ($validation->fails()) {
-            // set errors and return false
-            $this->errors = $validation->errors();
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * The function for validate sigin
-     *
-     * @data array
-     */
-    public function validateSignin($data) {
-        $validation = Validator::make($data, $this->rulesSignin, $this->messages);
-
-        if ($validation->fails()) {
-            // set errors and return false
-            $this->errors = $validation->errors();
-            return false;
-        }
-
-        return true;
-    }
-
-    /*
-     * The function for validate password in reset
-     *      
-     */
-
-    public function validatePassword($data) {
-        $validation = Validator::make($data, $this->rulesPassword, $this->messages);
-
-        if ($validation->fails()) {
-            // set errors and return false
-            $this->errors = $validation->errors();
-            return false;
-        }
-
-        return true;
-    }
     
-    public function validate($data) {
-        $validation = Validator::make($data, $this->rules, $this->messages);
+    public function validate($data, $method="Default") {
+        /*scelgo in base al tipo di validazione*/
+        switch ($method) {
+            case 'Login':
+                $rules = $this->rulesLogin;
+                break;
+            case 'Signin':
+                $rules = $this->rulesSignin;
+                break;
+            case 'Password':
+                $rules = $this->rulesPassword;
+                break;
+            case 'ChangePassword':
+                $rules = $this->rulesChangePassword;
+                break;
+            case 'Default':
+                $rules = $this->rules;
+                break;
+            default:
+                $rules = $this->rules;
+        }
+        
+        $validation = Validator::make($data, $rules, $this->messages);
 
         if ($validation->fails()) {
             // set errors and return false
@@ -117,7 +89,6 @@ class Utente extends BaseModel implements AuthenticatableContract, CanResetPassw
 
         return true;
     }
-
     /**
      * The function that incapsulate the error variable
      * 

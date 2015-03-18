@@ -1,3 +1,4 @@
+@extends('template.back')
 @section('content')
 <div class="row">
     <table class="table">

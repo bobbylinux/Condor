@@ -30,6 +30,13 @@
                 </div>
             </div>
         </div>
+        @foreach($errors->get('password') as $message)
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-1">
+                <p class="bg-danger">{!! $message !!}</p>
+            </div>
+        </div>
+        @endforeach
         <div class="row">
             <div class="col-xs-4 col-sm-offset-1">
                 <div class="form-group">
@@ -38,6 +45,13 @@
                 </div>
             </div>
         </div>
+        @foreach($errors->get('password_c') as $message)
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-1">
+                <p class="bg-danger">{!! $message !!}</p>
+            </div>
+        </div>
+        @endforeach
         {!! Form::hidden('username', $username) !!} 
         <div class="row">
             <div class="col-xs-4 col-sm-offset-1">

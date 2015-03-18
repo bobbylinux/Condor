@@ -1,6 +1,17 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller as BaseController;
+use Illuminate\Support\Facades\Input as Input;
+use Illuminate\Support\Facades\Response as Response;
+use Illuminate\Support\Facades\Session as Session;
+use Illuminate\Support\Facades\Auth as Auth;
+use App\Models\OrdineMaster as OrdineMaster;
+use App\Models\OrdineDetail as OrdineDetail;
+use App\Models\Valuta as Valuta;
+use App\Models\Carrello as Carrello;
+use App\Models\Spedizione as Spedizione;
+use App\Models\Destinatario as Destinatario;
+use App\Models\Pagamento as Pagamento;
 
 class OrdiniController extends BaseController {
 
@@ -40,12 +51,11 @@ class OrdiniController extends BaseController {
      * @return Response
      */
     public function index() {
-        $this->layout = View::make('template.back');
         $ordine = new OrdineMaster();
-        $valuta = new Valuta;
+        $valuta = new Valuta();
         $data['valuta'] = $valuta->getValuta();
         $data['ordini_lista'] = $ordine->getOrdersListForAdmin();
-        $this->layout->content = View::make('ordini.index', $data);
+        return view('ordini.index', $data);
     }
 
     /**
@@ -126,8 +136,7 @@ class OrdiniController extends BaseController {
         $data['cancel_return'] = url(); 
         $data['buyer_email'] = "roberto.bani-buyer@gmail.com";//per produzione -> Auth::user()->username;
         
-        $this->layout->content = View::make('ordini.payment', $data);
-        //return Redirect::action('HomeController@showCatalog');
+        return view('ordini.payment', $data);
     }
     
     /*funzione che genera il codice temporaneo per l'ordine finalizzato all'univocità del pagamento*/
@@ -180,7 +189,7 @@ class OrdiniController extends BaseController {
     }
 
     public function newAddress() {
-        $this->layout->content = View::make('destinatari.create');
+        return view('destinatari.create');
     }
 
     public function storeAddress() {
@@ -231,7 +240,7 @@ class OrdiniController extends BaseController {
         $data['indirizzi_lista'] = $destinatario->where('utente', '=', Auth::user()->id)->where('cancellato', '=', false)->get();
         $data['spedizione_lista'] = $spedizione->where('cancellato', '=', false)->get();
         $data['pagamento_lista'] = $pagamento->where('cancellato', '=', false)->get();
-        $this->layout->content = View::make('ordini.confirm', $data);
+        return view('ordini.confirm', $data);
     }
 
     public function userOrders() {
@@ -239,7 +248,7 @@ class OrdiniController extends BaseController {
         $data['dettaglio_ordini'] = $this->ordine_detail->getOrdersDetailForUser(Auth::user()->id);
         $valuta = new Valuta;
         $data['valuta'] = $valuta->getValuta();
-        $this->layout->content = View::make('ordini.userlist', $data);
+        return view('ordini.userlist', $data);
     }
 
     public function detail($orderid) {
@@ -249,7 +258,7 @@ class OrdiniController extends BaseController {
         $data['dettaglio_ordini'] = $this->ordine_detail->getOrdersDetailFromMaster($orderid);
         $valuta = new Valuta;
         $data['valuta'] = $valuta->getValuta();
-        $this->layout->content = View::make('ordini.detail', $data);
+        return view('ordini.detail', $data);
     }
 
     public function aggiorna($orderid) {
@@ -258,7 +267,7 @@ class OrdiniController extends BaseController {
         $data['lista_stati'] = $this->ordine_master->getOrderStatus($orderid);
         $stati_ordine = new StatoOrdine();
         $data['stati_aggiornabili'] = $stati_ordine->where('cancellato', '=', false)->lists('stato', 'id');
-        $this->layout->content = View::make('ordini.stati', $data);
+        return view('ordini.stati', $data);
     }
     
     /*set stato */

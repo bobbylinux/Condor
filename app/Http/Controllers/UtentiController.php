@@ -1,11 +1,13 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Input as Input;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Support\Facades\Redirect as Redirect;
 use Illuminate\Support\Facades\Session as Session;
 use Illuminate\Support\Facades\Response as Response;
-
+use Illuminate\Support\Facades\Lang as Lang;
 use App\Http\Controllers\Controller as BaseController;
 use App\Models\Utente as Utente;
 use App\Models\Carrello as Carrello;
@@ -58,7 +60,7 @@ class UtentiController extends BaseController {
             'password' => Input::get('password')
         );
 
-        if ($this->utente->validateLogin($userdata)) {
+        if ($this->utente->validate($userdata, 'Login')) {
             // attempt to do the login
             if (Auth::attempt($userdata)) {
                 if (Auth::user()->cancellato) {
@@ -113,13 +115,13 @@ class UtentiController extends BaseController {
             'ruolo' => 1
         );
 
-        if ($this->utente->validateSignin($userdata)) {
+        if ($this->utente->validate($userdata, 'Signin')) {
             $result = $this->utente->store($userdata);
             if ($result) {
                 $data['conferma'] = 'Controlla la tua mail per confermare la registrazione';
                 $data['errore'] = false;
                 $data['titolo'] = "Conferma";
-                return view('utenti.conferma',$data);//$this->layout->content = View::make('utenti.conferma', $data);
+                return view('utenti.conferma', $data); //$this->layout->content = View::make('utenti.conferma', $data);
             } else {
                 return Redirect::to('signin')->withErrors(['msg', 'Si &egrave; verificato un errore, contattare l\'amministratore del sistema']);
             }
@@ -135,7 +137,7 @@ class UtentiController extends BaseController {
             $data['conferma'] = 'Nessun codice presente, contattare l\'amministratore del sistema';
             $data['errore'] = true;
             $data['titolo'] = "Errore";
-            return view('utenti.conferma',$data);//$this->layout->content = View::make('utenti.conferma', $data);
+            return view('utenti.conferma', $data); //$this->layout->content = View::make('utenti.conferma', $data);
         }
 
         $user = $this->utente->where('codice_conferma', '=', $confirmation_code)->first();
@@ -144,7 +146,7 @@ class UtentiController extends BaseController {
             $data['errore'] = true;
             $data['titolo'] = "Errore";
             $data['conferma'] = 'Codice non valido, contattare l\'amministratore del sistema';
-            return view('utenti.conferma',$data);//$this->layout->content = View::make('utenti.conferma', $data);
+            return view('utenti.conferma', $data); //$this->layout->content = View::make('utenti.conferma', $data);
         } else {
 
             $user->confermato = true;
@@ -153,7 +155,7 @@ class UtentiController extends BaseController {
             $data['conferma'] = 'Registazione confermata correttamente. Benvenuto in Condor';
             $data['errore'] = false;
             $data['titolo'] = "Conferma Iscrizione";
-            return view('utenti.conferma',$data);
+            return view('utenti.conferma', $data);
         }
     }
 
@@ -163,7 +165,7 @@ class UtentiController extends BaseController {
             $data['conferma'] = 'Nessun codice presente, contattare l\'amministratore del sistema';
             $data['errore'] = true;
             $data['titolo'] = "Errore";
-            return view('utenti.conferma',$data);
+            return view('utenti.conferma', $data);
         }
 
         $user = $this->utente->where('codice_conferma', '=', $confirmation_code)->first();
@@ -172,13 +174,13 @@ class UtentiController extends BaseController {
             $data['errore'] = true;
             $data['titolo'] = "Errore";
             $data['conferma'] = 'Codice non valido, contattare l\'amministratore del sistema';
-            return view('utenti.conferma',$data);
+            return view('utenti.conferma', $data);
         } else {
             $data['conferma'] = 'Registazione confermata correttamente. Benvenuto in Condor';
             $data['errore'] = false;
             $data['titolo'] = "Conferma Reset Password";
             $data['username'] = $user->username;
-            return view('utenti.conferma',$data);
+            return view('utenti.conferma', $data);
         }
     }
 
@@ -188,42 +190,45 @@ class UtentiController extends BaseController {
             'password' => Input::get('password'),
             'password_c' => Input::get('password_c')
         );
-        if ($this->utente->validatePassword($userdata)) {
+        if ($this->utente->validate($userdata, 'Password')) {
             $result = $this->utente->updatePassword($userdata);
             if ($result) {
                 $data['conferma'] = 'La tua password è stata correttamente cambiata, effettua il login per accedere al sito';
                 $data['errore'] = false;
                 $data['titolo'] = "Aggiornamento Password";
-                return view('utenti.conferma',$data);
-            } else {
-                return view('utenti.reset');
-            }
-        }
-    }
-
-    public function doResetPassword() {
-        $email = Input::get('username');
-        /* ricerco l'utente nel database */
-        $user = $this->utente->where('username', '=', $email)->where('cancellato', '=', false)->count();
-        if ($user == 1) {
-            /* se esiste allora devo generare il codice e inviarlo via mail */
-            $codice = str_random(30);
-            $userdata = array(
-                'username' => $email,
-                'conferma' => $codice
-            );
-            $result = $this->utente->resetPassword($userdata);
-
-            if ($result) {
-                $data['conferma'] = 'Mail reset password inviata correttamente, controlla la tua casella di posta. ';
-                $data['errore'] = false;
-                $data['titolo'] = "Mail Reset Password";
-                return view('utenti.conferma',$data);
+                return view('utenti.conferma', $data);
             } else {
                 return view('utenti.reset');
             }
         } else {
-            
+            $errors = $this->utente->getErrors();
+            return redirect()->back()->withInput(Input::except('password', 'password_c'))->withErrors($errors); 
+        }
+    }
+
+    public function doResetPassword() {
+        $username = Input::get('username');
+        $codice = str_random(30);
+        $userdata = array(
+            'username' => Input::get('username')
+        );
+        if ($this->utente->validate($userdata, 'ChangePassword')) {
+            /* se esiste allora devo generare il codice e inviarlo via mail */
+            $dataReset = array(
+                'username' => $username,
+                'conferma' => $codice
+            );
+            if ($this->utente->resetPassword($dataReset)) {
+                $data['conferma'] = 'Mail reset password inviata correttamente, controlla la tua casella di posta. ';
+                $data['errore'] = false;
+                $data['titolo'] = "Mail Reset Password";
+                return view('utenti.conferma', $data);
+            } else {
+                return view('utenti.reset');
+            }
+        } else {
+            $errors = $this->utente->getErrors();
+            return redirect()->back()->withInput()->withErrors($errors); 
         }
     }
 
@@ -242,13 +247,13 @@ class UtentiController extends BaseController {
         /* recupero tutti gli utenti dalla classe modello */
         $data['utenti_lista'] = $this->utente->where('cancellato', '=', 'false')->orderBy('username', 'asc')->paginate(10);
         /* creo la vista per la visualizzazione della lista degli utenti */
-        return view('utenti.index',$data);
+        return view('utenti.index', $data);
     }
 
     public function create() {
         $ruolo = New RuoloUtente();
         $data['ruolo'] = $ruolo->where('cancellato', '=', 'false')->lists('ruolo', 'id');
-        return view('utenti.create',$data);
+        return view('utenti.create', $data);
     }
 
     public function store() {
@@ -262,12 +267,12 @@ class UtentiController extends BaseController {
             'confermato' => true
         );
 
-        if ($this->utente->validateSignin($userdata)) {
+        if ($this->utente->validate($userdata, 'Signin')) {
             $result = $this->utente->store($userdata);
             return Redirect::action('UtentiController@index');
         } else {
             $errors = $this->utente->getErrors();
-            return Redirect::action('UtentiController@create')->withErrors($errors)->withInput(Input::except('password', 'password_c'));
+            return redirect()->back()->withInput(Input::except('password', 'password_c'))->withErrors($errors); 
         }
     }
 
@@ -277,19 +282,18 @@ class UtentiController extends BaseController {
         $data['utente'] = $this->utente->find($id);
         //$this->layout = View::make('template.back');
         //$this->layout->content = View::make('utenti.edit', $data);
-        return view('utenti.edit',$data);
-        
+        return view('utenti.edit', $data);
     }
 
     public function update($id) {
-        $data = array(
+        $userdata = array(
             'username' => Input::get('username'),
             'ruolo_utente' => Input::get('ruolo_utente')
         );
 
         $utente = $this->utente->find($id);
-        if ($this->utente->validate($data)) {
-            $utente->refresh($data);
+        if ($this->utente->validate($userdata)) {
+            $utente->refresh($userdata);
             return Redirect::action('UtentiController@index');
         } else {
             $errors = $this->utente->getErrors();

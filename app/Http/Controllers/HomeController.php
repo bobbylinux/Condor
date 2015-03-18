@@ -5,6 +5,7 @@ use App\Models\Prodotto as Prodotto;
 use App\Models\Categoria as Categoria;
 use App\Models\Valuta as Valuta;
 use App\Models\ListinoDetail as ListinoDetail;
+use Illuminate\Support\Facades\Input as Input;
 
 class HomeController extends BaseController {
     /*
