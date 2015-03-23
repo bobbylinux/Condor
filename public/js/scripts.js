@@ -6,6 +6,30 @@ $(document).ready(function () {
     /*********************/
     /*funzioni per eventi*/
     /*********************/
+    /*funzione ricerca elemento per campo*/
+    function ricercaProdotto(url, token, record) {
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            data:
+                    {
+                        _method: "POST",
+                        term: record,
+                        _token: token
+                    },
+            cache: false,
+            success: function (data)
+            {
+                openModalCatalogDetail(data);
+            }, //end function
+            error: function (data)
+            {
+                console.log(data);
+            }
+        });
+
+    }
     /*funzione di inserimento prodotto in catalogo*/
     function aggiungiProdotto() {
         var id = $(".highlight").children('td').eq(0).text();
@@ -64,6 +88,7 @@ $(document).ready(function () {
         var titolo = $("#titolo").val();
         var prezzo = $("#prezzo").val();
         var sconto = $("#sconto").val();
+        var token = $("#btn-aggiungi-prodotto").data("token");
         $.ajax({
             type: "POST",
             url: "prodotto/aggiungi",
@@ -77,7 +102,8 @@ $(document).ready(function () {
                         codice: codice,
                         titolo: titolo,
                         prezzo: prezzo,
-                        sconto: sconto
+                        sconto: sconto,
+                        _token: token
                     },
             cache: false,
             beforeSend: function ()
@@ -291,7 +317,7 @@ $(document).ready(function () {
             $("#from").datepicker("option", "maxDate", selectedDate);
         }
     });
-    
+
     /*click sul pulsante degli indirizzi*/
     $(document).on("click", ".address-list", function () {
         /*aggiungo il destinatario all'input nascosto */
@@ -301,7 +327,7 @@ $(document).ready(function () {
         $(".address-container").hide();
         var new_item = $(this).clone().appendTo(".address-place");
         $(new_item).show();
-        var tmp =  $(new_item).find(".address-change:first");
+        var tmp = $(new_item).find(".address-change:first");
         tmp.show();
         $(".address-add").hide();
         $(new_item).removeClass("panel-primary").addClass("panel-success");
@@ -327,10 +353,10 @@ $(document).ready(function () {
         $(".travel-container").hide();
         var new_item = $(this).clone().appendTo(".travel-place");
         $(new_item).show();
-        var tmp =  $(new_item).find(".travel-change:first");
+        var tmp = $(new_item).find(".travel-change:first");
         tmp.show();
         $(new_item).removeClass("panel-primary").addClass("panel-success");
-              
+
         if ($(".payment-selection")[0]) {
             $(".payment-selection").show();//delay(1000).fadeIn("slow");
         } else {
@@ -339,21 +365,21 @@ $(document).ready(function () {
     });
     /*click sul pulsante dei pagamenti*/
     $(document).on("click", ".payment-item", function () {
-        /*aggiungo il metodo di spedizione e il prezzo all'input nascosto */        
+        /*aggiungo il metodo di spedizione e il prezzo all'input nascosto */
         var id_pagamento = $(this).children(".pagamento-item").val();
         $("#pagamento").val(id_pagamento);
         /*devo nascondere tutti e aggiungere al address-place il div*/
         $(".payment-container").hide();
         var new_item = $(this).clone().appendTo(".payment-place");
         $(new_item).show();
-        var tmp =  $(new_item).find(".payment-change:first");
+        var tmp = $(new_item).find(".payment-change:first");
         tmp.show();
         $(new_item).removeClass("panel-primary").addClass("panel-success");
         $("#btn-conferma-ordine").show();//delay(1000).fadeIn("slow");
     });
-    
+
     /*click sui pulsanti di cambio indirizzo/pagamento/spedizione su conferma ordine*/
-    $(document).on("click",".address-change",function(event){
+    $(document).on("click", ".address-change", function (event) {
         event.preventDefault();
         $("#btn-conferma-ordine").hide();//delay(1000).fadeIn("slow");    
         $(this).closest(".panel-success").remove();
@@ -361,23 +387,23 @@ $(document).ready(function () {
         $(".address-add").show();//fadeOut("slow");
         return false;
     });
-    
-    $(document).on("click",".travel-change",function(event){
+
+    $(document).on("click", ".travel-change", function (event) {
         event.preventDefault();
         $("#btn-conferma-ordine").hide();//delay(1000).fadeIn("slow");    
         $(this).closest(".panel-success").remove();
         $(".travel-container").show();//fadeOut("slow");    
-        return false;    
+        return false;
     });
-    
-    $(document).on("click",".payment-change",function(event){
+
+    $(document).on("click", ".payment-change", function (event) {
         event.preventDefault();
         $("#btn-conferma-ordine").hide();//delay(1000).fadeIn("slow");    
         $(this).closest(".panel-success").remove();
         $(".payment-container").show();//fadeOut("slow");        
         return false;
     });
-    
+
     /*click sul pulsante dettaglio in lista ordini admin*/
     $(document).on("click", ".btn-order-detail", function (event) {
         event.preventDefault();
@@ -474,80 +500,76 @@ $(document).ready(function () {
         $('#aggiorna-ordine').modal('hide');
     });
     /*codice descrizione per prodotto*/
-    /*keypress di F2 per ricerca prodotti su catalogo*/
-    $(document).on("keydown", "#codice, #titolo", function (event) {
-        if (event.keyCode === 9) {
-            if ($(this).attr('id') == "titolo") {
-                url = "prodotto/ricerca/titolo/equal";
-                var record = $("#titolo").val();
-            } else if ($(this).attr('id') == "codice") {
-                url = "prodotto/ricerca/codice/equal";
-                var record = $("#codice").val();
-            }
-
-            $.ajax({
-                type: "POST",
-                url: url,
-                dataType: "json",
-                data:
-                        {
-                            _method: "POST",
-                            term: record
-                        },
-                cache: false,
-                success: function (data)
-                {
-                    var param = $("");
-                    for (var i = 0; i < data.length; i++) {
-                        var obj = data[i];
-                        $("#codice").val(obj.codice);
-                        $("#titolo").val(obj.titolo);
-                        $("#id-prodotto").val(obj.id);
-                    }
-                    if (data.length === 0) {
-                        $("#codice").val("");
-                        $("#titolo").val("");
-                    } else {
-                        $("#prezzo").focus();
-                    }
-                }, //end function
-                error: function (data)
-                {
-                    console.log(data);
-                }
-
-            });
+    /*click esplicito su pulsante*/
+    $(document).on("click", ".btn-search", function (event) {
+        event.preventDefault();
+        var url = "";
+        if ($(this).attr("id") == "search-code") {
+            url = "prodotto/ricerca/codice/like";
+            var record = $("#codice").val();
+            var token = $("#codice").data('token');
+        } else {
+            url = "prodotto/ricerca/titolo/like";
+            var record = $("#titolo").val();
+            var token = $("#titolo").data('token');
         }
 
-        if (event.keyCode == 113) {
-            var url = "";
-            if ($(this).attr('id') == "titolo") {
-                url = "prodotto/ricerca/titolo/like";
-            } else {
-                url = "prodotto/ricerca/codice/like";
-            }
-            var record = $(this).val();
-            $.ajax({
-                type: "POST",
-                url: url,
-                dataType: "json",
-                data:
-                        {
-                            _method: "POST",
-                            term: record
-                        },
-                cache: false,
-                success: function (data)
-                {
-                    openModalCatalogDetail(data);
-                }, //end function
-                error: function (data)
-                {
-                    console.log(data);
-                }
-            });
-        }
+        ricercaProdotto(url, token, record);
     });
+    
+    $(document).on("click",".btn-reset",function(event) {
+       event.preventDefault();
+       $("#codice").val("");
+       $("#titolo").val("");
+       $("#sconto").val("");
+       $("#prezzo").val("");
+    });
+    /*keypress di F2 per ricerca prodotti su catalogo*/
+    /*$(document).on("focusout", "#codice, #titolo", function (event) {
+        var token = $(this).data('token');
+
+        if ($(this).attr('id') == "titolo") {
+            url = "prodotto/ricerca/titolo/equal";
+            var record = $("#titolo").val();
+        } else if ($(this).attr('id') == "codice") {
+            url = "prodotto/ricerca/codice/equal";
+            var record = $("#codice").val();
+        }
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            data:
+                    {
+                        _method: "POST",
+                        term: record,
+                        _token: token
+                    },
+            cache: false,
+            success: function (data)
+            {
+                var param = $("");
+                for (var i = 0; i < data.length; i++) {
+                    var obj = data[i];
+                    $("#codice").val(obj.codice);
+                    $("#titolo").val(obj.titolo);
+                    $("#id-prodotto").val(obj.id);
+                }
+                if (data.length === 0) {
+                    $("#codice").val("");
+                    $("#titolo").val("");
+                } else {
+                    $("#prezzo").focus();
+                }
+            }, //end function
+            error: function (data)
+            {
+                console.log(data);
+            }
+
+        });
+
+    });*/
     /*change del campo quantità*/
     $(document).on("focusout", ".quantita", function () {
         $(".tr-error").remove();

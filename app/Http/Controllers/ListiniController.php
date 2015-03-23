@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller as BaseController;
 use Illuminate\Support\Facades\Redirect as Redirect;
 use Illuminate\Support\Facades\Response as Response;
 use Illuminate\Support\Facades\Input as Input;
+use Illuminate\Support\Facades\URL as URL;
 
 use App\Models\ListinoMaster as ListinoMaster;
 use App\Models\ListinoDetail as ListinoDetail;

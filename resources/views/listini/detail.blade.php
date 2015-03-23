@@ -35,21 +35,28 @@
         </ol>
     </div>
 </div>
-<div class="row">
-    <div class="col-xs-2">
-        <div class="form-group">
-            {!! Form::label('Codice', Lang::choice('messages.codice_dettaglio',0)) !!} 
-            {!! Form::text('codice', '', array('class'=>'form-control','id'=>'codice')) !!}            
+<div class='row'>
+    <div class="col-xs-4">  
+        <div class="form-group">    
+            <div class="input-group">
+                {!! Form::text('codice', '', array('placeholder'=>Lang::choice('messages.codice_dettaglio',0), 'class'=>'form-control','id'=>'codice','data-token'=> csrf_token())) !!}            
+                <span class="input-group-btn">
+                    <button class="btn btn-default btn-search" id="search-code" type="button">{!!Lang::choice('messages.pulsante_cerca',0)!!}</button>
+                </span>
+            </div><!-- /input-group -->
         </div>
-    </div>
+    </div><!-- /.col-lg-6 -->
 </div>
 <div class="row">
-    <div class="col-xs-8">
+    <div class="col-xs-9">
         <div class="form-group">
-            {!! Form::label('Titolo', Lang::choice('messages.titolo_dettaglio',0)) !!}
-            {!! Form::text('titolo', '', array('class'=>'form-control','id'=>'titolo')) !!} 
+            <div class="input-group">
+                {!! Form::text('titolo', '', array('placeholder'=>Lang::choice('messages.titolo_dettaglio',0),'class'=>'form-control','id'=>'titolo','data-token'=> csrf_token())) !!} 
+                <span class="input-group-btn">
+                    <button class="btn btn-default btn-search" id="search-title" type="button">{!!Lang::choice('messages.pulsante_cerca',0)!!}</button>
+                </span>
+            </div>
         </div>
-
         {!!      Form::hidden('prodotto','',array('id'=>'id-prodotto'))!!} 
         {!!	Form::hidden('listino',$listino_master->id,array('id'=>'id-listino'))!!}
     </div>
@@ -57,24 +64,23 @@
 <div class="row">
     <div class="col-xs-2">
         <div class="form-group">
-            {!! Form::label('Prezzo Unitario', Lang::choice('messages.prezzo_dettaglio',0)) !!} 
-            {!! Form::input('number','prezzo', '',array('class'=>'form-control input-small','id'=>'prezzo')) !!}
+            {!! Form::input('number','prezzo', '',array('placeholder'=>Lang::choice('messages.prezzo_dettaglio',0),'class'=>'form-control input-small','id'=>'prezzo')) !!}
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-xs-2">
         <div class="form-group">
-            {!! Form::label('sconto', Lang::choice('messages.sconto_dettaglio',0) . ' (%)') !!} 
-            {!! Form::input('number','sconto', '',array('class'=>'form-control input-small','id'=>'sconto')) !!}
+            {!! Form::input('number','sconto', '',array('placeholder'=>Lang::choice('messages.sconto_dettaglio',0),'class'=>'form-control input-small','id'=>'sconto')) !!}
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-xs-5">
         <div class="form-group">
-            {!! Form::submit(Lang::choice('messages.pulsante_aggiungi',0), array('class'=>'btn btn-success btn-large','id'=>'btn-aggiungi-prodotto')) !!}
+            {!! Form::submit(Lang::choice('messages.pulsante_aggiungi',0), array('class'=>'btn btn-success btn-large','id'=>'btn-aggiungi-prodotto','data-token'=> csrf_token())) !!}
             <a href="{!!url('/listini')!!}" id="btn-termina-detail" class="btn btn-primary btn-large">{!!Lang::choice('messages.pulsante_termina',0)!!}</a>            
+            <button class="btn btn-default btn-reset" id="" type="button">{!!Lang::choice('messages.pulsante_ripristina',0)!!}</button>
         </div>
     </div>
 </div>
@@ -131,7 +137,7 @@
                     <thead>
                         <tr class="success">
                             <td>{!!Lang::choice('messages.codice_prodotto',0)!!}</td>
-                            
+
                             <td>{!!Lang::choice('messages.nome_prodotto',0)!!}</td>
                         </tr>
                     </thead>
@@ -141,7 +147,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{!!Lang::choice('messages.pulsante_annulla',0)!!}</button>
                 <button type="button" id="btn-inserisci-prodotto"
-                        class="btn btn-primary">{!!Lang::choice('messages.pulsante_aggiungi',0)!!}</button>
+                        class="btn btn-primary">{!!Lang::choice('messages.pulsante_seleziona',0)!!}</button>
             </div>
         </div>
     </div>
