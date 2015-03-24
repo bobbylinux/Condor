@@ -46,7 +46,7 @@
                             {!!$carrello->prodotto!!}
                         </td>
                         <td class="cart-col-qta col-xs-1">
-                            {!! Form::input('number','quantita', $carrello->quantita,array('class'=>'form-control input-small quantita','data-id'=>url('/carrello/'.$carrello->id),'data-token'=>csrf_token())) !!}
+                            {!! Form::input('number','quantita', $carrello->quantita,array('class'=>'form-control input-small quantita','data-token' => csrf_token() ,'data-id'=>url('/carrello/'.$carrello->id),'data-token'=>csrf_token())) !!}
                         </td>
                         <td class="cart-col-price col-xs-1">
                             {!!number_format((float)$carrello->prezzo*$carrello->quantita, 2, '.', '')!!} {!! $valuta->simbolo !!}                                

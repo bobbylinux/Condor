@@ -18,7 +18,7 @@ Route::get('/info', function() {
 
 /* Test php */
 Route::get('/test', function() {
-    return View::make('test');
+    return view('test');
 });
 
 Route::get('/language/{lang}', function($lang) {
@@ -33,9 +33,12 @@ Route::get('/signin', 'UtentiController@showSignIn');
 /* effettua la registrazione */
 Route::post('/signin', 'UtentiController@doSignIn');
 /* conferma la registrazione */
-Route::get('signin/verify/{confirmationCode}', array(
+/*Route::get('signin/verify/{confirmationCode}', array(
     'uses' => 'UtentiController@confirmSignin')
-);
+);*/
+
+Route::get('signin/verify/{confirmationCode}', ['middleware' => 'guest', 'uses' => 'UtentiController@confirmSignin']);
+
 /* Reset Password */
 Route::get('password/reset', 'UtentiController@resetPassword');
 Route::post('password/reset', 'UtentiController@doResetPassword');
@@ -44,12 +47,12 @@ Route::get('password/reset/{confirmationCode}', array(
     'uses' => 'UtentiController@confirmResetPwd')
 );
 /* Authentication/Login */
-Route::get('login', 'UtentiController@showLogin');
+Route::get('login', ['middleware' => 'guest', 'uses' => 'UtentiController@showLogin']);
 /* Post Login */
 Route::post('login', 'UtentiController@dologin');
 
 /* Logout */
-Route::get('logout', array('before' => 'auth', 'uses' => 'UtentiController@doLogout'));
+Route::get('logout', ['middleware' => 'guest', 'uses' => 'UtentiController@doLogout']);
 /* show categoria */
 Route::get('catalogo/categoria/{id}', 'HomeController@showCategory');
 /* show dettaglio prodotto */
@@ -57,14 +60,14 @@ Route::get('catalogo/prodotto/{id}', 'HomeController@showProduct');
 /* show dettaglio prodotto */
 Route::post('catalogo/search', 'HomeController@searchProduct');
 
-Route::group(array('before' => 'superuser'), function() {
+//Route::group(array('before' => 'superuser'), function() {
     /* RESTful per valute */
     Route::resource('valute', 'ValuteController');
     /* RESTful per utenti */
     Route::resource('utenti', 'UtentiController');
     /* RESTful per utenti */
     Route::resource('configurazione', 'ConfigurazioneController');
-});
+//});
 
 //Route::group(array('middleware' => 'auth'), function() {
     /* RESTful per carrello */

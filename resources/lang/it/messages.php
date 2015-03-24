@@ -189,6 +189,10 @@ return array(
     'ordine_inviato_a' => 'INVIATO A',
     'ordine_effettuato' => 'ordine effettuato',
     'ordini_effettuati' => 'ordini effettuati',
+    'ordini_deleted' => 'ordini cancellati',
+    'ordine_deleted' => 'ordine cancellato',
+    'ordini_actived' => 'ordini in corso',
+    'ordine_actived' => 'ordine in corso',
     'il' => 'il',
     
     /*ordini admin*/

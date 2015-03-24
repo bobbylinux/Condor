@@ -108,7 +108,22 @@ class OrdineDetail extends BaseModel {
                 ->get();
         return $result;
     }
-
+    
+    public function getOrdersDetailDeletedForUser($userid) {
+        $result = DB::table('ordini_master')
+                ->join('ordini_detail', 'ordini_master.id', '=', 'ordini_detail.ordine')
+                ->join('destinatari', 'ordini_master.destinatario', '=', 'destinatari.id')
+                ->join('listini_detail', 'listini_detail.id', '=', 'ordini_detail.prodotto')
+                ->join('prodotti', 'listini_detail.prodotto', '=', 'prodotti.id')
+                ->join('immagini', 'immagini.prodotto', '=', 'prodotti.id')
+                ->where('ordini_master.utente', '=', $userid)
+                ->where('ordini_master.cancellato','=',true)
+                ->orderby('codice_ordine', 'desc')
+                ->select('ordini_master.data_creazione as data_ordine', 'ordini_master.totale as totale_ordine', 'destinatari.nome as destinatario_nome', 'destinatari.cognome as destinatario_cognome', 'ordini_master.codice_ordine as codice_ordine', 'prodotti.titolo as titolo_prodotto', 'immagini.url as immagine_url', 'immagini.nome as immagine_nome')
+                ->get();
+        return $result;
+    }
+    
     public function getOrdersDetailFromMaster($orderid) {
         $result = DB::table('ordini_master')
                 ->join('ordini_detail', 'ordini_master.id', '=', 'ordini_detail.ordine')

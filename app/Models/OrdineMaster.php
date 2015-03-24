@@ -99,6 +99,7 @@ class OrdineMaster extends BaseModel {
         $this->cancellato = true;
         $this->data_cancellazione = $this->now;
         $result = $this->save();
+        $this->statoOrdine()->attach(7); //this executes the insert-query
         return $result;
     }
 
@@ -155,6 +156,7 @@ class OrdineMaster extends BaseModel {
                                         on	os1.stato = stati_ordine.id
                                         where 	os2.id is null
                                         and     ordini_master.utente = :utente
+                                        and     ordini_master.cancellato = false
                                         order by data_ordine desc
                                         "), array('utente' => $userid));
 
@@ -190,6 +192,69 @@ class OrdineMaster extends BaseModel {
         return $result;
     }
     
+    /**
+     * The function for get all orders of an user
+     *
+     * @data array
+     */
+    public function getOrdersDeletedForUser($userid) {
+        $result = DB::select(DB::raw("select    ordini_master.data_creazione as data_ordine,
+                                                ordini_master.totale as totale_ordine,
+                                                destinatari.nome as destinatario_nome,
+                                                destinatari.cognome as destinatario_cognome,
+                                                ordini_master.codice_ordine as codice_ordine,
+                                                stati_ordine.stato as stato_ordine,
+                                                os1.data_modifica as data_stato_ordine 
+                                        from	ordini_master 
+                                        join    destinatari
+                                        on	ordini_master.destinatario = destinatari.id
+                                        join	ordini_stato os1
+                                        on	ordini_master.id = os1.ordine
+                                        left outer join ordini_stato os2 on ordini_master.id = os2.ordine AND
+                                                (os1.data_modifica < os2.data_modifica OR os1.data_modifica = os2.data_modifica AND os1.id < os2.id)
+                                        join    stati_ordine
+                                        on	os1.stato = stati_ordine.id
+                                        where 	os2.id is null
+                                        and     (os1.stato in (5,6) or ordini_master.cancellato = true)
+                                        and     ordini_master.utente = :utente
+                                        order by data_ordine desc
+                                        "), array('utente' => $userid));
+
+        return $result;
+    }
+    
+    /**
+     * The function for get all orders of an user
+     *
+     * @data array
+     */
+    public function getOrdersActivedForUser($userid) {
+        $result = DB::select(DB::raw("select    ordini_master.data_creazione as data_ordine,
+                                                ordini_master.totale as totale_ordine,
+                                                destinatari.nome as destinatario_nome,
+                                                destinatari.cognome as destinatario_cognome,
+                                                ordini_master.codice_ordine as codice_ordine,
+                                                stati_ordine.stato as stato_ordine,
+                                                os1.data_modifica as data_stato_ordine 
+                                        from	ordini_master 
+                                        join    destinatari
+                                        on	ordini_master.destinatario = destinatari.id
+                                        join	ordini_stato os1
+                                        on	ordini_master.id = os1.ordine
+                                        left outer join ordini_stato os2 on ordini_master.id = os2.ordine AND
+                                                (os1.data_modifica < os2.data_modifica OR os1.data_modifica = os2.data_modifica AND os1.id < os2.id)
+                                        join    stati_ordine
+                                        on	os1.stato = stati_ordine.id
+                                        where 	os2.id is null
+                                        and 	os1.stato not in (4,5,6)
+                                        and     ordini_master.utente = :utente
+                                        and     ordini_master.cancellato = false
+                                        order by data_ordine desc
+                                        "), array('utente' => $userid));
+
+        return $result;
+    }
+    
     public function getOrderStatus($orderid) {
         $result = DB::table('stati_ordine')
                 ->join('ordini_stato', 'ordini_stato.stato', '=', 'stati_ordine.id')
@@ -201,7 +266,7 @@ class OrdineMaster extends BaseModel {
     }
     
     public function statoOrdine() {
-        return $this->belongsToMany('StatoOrdine','ordini_stato','ordine','stato')->withPivot('note');;
+        return $this->belongsToMany('App\Models\StatoOrdine','ordini_stato','ordine','stato')->withPivot('note');;
     }
     
     public function getPagato() {

@@ -3,7 +3,7 @@
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
-class RedirectIfNotSuperUser
+class RedirectIfAuthenticated
 {
     /**
      * The Guard implementation.
@@ -11,7 +11,7 @@ class RedirectIfNotSuperUser
      * @var Guard
      */
     protected $auth;
-    
+
     /**
      * Create a new filter instance.
      *
@@ -22,6 +22,7 @@ class RedirectIfNotSuperUser
     {
         $this->auth = $auth;
     }
+
     /**
      * Handle an incoming request.
      *
@@ -31,12 +32,10 @@ class RedirectIfNotSuperUser
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->check() && $this->auth->user()->ruolo != 3) {
-            return Redirect::to("/");
-           
-        } else {
-            return Redirect::to("/");
+        if ($this->auth->check()) {
+            return redirect('/');
         }
+
         return $next($request);
     }
 }

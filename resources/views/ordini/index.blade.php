@@ -30,8 +30,8 @@
             <td>{!!date("d/m/Y H:i",strtotime($ordine->data_stato_ordine))!!}</td>
             <td>{!!$ordine->tracking_ordine!!}</td>
             <td>
-                <a href="{!!url('/ordini/'.$ordine->id.'/detail')!!}" class="btn btn-order-detail btn-primary">{!!Lang::choice('messages.pulsante_dettaglio',0)!!}</a>
-                <a href="{!!url('/ordini/'.$ordine->id.'/update')!!}" class="btn btn-aggiorna-ordine btn-success" data-aggiorna="{!!url('/ordini/'.$ordine->id.'/update/stato/')!!}">{!!Lang::choice('messages.pulsante_aggiorna',0)!!}</a>
+                <a href="{!!url('/ordini/'.$ordine->id.'/detail')!!}" data-token="<?= csrf_token() ?>" class="btn btn-order-detail btn-primary">{!!Lang::choice('messages.pulsante_dettaglio',0)!!}</a>
+                <a href="{!!url('/ordini/'.$ordine->id.'/update')!!}" class="btn btn-aggiorna-ordine btn-success" data-token="<?= csrf_token() ?>" data-aggiorna="{!!url('/ordini/'.$ordine->id.'/update/stato/')!!}">{!!Lang::choice('messages.pulsante_aggiorna',0)!!}</a>
                 <a href="{!!url('/ordini/'.$ordine->id)!!}" class="btn btn-danger btn-cancella" data-token="<?= csrf_token() ?>">{!!Lang::choice('messages.pulsante_elimina',0)!!}</a>
             </td>
         </tr> 
@@ -81,7 +81,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-annulla-pagamento">{!!Lang::choice('messages.pulsante_annulla',0)!!}</button>
-                <button type="button" class="btn btn-success" id="btn-conferma-pagamento">{!!Lang::choice('messages.pulsante_conferma',0)!!}</button>
+                <button type="button" class="btn btn-success" data-token ="<?= csrf_token()?>" id="btn-conferma-pagamento">{!!Lang::choice('messages.pulsante_conferma',0)!!}</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

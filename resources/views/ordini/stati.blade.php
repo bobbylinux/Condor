@@ -1,3 +1,4 @@
+@extends('template.blank')
 @section('content')
 {!!Form::open(array('url' => '/ordini/'.$id_ordine.'/update/stato/', 'method' => 'post','id'=>'form-stati'))!!}
 <div class="modal-header">
@@ -35,7 +36,7 @@
     @endforeach
 </div>
 <div class="modal-footer">
-    {!! Form::submit(Lang::choice('messages.pulsante_conferma',0), array('class' =>'btn btn-success','id'=>'btn-salva-aggiorna'))!!}                      
+    {!! Form::submit(Lang::choice('messages.pulsante_conferma',0), array('data-token'=>csrf_token(),'class' =>'btn btn-success','id'=>'btn-salva-aggiorna'))!!}                      
     <button type="button" id="btn-chiudi-aggiorna" class="btn btn-primary">{!!Lang::choice('messages.pulsante_chiudi',0)!!}</button>                          
 </div>
 {!!Form::close()!!}

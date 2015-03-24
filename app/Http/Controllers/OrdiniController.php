@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Input as Input;
 use Illuminate\Support\Facades\Response as Response;
 use Illuminate\Support\Facades\Session as Session;
 use Illuminate\Support\Facades\Auth as Auth;
+
 use App\Models\OrdineMaster as OrdineMaster;
 use App\Models\OrdineDetail as OrdineDetail;
 use App\Models\Valuta as Valuta;
@@ -12,6 +13,8 @@ use App\Models\Carrello as Carrello;
 use App\Models\Spedizione as Spedizione;
 use App\Models\Destinatario as Destinatario;
 use App\Models\Pagamento as Pagamento;
+use App\Models\ListinoDetail as ListinoDetail;
+use App\Models\StatoOrdine as StatoOrdine;
 
 class OrdiniController extends BaseController {
 
@@ -245,6 +248,8 @@ class OrdiniController extends BaseController {
 
     public function userOrders() {
         $data['lista_ordini'] = $this->ordine_master->getOrdersListForUser(Auth::user()->id);
+        $data['lista_ordini_attivi'] = $this->ordine_master->getOrdersActivedForUser(Auth::user()->id);
+        $data['lista_ordini_cancellati'] = $this->ordine_master->getOrdersDeletedForUser(Auth::user()->id);
         $data['dettaglio_ordini'] = $this->ordine_detail->getOrdersDetailForUser(Auth::user()->id);
         $valuta = new Valuta;
         $data['valuta'] = $valuta->getValuta();
@@ -252,8 +257,6 @@ class OrdiniController extends BaseController {
     }
 
     public function detail($orderid) {
-
-        $this->layout = View::make('template.blank');
         $data['lista_ordini'] = $this->ordine_master->getOrdersListById($orderid);
         $data['dettaglio_ordini'] = $this->ordine_detail->getOrdersDetailFromMaster($orderid);
         $valuta = new Valuta;
@@ -262,7 +265,6 @@ class OrdiniController extends BaseController {
     }
 
     public function aggiorna($orderid) {
-        $this->layout = View::make('template.blank');
         $data['id_ordine'] = $orderid;
         $data['lista_stati'] = $this->ordine_master->getOrderStatus($orderid);
         $stati_ordine = new StatoOrdine();

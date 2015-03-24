@@ -1,3 +1,4 @@
+@extends('template.front')
 @section('content')
 {!!Form::open(array('url'=>'https://www.sandbox.paypal.com/cgi-bin/webscr','method'=>'POST'))!!}
 

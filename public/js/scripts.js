@@ -273,7 +273,7 @@ $(document).ready(function () {
     /*click su pulsante conferma pagamento*/
     $(document).on("click", "#btn-conferma-pagamento", function (event) {
         event.preventDefault();
-
+        var token = $(this).data("token");
         $('#msg-pagamento').modal('hide');
         $.blockUI({message: $('#wait-msg')});
         $.ajax({
@@ -283,6 +283,7 @@ $(document).ready(function () {
             data:
                     {
                         _method: "POST",
+                        _token: token
                     },
             cache: false,
             success: function (data)
@@ -409,6 +410,7 @@ $(document).ready(function () {
         event.preventDefault();
         $("#dettaglio-ordine-body").empty();
         var url = $(this).attr("href");
+        var token = $(this).data("token");
         $.ajax({
             type: "POST",
             url: url,
@@ -416,6 +418,7 @@ $(document).ready(function () {
             data:
                     {
                         _method: "POST",
+                        _token: token
                     },
             cache: false,
             success: function (data)
@@ -440,6 +443,7 @@ $(document).ready(function () {
         event.preventDefault();
         $("#msg-aggiorna-content").empty();
         var url = $(this).attr("href");
+        var token = $(this).data("token");
         url_aggiorna = $(this).data("aggiorna");
         $.ajax({
             type: "POST",
@@ -448,6 +452,7 @@ $(document).ready(function () {
             data:
                     {
                         _method: "POST",
+                        _token: token
                     },
             cache: false,
             success: function (data)
@@ -466,6 +471,7 @@ $(document).ready(function () {
     $(document).on("click", "#btn-salva-aggiorna", function (event) {
         event.preventDefault();
         var stato = $("#nuovo-stato").val();
+        var token = $(this).data("token");
         var note = $("#note-stato").val();
         var tracking = $("#tracking-stato").val();
         $.ajax({
@@ -478,6 +484,7 @@ $(document).ready(function () {
                         note: note,
                         tracking: tracking,
                         _method: "POST",
+                        _token: token
                     },
             cache: false,
             success: function (data)
@@ -575,13 +582,14 @@ $(document).ready(function () {
         $(".tr-error").remove();
         $.blockUI({message: $('#wait-msg')});
         var $quantita = $(this).val();
+        var token = $(this).data('token');
         var $id_carrello = $(this).data("id");
         $.ajax({
             context: this, /*used for pass object dom into ajax*/
             url: $id_carrello,
             type: 'post',
             cache: false,
-            data: {_method: 'put', quantita: $quantita},
+            data: {_method: 'put', quantita: $quantita, _token: token},
             success: function (data)
             {
                 if (data.code == "200") {
