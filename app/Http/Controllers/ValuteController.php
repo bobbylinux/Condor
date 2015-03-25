@@ -20,7 +20,10 @@ class ValuteController extends BaseController {
      *          
      */
     public function __construct(Valuta $valuta) {
+        
+        //$this->middleware('superuser');
         $this->valuta = $valuta;
+        
     }
 
     /**

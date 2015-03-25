@@ -201,5 +201,31 @@ class Utente extends BaseModel implements AuthenticatableContract, CanResetPassw
         $this->save();
         return true;
     }
-
+    
+    /**
+     * The function for know if user is an admin or not
+     *
+     * @data array
+     */
+    public function isAdmin() {
+        if ($this->ruolo == 2) {
+            return true; 
+        } else {
+            return false;
+        }
+    }
+    
+    /**
+     * The function for know if user is a superuser or not
+     *
+     * @data array
+     */
+    public function isSuperUser() {
+        if ($this->ruolo == 3) {
+            return true; 
+        } else {
+            return false;
+        }
+    }
+   
 }

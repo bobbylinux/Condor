@@ -2,6 +2,7 @@
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Redirect as Redirect;
 
 class RedirectIfNotSuperUser
 {
@@ -31,12 +32,12 @@ class RedirectIfNotSuperUser
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->check() && $this->auth->user()->ruolo != 3) {
+        if ($this->auth->check() && !$this->auth->user()->isSuperUser()) {
             return Redirect::to("/");
            
         } else {
-            return Redirect::to("/");
+            return $next($request);
+            //return Redirect::to("/");
         }
-        return $next($request);
     }
 }

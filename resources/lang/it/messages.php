@@ -83,6 +83,8 @@ return array(
     'defauts' => 'Parametri',
     'crea_nuova' => 'Crea Nuova',
     'gestisci' => 'Gestisci',
+    'pannello_admin' => 'Strumenti Amministratore',
+    'pannello_super' => 'Strumenti SuperUtente',
     
     /*anagrafica categoria*/
     'nuova_categoria' => 'Nuova Categoria',

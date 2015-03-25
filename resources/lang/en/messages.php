@@ -82,6 +82,8 @@ return array(
     'ordini' => 'Orders',
     'crea_nuova' => 'Create New',
     'gestisci' => 'Manage',
+    'pannello_admin' => 'Administator Tools',
+    'pannello_super' => 'SuperUser Tools',
     
     /*anagrafica categoria*/
     'nuova_categoria' => 'New Category',

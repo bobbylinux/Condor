@@ -52,7 +52,7 @@ Route::get('login', ['middleware' => 'guest', 'uses' => 'UtentiController@showLo
 Route::post('login', 'UtentiController@dologin');
 
 /* Logout */
-Route::get('logout', ['middleware' => 'guest', 'uses' => 'UtentiController@doLogout']);
+Route::get('logout', ['middleware' => 'auth', 'uses' => 'UtentiController@doLogout']);
 /* show categoria */
 Route::get('catalogo/categoria/{id}', 'HomeController@showCategory');
 /* show dettaglio prodotto */
@@ -60,16 +60,16 @@ Route::get('catalogo/prodotto/{id}', 'HomeController@showProduct');
 /* show dettaglio prodotto */
 Route::post('catalogo/search', 'HomeController@searchProduct');
 
-//Route::group(array('before' => 'superuser'), function() {
+Route::group(array('middleware' => 'superuser'), function() {
     /* RESTful per valute */
     Route::resource('valute', 'ValuteController');
     /* RESTful per utenti */
     Route::resource('utenti', 'UtentiController');
     /* RESTful per utenti */
     Route::resource('configurazione', 'ConfigurazioneController');
-//});
+});
 
-//Route::group(array('middleware' => 'auth'), function() {
+Route::group(array('middleware' => 'auth'), function() {
     /* RESTful per carrello */
     Route::resource('carrello', 'CarrelliController');
     Route::post('order/store', 'OrdiniController@store');
@@ -80,9 +80,9 @@ Route::post('catalogo/search', 'HomeController@searchProduct');
     Route::get('order/confirm', 'OrdiniController@orderConfirm');
     Route::post('address/select', 'OrdiniController@chooseAddress');
     Route::post('address/store', 'OrdiniController@storeAddress');
-//});
+});
 
-Route::group(array('before' => 'livello_utente'), function() {
+Route::group(array('middleware' => 'admin'), function() {
 
     /* Get per area utenti */
     Route::get('dashboard', 'DashController@showDashboard');
