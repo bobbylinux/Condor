@@ -96,7 +96,23 @@ class OrdineDetail extends BaseModel {
     }
 
     public function getOrdersDetailForUser($userid) {
-        $result = DB::table('ordini_master')
+        $result = DB::select(DB::raw("SELECT ordini_master.data_creazione as data_ordine,ordini_master.totale as totale_ordine,destinatari.nome as destinatario_nome,destinatari.cognome as destinatario_cognome,ordini_master.codice_ordine as codice_ordine,prodotti.titolo as titolo_prodotto,immagini.url as immagine_url,immagini.nome as immagine_nome
+                                        FROM ordini_master
+                                        JOIN ordini_detail 
+                                        ON ordini_master.id = ordini_detail.ordine
+                                        JOIN destinatari 
+                                        ON ordini_master.destinatario = destinatari.id
+                                        JOIN listini_detail 
+                                        ON listini_detail.id = ordini_detail.prodotto
+                                        JOIN prodotti
+                                        ON listini_detail.prodotto = prodotti.id
+                                        JOIN (select min(id) as id,min(url) as url,min(nome) as nome,immagini.prodotto as prodotto from immagini group by prodotto) immagini
+                                        ON immagini.prodotto = prodotti.id
+                                        WHERE ordini_master.utente = :utente
+                                        "), array('utente' => $userid));
+
+        
+        /*$result = DB::table('ordini_master')
                 ->join('ordini_detail', 'ordini_master.id', '=', 'ordini_detail.ordine')
                 ->join('destinatari', 'ordini_master.destinatario', '=', 'destinatari.id')
                 ->join('listini_detail', 'listini_detail.id', '=', 'ordini_detail.prodotto')
@@ -105,36 +121,43 @@ class OrdineDetail extends BaseModel {
                 ->where('ordini_master.utente', '=', $userid)
                 ->orderby('codice_ordine', 'desc')
                 ->select('ordini_master.data_creazione as data_ordine', 'ordini_master.totale as totale_ordine', 'destinatari.nome as destinatario_nome', 'destinatari.cognome as destinatario_cognome', 'ordini_master.codice_ordine as codice_ordine', 'prodotti.titolo as titolo_prodotto', 'immagini.url as immagine_url', 'immagini.nome as immagine_nome')
-                ->get();
+                ->get();*/
         return $result;
     }
     
     public function getOrdersDetailDeletedForUser($userid) {
-        $result = DB::table('ordini_master')
-                ->join('ordini_detail', 'ordini_master.id', '=', 'ordini_detail.ordine')
-                ->join('destinatari', 'ordini_master.destinatario', '=', 'destinatari.id')
-                ->join('listini_detail', 'listini_detail.id', '=', 'ordini_detail.prodotto')
-                ->join('prodotti', 'listini_detail.prodotto', '=', 'prodotti.id')
-                ->join('immagini', 'immagini.prodotto', '=', 'prodotti.id')
-                ->where('ordini_master.utente', '=', $userid)
-                ->where('ordini_master.cancellato','=',true)
-                ->orderby('codice_ordine', 'desc')
-                ->select('ordini_master.data_creazione as data_ordine', 'ordini_master.totale as totale_ordine', 'destinatari.nome as destinatario_nome', 'destinatari.cognome as destinatario_cognome', 'ordini_master.codice_ordine as codice_ordine', 'prodotti.titolo as titolo_prodotto', 'immagini.url as immagine_url', 'immagini.nome as immagine_nome')
-                ->get();
+         $result = DB::select(DB::raw("SELECT ordini_master.data_creazione as data_ordine,ordini_master.totale as totale_ordine,destinatari.nome as destinatario_nome,destinatari.cognome as destinatario_cognome,ordini_master.codice_ordine as codice_ordine,prodotti.titolo as titolo_prodotto,immagini.url as immagine_url,immagini.nome as immagine_nome
+                                        FROM ordini_master
+                                        JOIN ordini_detail 
+                                        ON ordini_master.id = ordini_detail.ordine
+                                        JOIN destinatari 
+                                        ON ordini_master.destinatario = destinatari.id
+                                        JOIN listini_detail 
+                                        ON listini_detail.id = ordini_detail.prodotto
+                                        JOIN prodotti
+                                        ON listini_detail.prodotto = prodotti.id
+                                        JOIN (select min(id) as id,min(url) as url,min(nome) as nome,immagini.prodotto as prodotto from immagini group by prodotto) immagini
+                                        ON immagini.prodotto = prodotti.id
+                                        WHERE ordini_master.utente = :utente
+                                        AND   ordini_master.cancellato = true
+                                        "), array('utente' => $userid));
         return $result;
     }
-    
     public function getOrdersDetailFromMaster($orderid) {
-        $result = DB::table('ordini_master')
-                ->join('ordini_detail', 'ordini_master.id', '=', 'ordini_detail.ordine')
-                ->join('destinatari', 'ordini_master.destinatario', '=', 'destinatari.id')
-                ->join('listini_detail', 'listini_detail.id', '=', 'ordini_detail.prodotto')
-                ->join('prodotti', 'listini_detail.prodotto', '=', 'prodotti.id')
-                ->join('immagini', 'immagini.prodotto', '=', 'prodotti.id')
-                ->where('ordini_master.id', '=', $orderid)
-                ->orderby('codice_ordine', 'desc')
-                ->select('ordini_master.data_creazione as data_ordine', 'ordini_master.totale as totale_ordine', 'destinatari.nome as destinatario_nome', 'destinatari.cognome as destinatario_cognome', 'ordini_master.codice_ordine as codice_ordine', 'prodotti.titolo as titolo_prodotto', 'immagini.url as immagine_url', 'immagini.nome as immagine_nome')
-                ->get();
+        $result = DB::select(DB::raw("select ordini_master.data_creazione as data_ordine,ordini_master.totale as totale_ordine,destinatari.nome as destinatario_nome,destinatari.cognome as destinatario_cognome,ordini_master.codice_ordine as codice_ordine,prodotti.titolo as titolo_prodotto,immagini.url as immagine_url,immagini.nome as immagine_nome 
+                                        FROM ordini_master
+                                        JOIN ordini_detail 
+                                        ON ordini_master.id = ordini_detail.ordine
+                                        JOIN destinatari 
+                                        ON ordini_master.destinatario = destinatari.id
+                                        JOIN listini_detail 
+                                        ON listini_detail.id = ordini_detail.prodotto
+                                        JOIN prodotti
+                                        ON listini_detail.prodotto = prodotti.id
+                                        JOIN (select min(id) as id,min(url) as url,min(nome) as nome,immagini.prodotto as prodotto from immagini group by prodotto) immagini
+                                        ON immagini.prodotto = prodotti.id
+                                        where ordini_master.id = :ordine
+                                    "), array('ordine' => $orderid));
         return $result;
     }
 

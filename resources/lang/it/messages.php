@@ -29,6 +29,7 @@ return array(
     'pulsante_cerca'  => 'Cerca',
     'pulsante_ripristina'  => 'Ripristina',
     'pulsante_seleziona' => 'Seleziona',
+    'pulsante_home_page' => 'Home Page',
     'attendere' => 'Attendere Prego...',    
     'errore' => 'Errore',
     'si' => 'Sì',
@@ -67,8 +68,7 @@ return array(
     'conferma_ordine' => 'Conferma Ordine',    
     'ordine_confermato' => 'Ordine Creato, Numero: ',    
     'paga_ordine' => 'Paga Ordine',
-    
-    
+   
     /*dashboard*/
     'dashboard' => 'Pannello di Controllo',
     'amministra' => 'Amministra',
@@ -167,6 +167,11 @@ return array(
     'nuovo_utente' => 'Nuovo Utente',
     'registrazione' => 'Registrazione',
     'crea_account' => 'Crea Account',
+    'errore_signin' => 'Si è verificato un errore, contattare l\'amministratore del sistema',
+    'controllo_mail_titolo' => 'Conferma',
+    'controllo_mail_testo' => 'Controlla la tua mail per confermare la registrazione',
+    'conferma_iscrizione_titolo' => 'Conferma Iscrizione',
+    'conferma_iscrizione_testo' =>'Registazione confermata correttamente. Benvenuto nel nostro negozio virtuale',
     
     /*login*/
     'errore_auth' => 'Username o Password non validi',
@@ -177,6 +182,9 @@ return array(
     'login_pulsante' => 'Accedi',
     'nuovo_utente' => 'Nuovo Utente?',
     'registrati' => 'registrati con il tuo indirizzo e-mail',
+    
+    /*reset password*/
+    'inserisci_nuova_password' => 'Inserisci Nuova Password',
     
     /*ordini cliente*/
     'miei_ordini_titolo' => 'I Miei Ordini',

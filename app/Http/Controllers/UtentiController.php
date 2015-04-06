@@ -112,18 +112,18 @@ class UtentiController extends BaseController {
             'password' => Input::get('password'),
             'password_c' => Input::get('password_c'),
             'conferma' => str_random(30),
-            'ruolo' => 1
+            'ruolo_utente' => 1
         );
 
         if ($this->utente->validate($userdata, 'Signin')) {
             $result = $this->utente->store($userdata);
             if ($result) {
-                $data['conferma'] = 'Controlla la tua mail per confermare la registrazione';
+                $data['titolo'] = Lang::choice('messages.controllo_mail_titolo',0);
+                $data['conferma'] = Lang::choice('messages.controllo_mail_testo',0);
                 $data['errore'] = false;
-                $data['titolo'] = "Conferma";
                 return view('utenti.conferma', $data); //$this->layout->content = View::make('utenti.conferma', $data);
             } else {
-                return Redirect::to('signin')->withErrors(['msg', 'Si &egrave; verificato un errore, contattare l\'amministratore del sistema']);
+                return Redirect::to('signin')->withErrors(['msg', Lang::choice('messages.errore_sigin',0)]);
             }
         } else {
             $errors = $this->utente->getErrors();
@@ -134,27 +134,27 @@ class UtentiController extends BaseController {
     public function confirmSignin($confirmationCode) {
         $confirmation_code = $confirmationCode;
         if (!$confirmation_code) {
-            $data['conferma'] = 'Nessun codice presente, contattare l\'amministratore del sistema';
+            $data['conferma'] = Lang::choice('messages.errore_signin',0);
             $data['errore'] = true;
-            $data['titolo'] = "Errore";
-            return view('utenti.conferma', $data); //$this->layout->content = View::make('utenti.conferma', $data);
+            $data['titolo'] = Lang::choice("messages.errore",0);
+            return view('utenti.conferma', $data); 
         }
 
         $user = $this->utente->where('codice_conferma', '=', $confirmation_code)->first();
 
         if (!$user) {
             $data['errore'] = true;
-            $data['titolo'] = "Errore";
-            $data['conferma'] = 'Codice non valido, contattare l\'amministratore del sistema';
-            return view('utenti.conferma', $data); //$this->layout->content = View::make('utenti.conferma', $data);
+            $data['titolo'] = Lang::choice("messages.errore",0);
+            $data['conferma'] = Lang::choice('messages.errore_signin',0);
+            return view('utenti.conferma', $data);
         } else {
 
             $user->confermato = true;
             $user->codice_conferma = null;
             $user->save();
-            $data['conferma'] = 'Registazione confermata correttamente. Benvenuto in Condor';
+            $data['conferma'] = Lang::choice('messages.conferma_iscrizione_testo',0);
             $data['errore'] = false;
-            $data['titolo'] = "Conferma Iscrizione";
+            $data['titolo'] = Lang::choice('messages.conferma_iscrizione_titolo',0);
             return view('utenti.conferma', $data);
         }
     }

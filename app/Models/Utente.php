@@ -1,6 +1,7 @@
 <?php  namespace App\Models;
 
 use Illuminate\Auth\Authenticatable;
+use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -43,7 +44,7 @@ class Utente extends BaseModel implements AuthenticatableContract, CanResetPassw
     private $rulesSignin = array(
         'username' => 'required|email|unique:utenti', // make sure the email is an actual email
         'username_c' => 'required|Same:username',
-        'password' => 'required|alphaNum|min:6', // password can only be alphanumeric and has to be greater than 3 characters
+        'password' => 'required|alpha_dash|min:6', // password can only be alphanumeric and has to be greater than 6 characters
         'password_c' => 'required|Same:password',
         'ruolo_utente' => 'required|integer'
     );
@@ -111,12 +112,16 @@ class Utente extends BaseModel implements AuthenticatableContract, CanResetPassw
         if (isset($data['confermato'])) {
             $this->confermato = $data['confermato'];
         }
-
-        if ($this->confermaSignIn()) {
+        if (!Auth::check() || (!Auth::user()->isAdmin() && !Auth::user()->isSuperUser())) {
+            if ($this->confermaSignIn()) {
+             self::save();
+             return true;
+            } else {
+             return false;
+            }
+        } else {
             self::save();
             return true;
-        } else {
-            return false;
         }
     }
 

@@ -29,6 +29,7 @@ return array(
     'pulsante_cerca'  => 'Search',
     'pulsante_ripristina'  => 'Reset',
     'pulsante_seleziona' => 'Select',
+    'pulsante_home_page' => 'Home Page',
     'attendere' => 'Please Wait...',
     'errore' => 'Error',
     'si' => 'Yes',
@@ -166,6 +167,11 @@ return array(
     'nuovo_utente' => 'New User',
     'registrazione' => 'Signin',
     'crea_account' => 'Create Account',
+    'errore_signin' => 'An error is verified, please contact the system administrator',
+    'controllo_mail_titolo' => 'Confirm',
+    'controllo_mail_testo' => 'Please checks your mail box to confirm the registration',
+    'conferma_iscrizione_titolo' => 'Registration Confirm',
+    'conferma_iscrizione_testo' =>'Registration confirmed. Welcome in our virtual shop',
     
     /*login*/
     'errore_auth' => 'Your Username/Password combination was incorrect',
@@ -176,6 +182,9 @@ return array(
     'login_pulsante' => 'Sign In',
     'nuovo_utente' => 'New User?',
     'registrati' => 'signin with your e-mail address',
+    
+    /*reset password*/
+    'inserisci_nuova_password' => 'Change your password',
     
     /*ordini cliente*/
     'miei_ordini_titolo' => 'My Orders',

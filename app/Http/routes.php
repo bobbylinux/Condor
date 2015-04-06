@@ -29,9 +29,9 @@ Route::get('/language/{lang}', function($lang) {
 /* Home page */
 Route::get('/', 'HomeController@showCatalog');
 /* rimanda alla pagina della registrazione */
-Route::get('/signin', 'UtentiController@showSignIn');
+Route::get('/signin', ['middleware' => 'guest', 'uses' =>'UtentiController@showSignIn']);
 /* effettua la registrazione */
-Route::post('/signin', 'UtentiController@doSignIn');
+Route::post('/signin', ['middleware' => 'guest', 'uses' =>'UtentiController@doSignIn']);
 /* conferma la registrazione */
 /*Route::get('signin/verify/{confirmationCode}', array(
     'uses' => 'UtentiController@confirmSignin')
