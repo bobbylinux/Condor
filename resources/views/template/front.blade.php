@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Condor</title>
+        <title>{!!env('TITLE', 'Condor')!!}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="{!! url('js/jquery-ui-1.10.4/themes/base/jquery.ui.all.css') !!}" rel="stylesheet" media="screen">
         <link href="{!! url('bs/css/bootstrap.min.css') !!}" rel="stylesheet" media="screen">
         <link href="{!! url('css/custom.css') !!}" rel="stylesheet" media="screen">	
     </head>
-    <body>        
-        <div class="container">
-            <div class="row">
-                @include('template.languages')
-            </div>
+    <body style="background-color: <?php echo env('BG_COLOR', '#ffffff')?>">        
+        <div class="container-fluid">
             <div class="row">   
-                <div class="col-sm-12">
                     @include('template.frontheader')
-                </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">

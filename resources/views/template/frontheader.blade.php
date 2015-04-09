@@ -1,21 +1,9 @@
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">       
-            <a class="navbar-brand" href="/">Condor</a>
-            <ul class="nav navbar-nav">     
-                
-            </ul>
+<div class="navbar navbar-default" role="navigation">
+    <div class="container-fluid col-xs-12">
+        <div class="navbar-header">            
+            <a class="navbar-brand" href="{!! url('/')!!}">{!!env('TITLE', 'Condor')!!}</a>
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            {!!Form::open(array('url'=>'catalogo/search','method'=>'POST','role'=>'search','class'=>'navbar-form navbar-left'))!!} 
-            <div class="form-group">
-                {!! Form::text('ricerca', '', array('class'=>'form-control','placeholder'=>Lang::choice('messages.ricerca',0))) !!}                     
-            </div>
-            {!! Form::submit(Lang::choice('messages.vai',0), array('class' =>'btn btn-success'))!!} 
-            {!!Form::close()!!}
+        <div class="navbar-collapse collapse" id="searchbar">
             <ul class="nav navbar-nav navbar-right">
                 @if(!Auth::check())                
                 <li><a href="{!! URL::to('login') !!}"><span class="glyphicon glyphicon-play-circle"></span> {!!Lang::choice('messages.accedi',0)!!}</a></li>
@@ -38,7 +26,14 @@
                     <a href="{!! URL::to('carrello')!!}"><span class="glyphicon glyphicon-shopping-cart"></span> {!!Lang::choice('messages.carrello',0)!!} <span class="badge" id="cart-counter">{!! Session::get('utente_carrello')!!}</span></a>
                 </li>
             </ul>
-
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+            {!!Form::open(array('url'=>'catalogo/search','method'=>'POST','role'=>'search','class'=>'navbar-form','id'=>'search-form'))!!} 
+                <div class="form-group" style="display:inline;">
+                    <div class="input-group" style="display:table;">
+                        <span class="input-group-addon search-btn" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
+                        {!! Form::text('ricerca', '', array('class'=>'form-control','placeholder'=>Lang::choice('messages.ricerca',0))) !!}
+                    </div>
+                </div>
+            {!!Form::close()!!}
+        </div><!--/.nav-collapse -->
+    </div>
+</div>

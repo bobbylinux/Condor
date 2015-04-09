@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input as Input;
+use Illuminate\Support\Facades\Redirect as Redirect;
+
 use App\Http\Controllers\Controller as BaseController;
 use App\Models\Configurazione as Configurazione;
 
@@ -37,7 +40,7 @@ class ConfigurazioneController extends BaseController {
         /* recupero configurazione dalla classe modello */
         $data['configurazione'] = $this->configurazione->where('cancellato', '=', 'false')->first();
         /* creo la vista per la visualizzazione della lista di categorie */
-        $this->layout->content = View::make('configurazione.index', $data);
+        return view('configurazione.index', $data);
     }
 
     /**
@@ -65,7 +68,8 @@ class ConfigurazioneController extends BaseController {
      * @return Response
      */
     public function show($id) {
-        //
+        $data['configurazione'] = $this->configurazione->find($id);
+        return view('configurazione.index', $data);
     }
 
     /**
@@ -76,7 +80,7 @@ class ConfigurazioneController extends BaseController {
      */
     public function edit($id) {
         $data['configurazione'] = $this->configurazione->find($id);
-        $this->layout->content = View::make('configurazione.index', $data);
+        return view('configurazione.index', $data);
     }
 
     /**
@@ -110,7 +114,8 @@ class ConfigurazioneController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-        //
+        $data['configurazione'] = $this->configurazione->find($id);
+        return view('configurazione.index', $data);
     }
 
 }

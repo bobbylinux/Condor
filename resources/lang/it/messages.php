@@ -80,7 +80,7 @@ return array(
     'metodi_spedizione' => 'Metodi di Spedizione',
     'utenti' => 'Utenti',
     'ordini' => 'Ordini',
-    'defauts' => 'Parametri',
+    'configurazione' => 'Configurazione',
     'crea_nuova' => 'Crea Nuova',
     'gestisci' => 'Gestisci',
     'pannello_admin' => 'Strumenti Amministratore',

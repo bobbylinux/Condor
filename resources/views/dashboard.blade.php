@@ -77,14 +77,22 @@
             </div>
         </div>
         <div class="col-sm-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading dash-head">{!!Lang::choice('messages.utenti',0)!!}</div>
-                    <div class="panel-body dash-detail">
-                        <p><a href="{!!url('/utenti/create')!!}">{!!Lang::choice('messages.crea_nuova',0)!!}</a></p>
-                        <p><a href="{!!url('/utenti')!!}">{!!Lang::choice('messages.gestisci',0)!!}</a></p>
-                    </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading dash-head">{!!Lang::choice('messages.utenti',0)!!}</div>
+                <div class="panel-body dash-detail">
+                    <p><a href="{!!url('/utenti/create')!!}">{!!Lang::choice('messages.crea_nuova',0)!!}</a></p>
+                    <p><a href="{!!url('/utenti')!!}">{!!Lang::choice('messages.gestisci',0)!!}</a></p>
                 </div>
-            </div> 
+            </div>
+        </div> 
+        <div class="col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading dash-head">{!!Lang::choice('messages.configurazione',0)!!}</div>
+                <div class="panel-body dash-detail">
+                    <p><a href="{!!url('/configurazione')!!}">{!!Lang::choice('messages.gestisci',0)!!}</a></p>
+                </div>
+            </div>
+        </div> 
     </div>
 </div>
 @endif

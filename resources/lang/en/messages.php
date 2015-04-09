@@ -81,6 +81,7 @@ return array(
     'utenti' => 'Users',
     'defauts' => 'Params',
     'ordini' => 'Orders',
+    'configurazione' => 'Configuration',
     'crea_nuova' => 'Create New',
     'gestisci' => 'Manage',
     'pannello_admin' => 'Administator Tools',

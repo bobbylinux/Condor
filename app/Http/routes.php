@@ -43,9 +43,7 @@ Route::get('signin/verify/{confirmationCode}', ['middleware' => 'guest', 'uses' 
 Route::get('password/reset', 'UtentiController@resetPassword');
 Route::post('password/reset', 'UtentiController@doResetPassword');
 Route::post('password/update', 'UtentiController@updatePassword');
-Route::get('password/reset/{confirmationCode}', array(
-    'uses' => 'UtentiController@confirmResetPwd')
-);
+Route::get('password/reset/{confirmationCode}', 'UtentiController@confirmResetPwd');
 /* Authentication/Login */
 Route::get('login', ['middleware' => 'guest', 'uses' => 'UtentiController@showLogin']);
 /* Post Login */

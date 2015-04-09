@@ -9,16 +9,8 @@ and open the template in the editor.
 */
 
 body {
-    background-color: #ececff;
+    //background-color: #ececff;
     padding: 1%;
-}
-
-.col-sm-12 {
-    background-color: #fff;    
-}
-
-body {
-    background-color: #fff;
 }
 
 .ui-autocomplete-loading {
@@ -48,7 +40,7 @@ body {
     display: none;    
 }
 
-.dash-head, .dash-detail {
+.dash-head, .dash-detail,.search-btn {
     cursor: pointer;
 }
 

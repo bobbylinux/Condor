@@ -151,8 +151,8 @@ class Utente extends BaseModel implements AuthenticatableContract, CanResetPassw
     /* reset della password */
 
     public function resetPassword($data) {
-        $this->codice_conferma = $data['conferma'];
         $this->username = $data['username'];
+        $this->codice_conferma = $data['conferma'];
         if ($this->confermaResetPwd($data)) {
             $utente = $this->where('username', '=', $data['username'])->where('cancellato', '=', false)->first();
             $utente->codice_conferma = $data['conferma'];

@@ -318,7 +318,7 @@ $(document).ready(function () {
             $("#from").datepicker("option", "maxDate", selectedDate);
         }
     });
-
+    
     /*click sul pulsante degli indirizzi*/
     $(document).on("click", ".address-list", function () {
         /*aggiungo il destinatario all'input nascosto */
@@ -531,52 +531,7 @@ $(document).ready(function () {
        $("#sconto").val("");
        $("#prezzo").val("");
     });
-    /*keypress di F2 per ricerca prodotti su catalogo*/
-    /*$(document).on("focusout", "#codice, #titolo", function (event) {
-        var token = $(this).data('token');
-
-        if ($(this).attr('id') == "titolo") {
-            url = "prodotto/ricerca/titolo/equal";
-            var record = $("#titolo").val();
-        } else if ($(this).attr('id') == "codice") {
-            url = "prodotto/ricerca/codice/equal";
-            var record = $("#codice").val();
-        }
-        $.ajax({
-            type: "POST",
-            url: url,
-            dataType: "json",
-            data:
-                    {
-                        _method: "POST",
-                        term: record,
-                        _token: token
-                    },
-            cache: false,
-            success: function (data)
-            {
-                var param = $("");
-                for (var i = 0; i < data.length; i++) {
-                    var obj = data[i];
-                    $("#codice").val(obj.codice);
-                    $("#titolo").val(obj.titolo);
-                    $("#id-prodotto").val(obj.id);
-                }
-                if (data.length === 0) {
-                    $("#codice").val("");
-                    $("#titolo").val("");
-                } else {
-                    $("#prezzo").focus();
-                }
-            }, //end function
-            error: function (data)
-            {
-                console.log(data);
-            }
-
-        });
-
-    });*/
+    
     /*change del campo quantità*/
     $(document).on("focusout", ".quantita", function () {
         $(".tr-error").remove();
@@ -603,7 +558,12 @@ $(document).ready(function () {
             }
         });
     });
-
+    
+    $(document).on("click",".search-btn",function(event){
+        event.preventDefault();
+        $("#search-form").submit();
+    });
+    
     /*blockui*/
     // unblock when ajax activity stops 
     $(document).ajaxStop($.unblockUI);

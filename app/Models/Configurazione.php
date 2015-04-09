@@ -79,6 +79,12 @@ class Configurazione extends BaseModel {
             $this->sfondo = $data['sfondo'];
             $this->lingua = $data['lingua'];
             self::save();
+            
+            Session::put('logo',$this->logo);
+            Session::put('sfondo',$this->sfondo); 
+            Session::put('lingua', $this->lingua);
+            Session::put('titolo', $this->titolo);
+            
     }
 
     /**
