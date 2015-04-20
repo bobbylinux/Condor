@@ -1,8 +1,9 @@
-<?php  namespace App\Models;
+<?php
+
+namespace App\Models;
 
 use Illuminate\Support\Facades\Validator as Validator;
 use Illuminate\Support\Facades\DB as DB;
-
 
 class Prodotto extends BaseModel {
 
@@ -78,7 +79,7 @@ class Prodotto extends BaseModel {
         $this->codice = $data['codice'];
         $this->titolo = $data['titolo'];
         $this->descrizione = $data['descrizione'];
-        if ( $data['quantita']!="") {
+        if ($data['quantita'] != "") {
             $this->quantita = $data['quantita'];
         }
         $this->spedizione = $data['spedizione'];
@@ -100,7 +101,7 @@ class Prodotto extends BaseModel {
         $this->codice = $data['codice'];
         $this->titolo = $data['titolo'];
         $this->descrizione = $data['descrizione'];
-        if ( $data['quantita']!="") {
+        if ($data['quantita'] != "") {
             $this->quantita = $data['quantita'];
         } else {
             $this->quantita = null;
@@ -206,18 +207,18 @@ class Prodotto extends BaseModel {
     }
 
     public function showActives() {
-        $result = DB::table('prodotti')
-                ->join('categorie_prodotti', 'categorie_prodotti.prodotto', '=', 'prodotti.id')
-                ->join('listini_detail', 'listini_detail.prodotto', '=', 'prodotti.id')
-                ->join('listini_master', 'listini_detail.listino', '=', 'listini_master.id')
-                ->join('immagini', 'immagini.prodotto', '=', 'prodotti.id')
-                ->where('prodotti.cancellato', '=', false)
-                ->where('categorie_prodotti.cancellato', '=', false)
-                ->where('listini_detail.cancellato', '=', false)
-                ->where('listini_master.cancellato', '=', false)
-                ->where('immagini.cancellato', '=', false)
-                ->select('listini_detail.id as id', 'prodotti.titolo', 'listini_detail.prezzo as prezzo', 'immagini.url as url_img', 'immagini.nome as nome_img')
-                ->get();
+        $result = DB::select(DB::raw("select  ld.id as id, pr.titolo, ld.prezzo as prezzo, im.url as url_img, im.nome as nome_img
+                                        from prodotti pr
+                                        join categorie_prodotti cp on cp.prodotto = pr.id
+                                        join listini_detail ld on ld.prodotto = pr.id
+                                        join listini_master lm on lm.id = ld.listino
+                                        join (select min(id) as id,min(url) as url,min(nome) as nome,immagini.prodotto as prodotto from immagini where immagini.cancellato = false group by prodotto) im on im.prodotto = pr.id
+                                        where pr.cancellato = false
+                                        and   cp.cancellato = false
+                                        and   ld.cancellato = false
+                                        and   lm.cancellato = false
+                                        and   (current_timestamp) between lm.data_inizio and lm.data_fine 
+                                    "));
         return $result;
     }
 
