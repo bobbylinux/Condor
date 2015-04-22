@@ -20,6 +20,7 @@
     </div>
 </div>
 <div class="row">
+    
     <div class="col-xs-4">
         <img src="{!!url($prodotto->url_img .'/'. $prodotto->nome_img)!!}" class="img-thumbnail" />
     </div>

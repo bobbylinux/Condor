@@ -1,5 +1,5 @@
-<div class="navbar navbar-default" role="navigation">
-    <div class="container-fluid col-xs-12">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
         <div class="navbar-header">            
             <a class="navbar-brand" href="{!! url('/')!!}">{!!env('TITLE', 'Condor')!!}</a>
         </div>
@@ -36,4 +36,4 @@
             {!!Form::close()!!}
         </div><!--/.nav-collapse -->
     </div>
-</div>
+</nav>

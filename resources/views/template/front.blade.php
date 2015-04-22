@@ -8,7 +8,7 @@
         <link href="{!! url('css/custom.css') !!}" rel="stylesheet" media="screen">	
     </head>
     <body style="background-color: <?php echo env('BG_COLOR', '#ffffff')?>">        
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">   
                     @include('template.frontheader')
             </div>
