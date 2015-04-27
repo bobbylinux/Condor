@@ -21,7 +21,6 @@ class HomeController extends BaseController {
       |
      */
 
-    public $layout = 'template.front';
 
     public function showWelcome() {
         //$this->layout->content = \View::make('index');
@@ -59,7 +58,7 @@ class HomeController extends BaseController {
     public function showProduct($id) {
         $prodotto = new ListinoDetail;
         $categoria = new Categoria;
-        $data['categoria_lista'] = $categoria->getActives();
+        $data['immagini'] = $prodotto->getProductImages($id);
         $data['prodotto'] = $prodotto->searchById($id);
         $valuta = new Valuta;
         $data['valuta'] = $valuta->getValuta();

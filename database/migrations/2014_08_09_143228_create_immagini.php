@@ -16,8 +16,6 @@ class CreateImmagini extends Migration {
             $table->string('nome', 64); //nome della immagine
             $table->string('url', 4000); //url di destinazione della immagine sul server
             $table->string('tipo',16); //tipo di immagine 
-            $table->integer('prodotto')->unsigned()->index();
-            $table->foreign('prodotto')->references('id')->on('prodotti')->onDelete('cascade');
             $table->boolean('cancellato')->default(false); //flag di cancellazione: true = cancellato, false = non cancellato, default = false
             $table->timestamp('data_creazione')->default(DB::raw('CURRENT_TIMESTAMP')); //data creazione default sysdate
             $table->timestamp('data_modifica')->default(DB::raw('CURRENT_TIMESTAMP')); //data modifica default sysdate

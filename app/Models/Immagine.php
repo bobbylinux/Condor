@@ -15,7 +15,7 @@ class Immagine extends BaseModel {
      * The array containing the names of database columns that can't be empty on storage
      * 
      */
-    protected $fillable = array('nome', 'url', 'tipo', 'prodotto');
+    protected $fillable = array('nome', 'url', 'tipo');
 
     /**
      * The array containing the names of database columns taht can't be edited/inserted on storage
@@ -72,14 +72,9 @@ class Immagine extends BaseModel {
      * @data array
      */
     public function store($data,$file) {
-        $nome_file = $data['nome'];
-        $url_file = $data['url'];
-        $tipo_file = $data['tipo'];
-        $prodotto_file = $data['prodotto'];
-        $this->nome = $nome_file;
-        $this->url = $url_file;
-        $this->tipo = $tipo_file;
-        $this->prodotto = $prodotto_file; 
+        $this->nome = $data['nome'];
+        $this->url = $data['url'];
+        $this->tipo = $data['tipo'];
         $result = self::save();
         if ($result) {
             $file->move($url_file, $nome_file);
@@ -88,11 +83,12 @@ class Immagine extends BaseModel {
     }
     // DEFINE RELATIONSHIPS --------------------------------------------------
     public function prodotto() {
-        return $this->belongsTo('Prodotto');
+        return $this->belongsToMany('Prodotto','immagini_prodotto','prodotto','immagine');
     }
     
     public function getFirstImage($id_prodotto) {
-        $this->immagine->where('prodotto','=',$id_prodotto)->where('cancellato','=',false)->first();
+        $prodotto = Prodotti::find($id_prodotto);
+	return $prodotto->immagine()->where('cancellato','=',false)->first();
     }
 
 }

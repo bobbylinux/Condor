@@ -106,3 +106,9 @@ textarea {
 .payment-change {
     display: none;
 }
+/*cropit*/
+.cropit-image-preview {
+  /* You can specify preview size in CSS */
+  width: 400px;
+  height: 300px;
+}

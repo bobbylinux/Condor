@@ -179,7 +179,12 @@ class ListinoDetail extends BaseModel {
         }
         return $result;
     }
-
+    /**
+     * Function that get the deatils of a product by id in list_detail
+     * 
+     * @param type numeric
+     * @return type
+     */
     public function searchById($id_detail) {
         $result = DB::table('prodotti')
                 ->join('listini_detail', 'listini_detail.prodotto', '=', 'prodotti.id')
@@ -192,6 +197,25 @@ class ListinoDetail extends BaseModel {
                 ->where('listini_detail.id', '=', $id_detail)
                 ->select('listini_detail.id as id_prodotto', 'prodotti.titolo', 'listini_detail.prezzo as prezzo', 'immagini.url as url_img', 'immagini.nome as nome_img','prodotti.quantita as quantita')
                 ->first();
+        return $result;
+    }
+    
+    /**
+     * Function that get all images by an id in list_detail products
+     * 
+     * @param type number
+     * @return type
+     */
+    public function getProductImages($id_detail) {
+        $result = DB::table('immagini')
+                ->join('prodotti','prodotti.id','=','immagini.prodotto')
+                ->join('listini_detail','listini_detail.prodotto','=','prodotti.id')
+                ->where('listini_detail.cancellato','=',false)
+                ->where('prodotti.cancellato','=',false)
+                ->where('immagini.cancellato','=',false)
+                ->where('listini_detail.id','=',$id_detail)
+                ->select('immagini.url as url_img', 'immagini.nome as nome_img')
+                ->get();
         return $result;
     }
 

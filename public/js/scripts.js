@@ -131,7 +131,7 @@ $(document).ready(function () {
     ;
 
     /*modifico prodotto del catalogo */
-    function editProductOnCatalog(product_id, price, discount) {
+    function editProductOnCatalog(product_id, price, discount, token) {
         var prodotto = product_id;
         var prezzo = price;
         var sconto = discount;
@@ -144,7 +144,8 @@ $(document).ready(function () {
                         _method: "POST",
                         prodotto: prodotto,
                         prezzo: prezzo,
-                        sconto: sconto
+                        sconto: sconto,
+                        _token: token
                     },
             cache: false,
             beforeSend: function ()
@@ -195,7 +196,8 @@ $(document).ready(function () {
         var prodotto = $("#modifica-id").val();
         var prezzo = $("#modifica-prezzo").val();
         var sconto = $("#modifica-sconto").val();
-        editProductOnCatalog(prodotto, prezzo, sconto);
+        var token = $(this).data("token");
+        editProductOnCatalog(prodotto, prezzo, sconto, token);
     });
     /*click su pulsante per modificare elemento in listino detail*/
     $(document).on("click", "a.btn-edit-list-prod", function (event) {
@@ -304,6 +306,7 @@ $(document).ready(function () {
         defaultDate: "+1w",
         changeMonth: true,
         numberOfMonths: 1,
+        regional: "it",
         dateFormat: "dd-mm-yy",
         onClose: function (selectedDate) {
             $("#to").datepicker("option", "minDate", selectedDate);
@@ -318,7 +321,7 @@ $(document).ready(function () {
             $("#from").datepicker("option", "maxDate", selectedDate);
         }
     });
-    
+
     /*click sul pulsante degli indirizzi*/
     $(document).on("click", ".address-list", function () {
         /*aggiungo il destinatario all'input nascosto */
@@ -523,15 +526,18 @@ $(document).ready(function () {
 
         ricercaProdotto(url, token, record);
     });
-    
-    $(document).on("click",".btn-reset",function(event) {
-       event.preventDefault();
-       $("#codice").val("");
-       $("#titolo").val("");
-       $("#sconto").val("");
-       $("#prezzo").val("");
+
+    $(document).on("click", ".btn-reset", function (event) {
+        event.preventDefault();
+        $("#codice").val("");
+        $("#titolo").val("");
+        $("#sconto").val("");
+        $("#prezzo").val("");
     });
-    
+    /*filechange immagine prodotto*/
+    $(document).on("change", ".file-img", function () {
+        $('#msg-img-crop').modal('show');
+    });
     /*change del campo quantità*/
     $(document).on("focusout", ".quantita", function () {
         $(".tr-error").remove();
@@ -558,14 +564,19 @@ $(document).ready(function () {
             }
         });
     });
-    
-    $(document).on("click",".search-btn",function(event){
+
+    $(document).on("click", ".search-btn", function (event) {
         event.preventDefault();
         $("#search-form").submit();
     });
-    
+
     /*blockui*/
     // unblock when ajax activity stops 
     $(document).ajaxStop($.unblockUI);
 
+    /*venbox lightbox immagini prodotto*/
+    /* default settings */
+    $('.venobox').venobox();
+    /*cropit*/
+    $('#image-cropper').cropit();
 });

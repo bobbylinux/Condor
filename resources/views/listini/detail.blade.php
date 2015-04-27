@@ -179,7 +179,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-annulla-prod">{!!Lang::choice('messages.pulsante_annulla',0)!!}</button>
-                <a  class="btn btn-success" id="btn-conferma-prod">{!!Lang::choice('messages.pulsante_conferma',0)!!}</a>
+                <a  class="btn btn-success" id="btn-conferma-prod" data-token="<?= csrf_token() ?>">{!!Lang::choice('messages.pulsante_conferma',0)!!}</a>
                 <input type="hidden" value="" id="modifica-id"/>
             </div>
         </div><!-- /.modal-content -->

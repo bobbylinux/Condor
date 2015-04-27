@@ -93,10 +93,15 @@
 @endforeach
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <div class="form-group">
-            {!! Form::label('immagine_prodotto', Lang::choice('messages.immagine_prodotto',0)) !!}
-            {!! Form::file('files[]', array('multiple'=>true,'class'=>'form-control')) !!}
+            {!! Form::label('immagine_prodotto', Lang::choice('messages.immagine_prodotto',0)) !!}  
+        <div class="panel panel-default">      
+            <div class="panel-body">
+                <div class="form-group">
+                    {!! Form::file('files', array('class'=>'form-control file-img cropit-image-input')) !!}
+                </div>
+            </div>
         </div>
+
     </div>
 </div>
 @foreach($errors->get('immagine') as $message)
@@ -114,11 +119,5 @@
     </div>
 </div>
 {!!Form::close()!!} 
-@foreach($errors->all() as $error)
-<div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <p class="bg-danger">{!! $error !!}</p>
-    </div>
-</div>
-@endforeach
+
 @stop
