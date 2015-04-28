@@ -112,11 +112,12 @@ class ProdottiController extends BaseController {
                     $data_img = array(
                         'nome' => $nome_file,
                         'url' => $url_file,
-                        'tipo' => $tipo_file,
-                        'prodotto' => $prodotto_id);
+                        'tipo' => $tipo_file);
 
                     $immagine = $this->getImageInstance($this->immagine);
                     $immagine->store($data_img, $file);
+                    $id = $immagine->id;
+                    $this->prodotto->immagini()->attach($id);
                 }
             }
             return Redirect::action('ProdottiController@index');

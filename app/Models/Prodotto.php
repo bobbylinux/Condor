@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Support\Facades\Validator as Validator;
 use Illuminate\Support\Facades\DB as DB;
+use App\Models\Immagine as Immagine;
 
 class Prodotto extends BaseModel {
 
@@ -167,8 +168,8 @@ class Prodotto extends BaseModel {
      *
      * @var string
      */
-    public function immagine() {
-        return $this->belongsToMany('Prodotto','immagini_prodotto','immagine','prodotto');
+    public function immagini() {
+        return $this->belongsToMany('App\Models\Immagine','immagini_prodotti','prodotto','immagine');
     }
 
     /**
@@ -177,7 +178,7 @@ class Prodotto extends BaseModel {
      * @var string
      */
     function categorie() {
-        return $this->belongsToMany('Categoria', 'categorie_prodotti', 'prodotto', 'categoria');
+        return $this->belongsToMany('App\Models\Categoria', 'categorie_prodotti', 'prodotto', 'categoria');
     }
 
     /**
@@ -186,7 +187,7 @@ class Prodotto extends BaseModel {
      * @var string
      */
     function listini() {
-        return $this->belongsToMany('ListinoMaster', 'listini_detail', 'prodotto', 'listino')->withPivot("prezzo", "sconto");
+        return $this->belongsToMany('App\Models\ListinoMaster', 'listini_detail', 'prodotto', 'listino')->withPivot("prezzo", "sconto");
     }
 
     public function showCategory($id) {

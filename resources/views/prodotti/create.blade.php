@@ -97,7 +97,7 @@
         <div class="panel panel-default">      
             <div class="panel-body">
                 <div class="form-group">
-                    {!! Form::file('files', array('class'=>'form-control file-img cropit-image-input')) !!}
+                    {!! Form::file('files[]', array('class'=>'form-control file-img cropit-image-input')) !!}
                 </div>
             </div>
         </div>

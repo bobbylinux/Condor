@@ -77,13 +77,13 @@ class Immagine extends BaseModel {
         $this->tipo = $data['tipo'];
         $result = self::save();
         if ($result) {
-            $file->move($url_file, $nome_file);
+            $file->move($data['url'], $data['nome']);
         }
         
     }
     // DEFINE RELATIONSHIPS --------------------------------------------------
-    public function prodotto() {
-        return $this->belongsToMany('Prodotto','immagini_prodotto','prodotto','immagine');
+    public function prodotti() {
+        return $this->belongsToMany('App\Models\Prodotto','immagini_prodotti','immagine','prodotto');
     }
     
     public function getFirstImage($id_prodotto) {
