@@ -4,7 +4,7 @@
     <h2>{!!Lang::choice('messages.login_titolo',0)!!}</h2>
 </div>
 
-<div class="col-md-4 col-md-offset-4 col-xs-8">
+<div class="col-md-4 col-md-offset-4 col-sm-5 col-xs-12">
     {!! Form::open(array('url' => 'login','method'=>'POST')) !!}
     <div class="panel panel-default">
         <div class="panel-body">
@@ -12,7 +12,7 @@
                 <div class="col-xs-12">
                     <div class="form-group">
                         {!! Form::label('username', Lang::choice('messages.login_username',0)) !!}
-                        {!! Form::text('username', '', array('class'=>'form-control')) !!} 
+                        {!! Form::email('username', '', array('class'=>'form-control')) !!} 
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
             </div>
             @foreach($errors->get('password') as $message)
             <div class="row">
-                <div class="col-xs-4 col-xs-offset-1">
+                <div class="col-sm-4 col-sm-offset-1">
                     <p class="bg-danger">{!! $message !!}</p>
                 </div>
             </div>
