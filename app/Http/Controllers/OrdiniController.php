@@ -128,16 +128,17 @@ class OrdiniController extends BaseController {
         }
 
         $carrello->refreshCartItemsNumber();
-        $data['cmd'] = "xclick";
+        $data['cmd'] = "_xclick";
         $data['amount'] = Input::get("amount");
         $data['lc'] = Session::get('lang','it');
         $data['currency_code'] = Input::get("currency_code");
-        $data['item_name'] = "Ordine E-Commerce" ;
-        $data['item_number'] = $id_ordine/*Input::get("item_number")*/;
+        $data['item_name'] = "Ordine " . env('TITLE','e-commerce') ;
+        $data['item_number'] = $id_ordine;
+        $data['shipping'] = Input::get("prezzo-spedizione");
         $data['handling'] = 0;
-        $data['business'] = "roberto.bani-facilitator@gmail.com";
+        $data['business'] = env("PAYPAL_SELLER","roberto.bani-seller@gmail.com");
         $data['cancel_return'] = url(); 
-        $data['buyer_email'] = "roberto.bani-buyer@gmail.com";//per produzione -> Auth::user()->username;
+        $data['buyer_email'] = Auth::user()->username;
         
         return view('ordini.payment', $data);
     }

@@ -52,7 +52,7 @@
                     <div class="panel-body">
                         {!!$spedizione->note!!} 
                     </div>
-                    <input type="hidden" class="prezzo-spedizione" value="{!!$spedizione->prezzo!!}">
+                    <input type="hidden" name="prezzo-spedizione" class="prezzo-spedizione" value="{!!$spedizione->prezzo!!}">
                     {!! Form::hidden('spedizione-item', $spedizione->id, array('class'=>'form-control spedizione-item')) !!} 
                 </div>
             </div>
@@ -98,9 +98,7 @@
             <input type="hidden" name="amount" value="{!!$totale_carrello!!}">
             <input type="hidden" name="currency_code" value="{!!$valuta->sigla!!}">
             <input type="hidden" name="lc" value="{!!Session::get('lang','it')!!}">
-            <input type="hidden" name="item_name" value="Ordine Condor">
             <input type="hidden" name="handling" id="handling" value="0">
-            <input type="hidden" name="business" value="bobbylinux-facilitator@hotmail.it">˙
         </div>
     </div>    
     @endif

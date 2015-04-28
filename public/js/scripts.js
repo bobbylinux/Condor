@@ -578,5 +578,5 @@ $(document).ready(function () {
     /* default settings */
     $('.venobox').venobox();
     /*cropit*/
-    $('#image-cropper').cropit();
+    //$('#image-cropper').cropit();
 });
