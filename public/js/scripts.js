@@ -6,6 +6,14 @@ $(document).ready(function () {
     /*********************/
     /*funzioni per eventi*/
     /*********************/
+    /*check if image type*/
+    function isImageFile(file) {
+        if (file.type) {
+            return /^image\/\w+$/.test(file.type);
+        } else {
+            return /\.(jpg|jpeg|png|gif)$/.test(file);
+        }
+    }
     /*funzione ricerca elemento per campo*/
     function ricercaProdotto(url, token, record) {
         $.ajax({
@@ -167,7 +175,34 @@ $(document).ready(function () {
 
         });
     }
-    ;
+    function startCropper($avatarPreview) {
+        var _this = this;
+
+        if (this.active) {
+            this.$img.cropper('replace', this.url);
+        } else {
+            this.$img = $('<img src="' + this.url + '">');
+            this.$avatarWrapper.empty().html(this.$img);
+            this.$img.cropper({
+                aspectRatio: 1,
+                preview: $avatarPreview.selector,
+                strict: false,
+                crop: function (data) {
+                    var json = [
+                        '{"x":' + data.x,
+                        '"y":' + data.y,
+                        '"height":' + data.height,
+                        '"width":' + data.width,
+                        '"rotate":' + data.rotate + '}'
+                    ].join();
+
+                    _this.$avatarData.val(json);
+                }
+            });
+
+            this.active = true;
+        }
+    }
     /*gestione eventi*/
     /*click su bottone "Elimina" in lista oggetti*/
     $(document).on("click", ".btn-cancella", function (event) {
@@ -254,8 +289,8 @@ $(document).ready(function () {
 
     /*cambio di stato*/
     $(document).on("change", "#nuovo-stato", function () {
-        var value = $(this).val()
-        if (value == "3") {
+        var value = $(this).val();
+        if (value === "3") {
             $(".div-tracking").show();
         } else {
             $(".div-tracking").hide();
@@ -534,10 +569,7 @@ $(document).ready(function () {
         $("#sconto").val("");
         $("#prezzo").val("");
     });
-    /*filechange immagine prodotto*/
-    $(document).on("change", ".file-img", function () {
-        $('#msg-img-crop').modal('show');
-    });
+
     /*change del campo quantità*/
     $(document).on("focusout", ".quantita", function () {
         $(".tr-error").remove();
@@ -553,7 +585,7 @@ $(document).ready(function () {
             data: {_method: 'put', quantita: $quantita, _token: token},
             success: function (data)
             {
-                if (data.code == "200") {
+                if (data.code === "200") {
                     location.reload();
                 } else {
                     var $error = '<tr class="tr-error"><td class="alert alert-success" role="alert" colspan ="5">' + data.msg + '</td></tr>';
@@ -577,6 +609,6 @@ $(document).ready(function () {
     /*venbox lightbox immagini prodotto*/
     /* default settings */
     $('.venobox').venobox();
-    /*cropit*/
-    //$('#image-cropper').cropit();
+
+
 });

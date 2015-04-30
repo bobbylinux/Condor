@@ -29,6 +29,7 @@ return array(
     'pulsante_cerca'  => 'Cerca',
     'pulsante_ripristina'  => 'Ripristina',
     'pulsante_seleziona' => 'Seleziona',
+    'pulsante_aggiungi_immagine' => 'Aggiungi Immagine',
     'pulsante_home_page' => 'Home Page',
     'attendere' => 'Attendere Prego...',    
     'errore' => 'Errore',

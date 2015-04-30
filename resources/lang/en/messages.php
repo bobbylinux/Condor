@@ -29,6 +29,7 @@ return array(
     'pulsante_cerca'  => 'Search',
     'pulsante_ripristina'  => 'Reset',
     'pulsante_seleziona' => 'Select',
+    'pulsante_aggiungi_immagine' => 'Add Image',
     'pulsante_home_page' => 'Home Page',
     'attendere' => 'Please Wait...',
     'errore' => 'Error',

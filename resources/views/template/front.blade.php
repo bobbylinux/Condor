@@ -9,7 +9,7 @@
         <link href="{!! url('js/vbox/venobox.css') !!}" rel="stylesheet" media="screen">
     </head>
     <body style="background-color: <?php echo env('BG_COLOR', '#ffffff')?>">        
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">   
                     @include('template.frontheader')
             </div>
