@@ -1,20 +1,21 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Input as Input;
 use Illuminate\Support\Facades\Redirect as Redirect;
 use Illuminate\Support\Facades\Response as Response;
-
 use App\Http\Controllers\Controller as BaseController;
 use App\Models\Categoria as Categoria;
 use App\Models\Prodotto as Prodotto;
 use App\Models\Immagine as Immagine;
 use App\Models\CategoriaProdotto as CategoriaProdotto;
-        
 
 class ProdottiController extends BaseController {
 
     protected $prodotto;
     protected $immagine;
+    protected $categoria;
 
     /**
      * Constructor for Dipendency Injection
@@ -22,9 +23,10 @@ class ProdottiController extends BaseController {
      * @return none
      *          
      */
-    public function __construct(Prodotto $prodotto, Immagine $immagine) {
+    public function __construct(Prodotto $prodotto, Immagine $immagine, Categoria $categoria) {
         $this->prodotto = $prodotto;
         $this->immagine = $immagine;
+        $this->categoria = $categoria;
     }
 
     /**
@@ -33,13 +35,18 @@ class ProdottiController extends BaseController {
      * @return none
      *          
      */
-    public function setInjection(Prodotto $prodotto, Immagine $immagine) {
+    public function setInjection(Prodotto $prodotto, Immagine $immagine, Categoria $categoria) {
         $this->prodotto = $prodotto;
         $this->immagine = $immagine;
+        $this->categoria = $categoria;
     }
 
     public function getImageInstance(Immagine $immagine) {
         return new $immagine;
+    }
+
+    public function getCategoryInstance(Categoria $categoria) {
+        return new $categoria;
     }
 
     /**
@@ -51,7 +58,7 @@ class ProdottiController extends BaseController {
         /* recupero tutti i prodotti dalla classe modello */
         $data['prodotti_lista'] = $this->prodotto->where('cancellato', '=', 'false')->orderBy('titolo', 'asc')->paginate(10);
         /* creo la vista per la visualizzazione della lista di categorie */
-        return view('prodotti.index', $data); 
+        return view('prodotti.index', $data);
     }
 
     /**
@@ -60,7 +67,7 @@ class ProdottiController extends BaseController {
      * @return Response
      */
     public function create() {
-        $categoria = new Categoria;
+        $categoria = $this->getCategoryInstance($this->categoria);
         $data['categorie_lista'] = $categoria->where('cancellato', '=', 'false')->orderBy('nome', 'asc')->lists('nome', 'id');
         return view('prodotti.create', $data);
     }
@@ -114,7 +121,7 @@ class ProdottiController extends BaseController {
                         'url' => $url_file,
                         'tipo' => $tipo_file);
 
-                    $immagine = $this->getImageInstance($this->immagine);
+                    $immagine = $this->getImageInstance($this->immagine); //questo è un utilizzo casareccio della Dependency Injection, almeno come io l'ho concepita.... 
                     $immagine->store($data_img, $file);
                     $id = $immagine->id;
                     $this->prodotto->immagini()->attach($id);
@@ -144,11 +151,12 @@ class ProdottiController extends BaseController {
      * @return Response
      */
     public function edit($id) {
-        $data['prodotto'] = $this->prodotto->find($id);
+        $data['prodotto'] = $this->prodotto->with('immagini')->find($id);
         $data['categorie'] = CategoriaProdotto::where('prodotto', '=', $id)->get();
-        $categoria = new Categoria;
+        $categoria = $this->getCategoryInstance($this->categoria);
+
         $data['categorie_lista'] = $categoria->where('cancellato', '=', 'false')->orderBy('nome', 'asc')->lists('nome', 'id');
-        return view('prodotti.edit', $data);        
+        return view('prodotti.edit', $data);
     }
 
     /**
@@ -221,6 +229,26 @@ class ProdottiController extends BaseController {
         $term = Input::get('term');
         $result = $this->prodotto->searchByTitle($term, $type);
         return $result;
+    }
+
+    /**
+     * Detatch image from product
+     *
+     * 
+     * @return null
+     */
+    public function detachImage($idProduct, $idImage) {
+        $this->prodotto->find($idProduct)->immagini()->detach($idImage);
+        $result = $this->immagine->find($idImage)->trash();
+        if ($result) {
+            return Response::json(array(
+                    'code' => '200', //OK
+                    'msg' => 'OK'));
+        } else {
+            return Response::json(array(
+                    'code' => '500', //OK
+                    'msg' => 'KO'));
+        }
     }
 
 }

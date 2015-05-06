@@ -24,6 +24,12 @@ class Immagine extends BaseModel {
     protected $guarded = array('data_creazione');
     
     /**
+     * The variable for system date time
+     * 
+     */
+    protected $now = null;
+    
+    /**
      * The variable for validation rules
      * 
      */
@@ -56,7 +62,7 @@ class Immagine extends BaseModel {
 
         return true;
     }
-
+    
     /**
      * The function that incapsulate the error variable
      * 
@@ -79,8 +85,21 @@ class Immagine extends BaseModel {
         if ($result) {
             $file->move($data['url'], $data['nome']);
         }
-        
     }
+    
+    /**
+     * The function for delete in database from view
+     *
+     * @data array
+     */
+    public function trash() {
+        $this->now = date('Y-m-d H:i:s');
+        $this->cancellato = true;
+        $this->data_cancellazione = $this->now;
+        $result = $this->save();
+        return $result;
+    }
+    
     // DEFINE RELATIONSHIPS --------------------------------------------------
     public function prodotti() {
         return $this->belongsToMany('App\Models\Prodotto','immagini_prodotti','immagine','prodotto');

@@ -61,11 +61,11 @@
     </div>
 </div>
 @endforeach
-<?php 
-if(!$prodotto->spedizione) {
-    $spedizione = 0; 
+<?php
+if (!$prodotto->spedizione) {
+    $spedizione = 0;
 } else {
-    $spedizione = 1; 
+    $spedizione = 1;
 }
 ?>
 <div class="row">
@@ -94,6 +94,60 @@ if(!$prodotto->spedizione) {
 </div>
 @endforeach
 @foreach($errors->get('categoria') as $message)
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <p class="bg-danger">{!! $message !!}</p>
+    </div>
+</div>
+@endforeach
+<div class="row">
+    <div class="col-xs-12 col-sm-2 col-sm-offset-2">
+
+        {!! Form::label('immagini_prodotto', Lang::choice('messages.immagine_prodotto',0)) !!}
+
+
+        <!--</li>-->
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="form-group">
+            {!! Form::submit(Lang::choice('messages.pulsante_aggiungi_immagine',0), array('class' =>'btn btn-primary btn-add-img'))!!} 
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-8 col-sm-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="carousel slide" id="myCarousel">
+                        <div class="carousel-inner">
+                            @foreach($prodotto->immagini as $immagine)
+                            <div class="item active">
+                                <div class="col-md-4">
+                                    <div class="thumbnail">        
+                                        <a href="#"><img src="{!! url($immagine->url . '/' . $immagine->nome)!!}" class="img-responsive img-carousel"></a>
+                                        <div class="caption">
+                                            <p><a href="{!!url('/prodotto/'.$prodotto->id.'/immagine/'.$immagine->id)!!}" data-token="<?= csrf_token() ?>" class="btn btn-danger btn-del-img" role="button"><span class="glyphicon glyphicon-trash btn-del-img"></span></a> </p>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                            @endforeach
+                            @if ($prodotto->immagini->count() > 3) 
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@foreach($errors->get('quantita') as $message)
 <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
         <p class="bg-danger">{!! $message !!}</p>

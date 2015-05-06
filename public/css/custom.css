@@ -87,7 +87,6 @@ body {
 textarea {
     resize: none;
 }
-
 .col-centered{
     float: none;
     margin: 0 auto;
@@ -111,3 +110,10 @@ textarea {
 .file-img-wrap-div {
     display: none;
 }
+
+/*carousel */
+.carousel-inner .active.left { left: -33%; }
+.carousel-inner .next        { left:  33%; }
+.carousel-inner .prev        { left: -33%; }
+.carousel-control.left,.carousel-control.right {background-image:none;}
+

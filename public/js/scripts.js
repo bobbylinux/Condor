@@ -610,5 +610,54 @@ $(document).ready(function () {
     /* default settings */
     $('.venobox').venobox();
 
+    /*carousel*/
+    $('#myCarousel').carousel({
+        interval: 10000
+    });
+
+    $('.carousel .item').each(function () {
+        var next = $(this).next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        if (next.next().length > 0) {
+            next.next().children(':first-child').clone().appendTo($(this));
+        }
+        else {
+            $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+        }
+    });
+
+    $(document).on("click", ".img-carousel", function (event) {
+        event.preventDefault();
+    });
+    /*fine varousel*/
+    $(document).on("click", ".btn-add-img", function (event) {
+        event.preventDefault();
+    });
+
+    $(document).on("click", ".btn-del-img", function (event) {
+        event.preventDefault();
+        $.blockUI({message: $('#wait-msg')});
+        url_delete = $(this).attr("href");
+        token = $(this).data('token');
+        $.ajax({
+            url: url_delete,
+            type: 'post',
+            data: {_method: 'delete', _token: token},
+            context: document.body,
+            cache: false,
+            success: function (data)
+            {
+                location.reload();
+            },
+            error: function (data)
+            {
+                console.log(data);
+            }
+        });
+    });
 
 });
