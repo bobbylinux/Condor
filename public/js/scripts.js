@@ -636,11 +636,17 @@ $(document).ready(function () {
     /*fine varousel*/
     $(document).on("click", ".btn-add-img", function (event) {
         event.preventDefault();
+        $("#avatarInput").trigger("click");
+    });
+
+    $(document).on("change","#avatarInput",function(){
+        alert("changed");
+        $(".avatar-view").trigger("click");
     });
 
     $(document).on("click", ".btn-del-img", function (event) {
         event.preventDefault();
-        $.blockUI({message: $('#wait-msg')});
+        /*$.blockUI({message: $('#wait-msg')});
         url_delete = $(this).attr("href");
         token = $(this).data('token');
         $.ajax({
@@ -651,13 +657,15 @@ $(document).ready(function () {
             cache: false,
             success: function (data)
             {
-                location.reload();
-            },
+                $(document).ajaxStop($.unblockUI);*/
+                //location.reload();
+                $(this).closest(".item").remove();
+            /*},
             error: function (data)
             {
                 console.log(data);
             }
-        });
+        });*/
     });
 
 });

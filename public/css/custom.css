@@ -117,3 +117,10 @@ textarea {
 .carousel-inner .prev        { left: -33%; }
 .carousel-control.left,.carousel-control.right {background-image:none;}
 
+.fixed-width {
+  height: 100%;
+  width: 50%;
+}
+
+
+

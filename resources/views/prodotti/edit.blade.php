@@ -102,12 +102,7 @@ if (!$prodotto->spedizione) {
 @endforeach
 <div class="row">
     <div class="col-xs-12 col-sm-2 col-sm-offset-2">
-
         {!! Form::label('immagini_prodotto', Lang::choice('messages.immagine_prodotto',0)) !!}
-
-
-        <!--</li>-->
-
     </div>
 </div>
 <div class="row">
@@ -128,7 +123,7 @@ if (!$prodotto->spedizione) {
                             <div class="item active">
                                 <div class="col-md-4">
                                     <div class="thumbnail">        
-                                        <a href="#"><img src="{!! url($immagine->url . '/' . $immagine->nome)!!}" class="img-responsive img-carousel"></a>
+                                        <img src="{!! url($immagine->url . '/' . $immagine->nome)!!}" class="img-responsive img-carousel">
                                         <div class="caption">
                                             <p><a href="{!!url('/prodotto/'.$prodotto->id.'/immagine/'.$immagine->id)!!}" data-token="<?= csrf_token() ?>" class="btn btn-danger btn-del-img" role="button"><span class="glyphicon glyphicon-trash btn-del-img"></span></a> </p>
                                         </div>
