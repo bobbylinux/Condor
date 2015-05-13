@@ -41,10 +41,6 @@ class ProdottiController extends BaseController {
         $this->categoria = $categoria;
     }
 
-    public function getImageInstance(Immagine $immagine) {
-        return new $immagine;
-    }
-
     public function getCategoryInstance(Categoria $categoria) {
         return new $categoria;
     }
@@ -88,45 +84,7 @@ class ProdottiController extends BaseController {
         );
 
         if ($this->prodotto->validate($data)) {
-            /* validazione immagini */
-            $cartella_random = str_random(15);
-            $url_file = 'uploads/' . $cartella_random;
-
-            if (Input::hasFile('files')) {
-                foreach (Input::file('files') as $file) {
-                    $nome_file = $file->getClientOriginalName();
-                    $tipo_file = $file->guessClientExtension();
-                    $data_img = array(
-                        'nome' => $nome_file,
-                        'url' => $url_file,
-                        'tipo' => $tipo_file,
-                        'file' => $file);
-                    if (!$this->immagine->validate($data_img)) {
-                        $errors = $this->immagine->getErrors();
-                        return Redirect::action('ProdottiController@create')->withInput()->withErrors($errors);
-                    }
-                }
-            }
-            /* se ho validato le immagini procedo alla memorizzazione di prodotto e immagine */
             $this->prodotto->store($data);
-            /* memorizzo immagini */
-            if (Input::hasFile('files')) {
-                //var_dump(Input::file('files'));
-                $prodotto_id = $this->prodotto->id;
-                foreach (Input::file('files') as $file) {
-                    $nome_file = $file->getClientOriginalName();
-                    $tipo_file = $file->guessClientExtension();
-                    $data_img = array(
-                        'nome' => $nome_file,
-                        'url' => $url_file,
-                        'tipo' => $tipo_file);
-
-                    $immagine = $this->getImageInstance($this->immagine); //questo è un utilizzo casareccio della Dependency Injection, almeno come io l'ho concepita.... 
-                    $immagine->store($data_img, $file);
-                    $id = $immagine->id;
-                    $this->prodotto->immagini()->attach($id);
-                }
-            }
             return Redirect::action('ProdottiController@index');
         } else {
             $errors = $this->prodotto->getErrors();

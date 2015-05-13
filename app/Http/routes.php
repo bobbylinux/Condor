@@ -88,6 +88,8 @@ Route::group(array('middleware' => 'admin'), function() {
     Route::resource('categorie', 'CategorieController');
     /* RESTful per prodotti */
     Route::resource('prodotti', 'ProdottiController');
+    /* RESTful per immagini */
+    Route::resource('immagini', 'ImmaginiController');
     /* RESTful per listini */
     Route::resource('listini', 'ListiniController');
     /* RESTful per pagamenti */

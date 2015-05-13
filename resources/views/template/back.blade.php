@@ -14,12 +14,10 @@
     </head>    
     <body style="background-color: <?php echo env('BG_COLOR', '#ffffff') ?>">    
         <div class="container-fluid">            
-            <div class="row">           
-                <div class="col-sm-12">
+            <div class="row">
                     @include('template.backheader')
-                </div>
             </div>
-            <div class="col-sm-12">
+            <div class="row">
                 @yield('content')
             </div>
             @section('modal-warning')

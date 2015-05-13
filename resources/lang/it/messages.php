@@ -232,6 +232,9 @@ return array(
     
     /*pop-up modale*/
     'modale_titolo' => 'Attenzione',
-    'modale_testo' => "Si &egrave; sicuri di voler cancellare? <br>Questa operazione &egrave; irreversibile"
+    'modale_testo' => "Si &egrave; sicuri di voler cancellare? <br>Questa operazione &egrave; irreversibile",
+
+    /*pop-modale carica immagine*/
+    'carica_immagine' => 'Carica Immagine'
     
 );

@@ -14,30 +14,29 @@ $(document).ready(function () {
             return /\.(jpg|jpeg|png|gif)$/.test(file);
         }
     }
+
     /*funzione ricerca elemento per campo*/
     function ricercaProdotto(url, token, record) {
         $.ajax({
             type: "POST",
             url: url,
             dataType: "json",
-            data:
-                    {
-                        _method: "POST",
-                        term: record,
-                        _token: token
-                    },
+            data: {
+                _method: "POST",
+                term: record,
+                _token: token
+            },
             cache: false,
-            success: function (data)
-            {
+            success: function (data) {
                 openModalCatalogDetail(data);
             }, //end function
-            error: function (data)
-            {
+            error: function (data) {
                 console.log(data);
             }
         });
 
     }
+
     /*funzione di inserimento prodotto in catalogo*/
     function aggiungiProdotto() {
         var id = $(".highlight").children('td').eq(0).text();
@@ -48,6 +47,7 @@ $(document).ready(function () {
         $("#titolo").val(titolo);
         $('#lista-prodotti').modal('hide');
     }
+
     /*apro finestra modale per aggiunta prodotti a catalogo*/
     function openModalCatalogDetail(data) {
         var param = ""
@@ -74,18 +74,17 @@ $(document).ready(function () {
             data: {_method: 'delete', _token: token},
             context: document.body,
             cache: false,
-            success: function (data)
-            {
+            success: function (data) {
                 $('#msg-warning').modal('hide');
                 location.reload();
             },
-            error: function (data)
-            {
+            error: function (data) {
                 $('#msg-warning').modal('hide');
 
             }
         });
     }
+
     /*aggiungo un prodotto al catalogo dal dettaglio*/
     function addProductToCatalog(event) {
         event.preventDefault();
@@ -101,25 +100,22 @@ $(document).ready(function () {
             type: "POST",
             url: "prodotto/aggiungi",
             dataType: "json",
-            data:
-                    {
-                        _method: "POST",
-                        index: index,
-                        prodotto: prodotto,
-                        listino: listino,
-                        codice: codice,
-                        titolo: titolo,
-                        prezzo: prezzo,
-                        sconto: sconto,
-                        _token: token
-                    },
+            data: {
+                _method: "POST",
+                index: index,
+                prodotto: prodotto,
+                listino: listino,
+                codice: codice,
+                titolo: titolo,
+                prezzo: prezzo,
+                sconto: sconto,
+                _token: token
+            },
             cache: false,
-            beforeSend: function ()
-            {
+            beforeSend: function () {
                 //$("#ajax_message").html("<p>Please wait...</p>").show();
             },
-            success: function (data)
-            {
+            success: function (data) {
                 console.log(data);
                 var data_append = $(data.msg);
                 $("#codice").val("");
@@ -129,8 +125,7 @@ $(document).ready(function () {
                 $("#id-prodotto").val("");
                 $("#tabella-prodotti-listino tbody").append(data_append);
             }, //end function
-            error: function (data)
-            {
+            error: function (data) {
                 console.log(data);
             }
 
@@ -147,34 +142,31 @@ $(document).ready(function () {
             type: "POST",
             url: "prodotto/aggiorna",
             dataType: "json",
-            data:
-                    {
-                        _method: "POST",
-                        prodotto: prodotto,
-                        prezzo: prezzo,
-                        sconto: sconto,
-                        _token: token
-                    },
+            data: {
+                _method: "POST",
+                prodotto: prodotto,
+                prezzo: prezzo,
+                sconto: sconto,
+                _token: token
+            },
             cache: false,
-            beforeSend: function ()
-            {
+            beforeSend: function () {
                 //$("#ajax_message").html("<p>Please wait...</p>").show();
             },
-            success: function (data)
-            {
+            success: function (data) {
                 console.log(data);
                 $('#msg-product').modal('hide');
                 location.reload();
 
             }, //end function
-            error: function (data)
-            {
+            error: function (data) {
                 console.log(data);
                 $('#msg-product').modal('hide');
             }
 
         });
     }
+
     function startCropper($avatarPreview) {
         var _this = this;
 
@@ -203,6 +195,7 @@ $(document).ready(function () {
             this.active = true;
         }
     }
+
     /*gestione eventi*/
     /*click su bottone "Elimina" in lista oggetti*/
     $(document).on("click", ".btn-cancella", function (event) {
@@ -317,19 +310,16 @@ $(document).ready(function () {
             type: "POST",
             url: url_pagato,
             dataType: 'json',
-            data:
-                    {
-                        _method: "POST",
-                        _token: token
-                    },
+            data: {
+                _method: "POST",
+                _token: token
+            },
             cache: false,
-            success: function (data)
-            {
+            success: function (data) {
                 location.reload();
 
             }, //end function
-            error: function (data)
-            {
+            error: function (data) {
                 console.log(data);
             }
 
@@ -453,19 +443,16 @@ $(document).ready(function () {
             type: "POST",
             url: url,
             dataType: 'html',
-            data:
-                    {
-                        _method: "POST",
-                        _token: token
-                    },
+            data: {
+                _method: "POST",
+                _token: token
+            },
             cache: false,
-            success: function (data)
-            {
+            success: function (data) {
                 $("#dettaglio-ordine-body").append(data);
                 $('#dettaglio-ordine').modal('show');
             }, //end function
-            error: function (data)
-            {
+            error: function (data) {
                 console.log(data);
             }
 
@@ -487,19 +474,16 @@ $(document).ready(function () {
             type: "POST",
             url: url,
             dataType: 'html',
-            data:
-                    {
-                        _method: "POST",
-                        _token: token
-                    },
+            data: {
+                _method: "POST",
+                _token: token
+            },
             cache: false,
-            success: function (data)
-            {
+            success: function (data) {
                 $("#msg-aggiorna-content").append(data);
                 $('#aggiorna-ordine').modal('show');
             }, //end function
-            error: function (data)
-            {
+            error: function (data) {
                 console.log(data);
             }
 
@@ -516,23 +500,20 @@ $(document).ready(function () {
             type: "POST",
             url: url_aggiorna,
             dataType: 'json',
-            data:
-                    {
-                        stato: stato,
-                        note: note,
-                        tracking: tracking,
-                        _method: "POST",
-                        _token: token
-                    },
+            data: {
+                stato: stato,
+                note: note,
+                tracking: tracking,
+                _method: "POST",
+                _token: token
+            },
             cache: false,
-            success: function (data)
-            {
+            success: function (data) {
                 $("#msg-aggiorna").modal("hide");
                 location.reload();
 
             }, //end function
-            error: function (data)
-            {
+            error: function (data) {
                 $("#msg-aggiorna").modal("hide");
                 console.log(data);
             }
@@ -583,8 +564,7 @@ $(document).ready(function () {
             type: 'post',
             cache: false,
             data: {_method: 'put', quantita: $quantita, _token: token},
-            success: function (data)
-            {
+            success: function (data) {
                 if (data.code === "200") {
                     location.reload();
                 } else {
@@ -633,39 +613,60 @@ $(document).ready(function () {
     $(document).on("click", ".img-carousel", function (event) {
         event.preventDefault();
     });
-    /*fine varousel*/
+    /*fine carousel*/
     $(document).on("click", ".btn-add-img", function (event) {
         event.preventDefault();
+        $(".avatar-view").trigger("click");
+        $("#avatar-modal").hide();
         $("#avatarInput").trigger("click");
     });
 
-    $(document).on("change","#avatarInput",function(){
-        alert("changed");
-        $(".avatar-view").trigger("click");
+    $(document).on("change", "#avatarInput", function () {
+        $("#avatar-modal").show();
     });
 
     $(document).on("click", ".btn-del-img", function (event) {
         event.preventDefault();
         /*$.blockUI({message: $('#wait-msg')});
-        url_delete = $(this).attr("href");
-        token = $(this).data('token');
-        $.ajax({
-            url: url_delete,
-            type: 'post',
-            data: {_method: 'delete', _token: token},
-            context: document.body,
-            cache: false,
-            success: function (data)
-            {
-                $(document).ajaxStop($.unblockUI);*/
-                //location.reload();
-                $(this).closest(".item").remove();
-            /*},
-            error: function (data)
-            {
-                console.log(data);
-            }
-        });*/
+         url_delete = $(this).attr("href");
+         token = $(this).data('token');
+         $.ajax({
+         url: url_delete,
+         type: 'post',
+         data: {_method: 'delete', _token: token},
+         context: document.body,
+         cache: false,
+         success: function (data)
+         {
+         $(document).ajaxStop($.unblockUI);*/
+        //location.reload();
+        $(this).closest(".item").remove();
+        /*},
+         error: function (data)
+         {
+         console.log(data);
+         }
+         });*/
     });
 
+    $(document).on("click", ".avatar-save", function (event) {
+        event.preventDefault();
+        $.blockUI({message: $('#wait-msg')});
+        token = $(this).data('token');
+        url = $(this).data('url');
+        $.ajax({
+            url:  url,
+            type: 'post',
+            data: {_method: 'post', _token: token},
+            context: document.body,
+            cache: false,
+            success: function (data) {
+                $(document).ajaxStop($.unblockUI);
+            },
+            error: function (data) {
+                $(document).ajaxStop($.unblockUI);
+                console.log(data);
+            }
+        });
+    });
 });
