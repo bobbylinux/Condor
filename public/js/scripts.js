@@ -576,10 +576,34 @@ $(document).ready(function () {
             }
         });
     });
-
+    /*click sul pulsante ricerca in home page*/
     $(document).on("click", ".search-btn", function (event) {
         event.preventDefault();
         $("#search-form").submit();
+    });
+    /*click sul pulsante di toggle dell'utente*/
+    $(document).on("click",".btn-toggle-usr",function(event){
+        event.preventDefault();
+        $.blockUI({message: $('#wait-msg')});
+        var url = $(this).attr("href");
+        var token = $(this).data('token');
+        $.ajax({
+            context: this, /*used for pass object dom into ajax*/
+            url: url,
+            type: 'post',
+            cache: false,
+            data: {_method: 'post', _token: token},
+            success: function (data) {
+                if (data.code === "200") {
+                    location.reload();
+                } else {
+                    $(document).ajaxStop($.unblockUI);
+                }
+            },
+            error: function (data) {
+                $(document).ajaxStop($.unblockUI);
+            }
+        });
     });
 
     /*blockui*/
@@ -620,7 +644,7 @@ $(document).ready(function () {
         $("#avatar-modal").hide();
         $("#avatarInput").trigger("click");
     });
-
+    /*trigger dell'evento modale quando si seleziona una immagine in creazione immagini nei prodotti*/
     $(document).on("change", "#avatarInput", function () {
         $("#avatar-modal").show();
     });
@@ -648,7 +672,7 @@ $(document).ready(function () {
          }
          });*/
     });
-
+    /*click sul salvataggio del crop dell'immagine*/
     $(document).on("click", ".avatar-save", function (event) {
         event.preventDefault();
         $.blockUI({message: $('#wait-msg')});

@@ -1,4 +1,5 @@
-<?php namespace App\Http\Controllers;
+<?php
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller as BaseController;
 use Illuminate\Support\Facades\Redirect as Redirect;
@@ -9,59 +10,60 @@ use Illuminate\Support\Facades\URL as URL;
 use App\Models\ListinoMaster as ListinoMaster;
 use App\Models\ListinoDetail as ListinoDetail;
 
-class ListiniController extends BaseController {
-
-    public $layout = 'template.back';
+class ListiniController extends BaseController
+{
     protected $listino_master;
     protected $listino_detail;
-
     /**
      * Constructor for Dipendency Injection
-     * 
+     *
+     * @param ListinoMaster $listino_master, ListinoDetail $listino_detail
      * @return none
      *          
      */
-    public function __construct(ListinoMaster $listino_master, ListinoDetail $listino_detail) {
+    public function __construct(ListinoMaster $listino_master, ListinoDetail $listino_detail)
+    {
         $this->listino_master = $listino_master;
         $this->listino_detail = $listino_detail;
     }
-
     /**
      * Setter for Dipendency Injection
      * 
+     * @param ListinoMaster $listino_master, ListinoDetail $listino_detail
      * @return none
      *          
      */
-    public function setInjection(ListinoMaster $listino_master, ListinoDetail $listino_detail) {
+    public function setInjection(ListinoMaster $listino_master, ListinoDetail $listino_detail)
+    {
         $this->listino_master = $listino_master;
         $this->listino_detail = $listino_detail;
     }
-
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Illuminate\View\View
      */
-    public function index() {
+    public function index()
+    {
         $data['listino_lista'] = $this->listino_master->where('cancellato', '=', 'false')->orderBy('nome', 'asc')->paginate(10);
         return view('listini.index', $data);
     }
-
     /**
      * Show the form for creating a new resource.
      *
      * @return Response
      */
-    public function create() {
+    public function create()
+    {
         return view('listini.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
+     * @return Redirect
      */
-    public function store() {
+    public function store()
+    {
         $data = array(
             'codice' => Input::get('codice_listino'),
             'nome' => Input::get('nome_listino'),
@@ -78,35 +80,35 @@ class ListiniController extends BaseController {
             return Redirect::action('ListiniController@create')->withInput()->withErrors($errors);
         }
     }
-
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return Response
      */
-    public function show($id) {
+    public function show($id)
+    {
         
     }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return Response
+     * @return Illuminate\View\View
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         $data['listino'] = $this->listino_master->find($id);
         return view('listini.edit', $data);
     }
-
     /**
      * Update the specified resource in storage.
      *
      * @param  int  $id
-     * @return Response
+     * @return Redirect
      */
-    public function update($id) {
+    public function update($id)
+    {
         $data = array(
             'codice' => Input::get('codice_listino'),
             'nome' => Input::get('nome_listino'),
@@ -119,14 +121,14 @@ class ListiniController extends BaseController {
             return Redirect::action('ListiniController@index');
         }
     }
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $listino_detail = $this->listino_detail->where('listino', '=', $id)->get();
         $error = false;
 
@@ -152,24 +154,27 @@ class ListiniController extends BaseController {
                         'msg' => 'KO'));
         }
     }
-
     /**
      * Open the detail view after a master insert
      *
-     * @return Response
+     * @param int $id
+     * @return Illuminate\View\View
      */
-    public function detail($id) {
+    public function detail($id)
+    {
         $data['listino_master'] = $this->listino_master->find($id);
         $data['listino_detail'] = $this->listino_detail->getDetailForMaster($id);
         return view('listini.detail', $data);
     }
-
     /**
      * Store into listini_detail product
      * 
      * @param type $id
+     * @return Response
+     *
      */
-    public function storeDetail() {
+    public function storeDetail()
+    {
         $index = Input::get("index");
         $prezzo = Input::get("prezzo");
         $sconto = Input::get("sconto");
@@ -210,13 +215,15 @@ class ListiniController extends BaseController {
                     'msg' => $result
         ));
     }
-    
     /**
      * Update into listini_detail product
-     * 
+     *
      * @param type $id
+     * @return Response
+     *
      */
-    public function updateDetail() {
+    public function updateDetail()
+    {
         $prodotto = Input::get("prodotto");
         $prezzo = Input::get("prezzo");
         $sconto = Input::get("sconto");
@@ -252,16 +259,30 @@ class ListiniController extends BaseController {
                     'msg' => $result
         ));
     }
-
-    public function prodotti($id) {
+    /**
+     * Return the list of all product from a catalog
+     *
+     * @param int $id
+     * @return Illuminate\View\View
+     *
+     */
+    public function prodotti($id)
+    {
         $listino_master = new ListiniMaster;
         $listino_master = $listino_master->getListinoMaster($id);
         $listino_prodotti = new ListiniDetail;
         $listino_prodotti = $listino_prodotti->getDetailsFromMaster($id);
-        return view('listino_dettaglio');//View::make('listino.detail')->with('listino_dettaglio', $listino_master[0])->with('listino_prodotti', $listino_prodotti);
+        return view('listino_dettaglio');
     }
-
-    public function addProductToCatalog() {
+    /**
+     * Add a product to a catalaog
+     *
+     * @param int $id
+     * @return Response
+     *
+     */
+    public function addProductToCatalog()
+    {
         $listiniDetail = new ListiniDetail;
         $prodotto = new Prodotti;
         $codice = Input::get('codice');
@@ -284,16 +305,21 @@ class ListiniController extends BaseController {
         $data_inizio = Input::get('data_inizio');
         $data_fine = Input::get('data_fine');
         $data = '<tr><td>' . $index . '</td><td>' . $codice . '</td><td>' . $titolo . '<td>' . $costo_unitario . '</td><td>' . $data_inizio . '</td><td>' . $data_fine . '</td></tr>';
-
         return Response::json(array(
                     'code' => '200', //OK
                     'prodotto' => $listiniDetail->prodotto,
                     'msg' => $data,
         ));
     }
-
-    public function deleteDetail($catalog, $id) {
-        $listino_detail = $this->listino_detail->find($id);
+    /**
+     * Delete  a product from a catalog
+     *
+     * @param int $master_id int $detail_id
+     * @return Response
+     *
+     */
+    public function deleteDetail($master_id, $detail_id) {
+        $listino_detail = $this->listino_detail->find($detail_id);
         $result = $listino_detail->trash();
         if ($result) {
             return Response::json(array(

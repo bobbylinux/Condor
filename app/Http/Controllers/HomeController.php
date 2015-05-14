@@ -7,45 +7,42 @@ use App\Models\Valuta as Valuta;
 use App\Models\ListinoDetail as ListinoDetail;
 use Illuminate\Support\Facades\Input as Input;
 
-class HomeController extends BaseController {
-    /*
-      |--------------------------------------------------------------------------
-      | Default Home Controller
-      |--------------------------------------------------------------------------
-      |
-      | You may wish to use controllers instead of, or in addition to, Closure
-      | based routes. That's great! Here is an example controller method to
-      | get you started. To route to this controller, just add the route:
-      |
-      |	Route::get('/', 'HomeController@showWelcome');
-      |
+class HomeController extends BaseController
+{
+    /**
+     * Function that show the phpInfo()
+     *
+     * @param  none
+     * @return Illuminate\View\View
      */
-
-
-    public function showWelcome() {
-        //$this->layout->content = \View::make('index');
+    public function showInfo()
+    {
+        return view('info');
     }
-
-    public function showInfo() {
-        //$this->layout->content = \View::make('info');
-    }
-
     /**
      * Function that show actived catalog category from id in input (category_id)
      * 
      * @param Integer $id
+     * @return Illuminate\View\View
      */
-    public function showCategory($id) {
+    public function showCategory($id)
+    {
         if ($id != null) {
             $prodotto = new Prodotto;
             $data['prodotti_lista'] = $prodotto->showCategory($id);
             $categoria = new Categoria;
             $data['categoria_lista'] = $categoria->getActives();
-            return view('index',$data);//View::make('index', $data);
+            return view('index',$data);
         }
     }
-
-    public function showCatalog() {
+    /**
+     * Function that show the catalog actived in home page
+     *
+     * @param Integer $id
+     * @return Illuminate\View\View
+     */
+    public function showCatalog()
+    {
         $prodotto = new Prodotto;
         $data['prodotti_lista'] = $prodotto->showActives();
         $categoria = new Categoria;
@@ -54,8 +51,14 @@ class HomeController extends BaseController {
         $data['valuta'] = $valuta->getValuta();
         return view('index',$data);//$this->layout->content = \View::make('index', $data);
     }
-
-    public function showProduct($id) {
+    /**
+     * Function that show the detail for specified product in home page
+     *
+     * @param Integer $id
+     * @return Illuminate\View\View
+     */
+    public function showProduct($id)
+    {
         $prodotto = new ListinoDetail;
         $categoria = new Categoria;
         $data['immagini'] = $prodotto->getProductImages($id);
@@ -64,14 +67,14 @@ class HomeController extends BaseController {
         $data['valuta'] = $valuta->getValuta();
         return view('catalogo.prodotto',$data);//$this->layout->content = \View::make('catalogo.prodotto', $data);
     }
-
     /*
-     *  Metodo per la ricerca dei prodotti nella navbar
-     *  
-     *      
+     *  Function the search specified product by specified string
+     *
+     *  @param none
+     *  @return Illuminate\View\View
      */
-
-    public function searchProduct() {
+    public function searchProduct()
+    {
         $chiave = trim(Input::get('ricerca'));
         $prodotto = new ListinoDetail;
         $categoria = new Categoria;
@@ -81,5 +84,4 @@ class HomeController extends BaseController {
         $data['prodotti_lista'] = $prodotto->searchByTitle($chiave, 'like');
         return view('index',$data);//$this->layout->content = \View::make('index', $data);
     }
-
 }

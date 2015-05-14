@@ -201,8 +201,12 @@ class Utente extends BaseModel implements AuthenticatableContract, CanResetPassw
         return true;        
     }
     
-    public function enable() {
-        $this->confermato = true;
+    public function toggle($status) {
+        if ($status) {
+            $this->confermato = true;
+        } else {
+            $this->confermato = false;
+        }
         $this->save();
         return true;
     }

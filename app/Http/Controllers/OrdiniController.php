@@ -1,4 +1,5 @@
-<?php namespace App\Http\Controllers;
+<?php
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller as BaseController;
 use Illuminate\Support\Facades\Input as Input;
@@ -16,55 +17,61 @@ use App\Models\Pagamento as Pagamento;
 use App\Models\ListinoDetail as ListinoDetail;
 use App\Models\StatoOrdine as StatoOrdine;
 
-class OrdiniController extends BaseController {
-
-    public $layout = 'template.front';
+class OrdiniController extends BaseController
+{
     protected $ordine_master;
     protected $ordine_detail;
-
     /**
      * Constructor for Dipendency Injection
-     * 
+     *
+     * @param OrdineMaster $ordine_master, OrdineDetail $ordine_detail
      * @return none
      *          
      */
-    public function __construct(OrdineMaster $ordine_master, OrdineDetail $ordine_detail) {
+    public function __construct(OrdineMaster $ordine_master, OrdineDetail $ordine_detail)
+    {
         $this->ordine_master = $ordine_master;
         $this->ordine_detail = $ordine_detail;
     }
-
     /**
      * Setter for Dipendency Injection
-     * 
+     *
+     * @param OrdineMaster $ordine_master, OrdineDetail $ordine_detail
      * @return none
      *          
      */
-    public function setInjection(OrdineMaster $ordine_master, OrdineDetail $ordine_detail) {
+    public function setInjection(OrdineMaster $ordine_master, OrdineDetail $ordine_detail)
+    {
         $this->ordine_master = $ordine_master;
         $this->ordine_detail = $ordine_detail;
     }
-
-    public function getDetailIstance(OrdineDetail $ordine_detail) {
+    /**
+     * Get a new instance of an element OrdineDetail
+     *
+     * @param OrdineDetail $ordine_detail
+     * @return OrdineDetail
+     */
+    public function getDetailIstance(OrdineDetail $ordine_detail)
+    {
         return new $ordine_detail;
     }
-
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
-    public function index() {
+    public function index()
+    {
         $ordine = new OrdineMaster();
         $valuta = new Valuta();
         $data['valuta'] = $valuta->getValuta();
         $data['ordini_lista'] = $ordine->getOrdersListForAdmin();
         return view('ordini.index', $data);
     }
-
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function store() {
         //reperisco i dati del carrello
@@ -142,9 +149,13 @@ class OrdiniController extends BaseController {
         
         return view('ordini.payment', $data);
     }
-    
-    /*funzione che genera il codice temporaneo per l'ordine finalizzato all'univocità del pagamento*/
-    public function getTempCode() {
+    /**
+     * Generete temporany code for an unique payment of the order
+     *
+     * @return Response
+     */
+    public function getTempCode()
+    {
         $tmpcode = $this->ordine_master->createTempCode();
         $code = sprintf('%017d', $tmpcode);
         $code = "TMP" . $code;
@@ -152,14 +163,14 @@ class OrdiniController extends BaseController {
                     'code' => $code, //OK
         ));
     }
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $ordine_detail = $this->ordine_detail->where('ordine', '=', $id)->get();
         $error = false;
 
@@ -185,18 +196,36 @@ class OrdiniController extends BaseController {
                         'msg' => 'KO'));
         }
     }
-
-    public function chooseAddress() {
+    /**
+     * Choose and address for delivery ship
+     *
+     * @return \Illuminate\View\View
+     *
+     */
+    public function chooseAddress()
+    {
         $destinatario = new Destinatario;
         $data['indirizzi_lista'] = $destinatario->where('utente', '=', Auth::user()->id)->where('cancellato', '=', false)->get();
-        $this->layout->content = View::make('destinatari.index', $data);
+        return view('destinatari.index', $data);
     }
-
-    public function newAddress() {
+    /**
+     * Redirect to the new address view
+     *
+     * @return \Illuminate\View\View
+     *
+     */
+    public function newAddress()
+    {
         return view('destinatari.create');
     }
-
-    public function storeAddress() {
+    /**
+     * Save the new address into the specific table
+     *
+     * @return Redirect
+     *
+     */
+    public function storeAddress()
+    {
         $destinatario = new Destinatario;
         $cognome = Input::get('cognome');
         $nome = Input::get('nome');
@@ -226,14 +255,26 @@ class OrdiniController extends BaseController {
             return Redirect::action('OrdiniController@newAddress')->withInput()->withErrors($errors);
         }
     }
-
-    public function chooseTravel() {
+    /**
+     * Let show the view for the travel choise
+     *
+     * @return \Illuminate\View\View
+     *
+     */
+    public function chooseTravel()
+    {
         $spedizione = new Spedizione;
         $data['spedizione_lista'] = $spedizione->where('cancellato', '=', false)->get();
-        $this->layout->content = View::make('ordini.spedizione', $data);
+        return view('ordini.spedizione', $data);
     }
-
-    public function orderConfirm() {
+    /**
+     * Show the view for order confirm
+     *
+     * @return \Illuminate\View\View
+     *
+     */
+    public function orderConfirm()
+    {
         $destinatario = new Destinatario;
         $spedizione = new Spedizione;
         $pagamento = new Pagamento;
@@ -246,8 +287,14 @@ class OrdiniController extends BaseController {
         $data['pagamento_lista'] = $pagamento->where('cancellato', '=', false)->get();
         return view('ordini.confirm', $data);
     }
-
-    public function userOrders() {
+    /**
+     * Return a list of all orders of a specified user
+     *
+     * @return \Illuminate\View\View
+     *
+     */
+    public function userOrders()
+    {
         $data['lista_ordini'] = $this->ordine_master->getOrdersListForUser(Auth::user()->id);
         $data['lista_ordini_attivi'] = $this->ordine_master->getOrdersActivedForUser(Auth::user()->id);
         $data['lista_ordini_cancellati'] = $this->ordine_master->getOrdersDeletedForUser(Auth::user()->id);
@@ -256,39 +303,63 @@ class OrdiniController extends BaseController {
         $data['valuta'] = $valuta->getValuta();
         return view('ordini.userlist', $data);
     }
-
-    public function detail($orderid) {
+    /**
+     * Save the new address into the specific table
+     *
+     * @param  int $orderid
+     * @return \Illuminate\View\View
+     *
+     */
+    public function detail($orderid)
+    {
         $data['lista_ordini'] = $this->ordine_master->getOrdersListById($orderid);
         $data['dettaglio_ordini'] = $this->ordine_detail->getOrdersDetailFromMaster($orderid);
         $valuta = new Valuta;
         $data['valuta'] = $valuta->getValuta();
         return view('ordini.detail', $data);
     }
-
-    public function aggiorna($orderid) {
+    /**
+     * Update the status of a specified order
+     *
+     * @param  int $orderid
+     * @return \Illuminate\View\View
+     *
+     */
+    public function aggiorna($orderid)
+    {
         $data['id_ordine'] = $orderid;
         $data['lista_stati'] = $this->ordine_master->getOrderStatus($orderid);
         $stati_ordine = new StatoOrdine();
         $data['stati_aggiornabili'] = $stati_ordine->where('cancellato', '=', false)->lists('stato', 'id');
         return view('ordini.stati', $data);
     }
-    
-    /*set stato */
-    public function setStato($orderid) {
+    /**
+     * Save the new address into the specific table
+     *
+     * @param  int $orderid
+     * @return Response
+     *
+     */
+    public function setStato($orderid)
+    {
         $ordine = $this->ordine_master->find($orderid);
         $data = array(
             'stato' => Input::get("stato"),
             'note' => Input::get("note"),
             'tracking' => Input::get("tracking")
         );
-        
         $ordine->setStato($data);
         return Response::json(array(
                     'code' => '200', //OK
                     'msg' => 'OK'));
     }
-    /* funzione marca pagato */
-
+    /**
+     * Toggle the flag for payment of a specified order
+     *
+     * @param int $orderid
+     * @return Response
+     *
+     */
     public function pagato($orderid) {
         $ordine = $this->ordine_master->find($orderid);
         $pagato = $ordine->getPagato();
@@ -302,5 +373,4 @@ class OrdiniController extends BaseController {
                     'code' => '200', //OK
                     'msg' => 'OK'));
     }
-
 }

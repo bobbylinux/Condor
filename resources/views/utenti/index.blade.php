@@ -25,9 +25,9 @@
                 <td>
                     <a href="{!!url('/utenti/'.$utente['id'].'/edit')!!}" class="btn btn-primary">{!!Lang::choice('messages.pulsante_modifica',0)!!}</a>
                     @if ($utente->confermato) 
-                        <a href="{!!url('/utenti/'.$utente['id'].'/disable')!!}" class="btn btn-warning">{!!Lang::choice('messages.pulsante_disabilita',0)!!}</a>
+                        <a href="{!!url('/utenti/'.$utente['id'].'/status/false')!!}" class="btn btn-warning btn-toggle-usr" data-token="<?= csrf_token() ?>">{!!Lang::choice('messages.pulsante_disabilita',0)!!}</a>
                     @else
-                        <a href="{!!url('/utenti/'.$utente['id'].'/enable')!!}" class="btn btn-success">{!!Lang::choice('messages.pulsante_abilita',0)!!}</a>
+                        <a href="{!!url('/utenti/'.$utente['id'].'/status/true')!!}" class="btn btn-success btn-toggle-usr" data-token="<?= csrf_token() ?>">{!!Lang::choice('messages.pulsante_abilita',0)!!}</a>
                     @endif                        
                     <a href="{!!url('/utenti/'.$utente['id'])!!}" class="btn btn-danger btn-cancella" data-token="<?= csrf_token() ?>">{!!Lang::choice('messages.pulsante_elimina',0)!!}</a>
                 </td>

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Input as Input;
@@ -13,47 +12,59 @@ use App\Models\Utente as Utente;
 use App\Models\Carrello as Carrello;
 use App\Models\RuoloUtente as RuoloUtente;
 
-class UtentiController extends BaseController {
-
-    //public $layout = 'template.front';
+class UtentiController extends BaseController
+{
     protected $utente;
-
     /**
      * Constructor for Dipendency Injection
-     * 
+     *
+     * @param Utente $utente
      * @return none
      *          
      */
     public function __construct(Utente $utente) {
         $this->utente = $utente;
     }
-
     /**
      * Setter for Dipendency Injection
-     * 
+     *
+     * @param Utente $utente
      * @return none
      *          
      */
-    public function setInjection(Utente $utente) {
+    public function setInjection(Utente $utente)
+    {
         $this->utente = $utente;
     }
-
-    public function showLogin() {
+    /**
+     * Show the login page
+     *
+     * @return \Illuminate\View\View
+     *
+     */
+    public function showLogin()
+    {
         // show the form
         return view('utenti.login');
     }
-
-    public function showSignIn() {
+    /**
+     * Show the registration page
+     *
+     * @return \Illuminate\View\View
+     *
+     */
+    public function showSignIn()
+    {
         return view('utenti.signin');
     }
-
     /**
-     * Metodo di login get
+     * Do the login
      * 
-     * @return view
+     * @return Redirect
      *          
      */
-    public function doLogin() {
+    public function doLogin()
+    {
         // create our user data for the authentication
         $userdata = array(
             'username' => Input::get('username'),
@@ -97,14 +108,26 @@ class UtentiController extends BaseController {
             return Redirect::to('login')->withErrors($errors)->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
         }
     }
-
-    public function doLogout() {
+    /**
+     * Do the logout
+     *
+     * @return Redirect
+     *
+     */
+    public function doLogout()
+    {
         Auth::logout(); // log the user out of our application
         Session::flush();
         return Redirect::to('/'); // redirect the user to the login screen
     }
-
-    public function doSignin() {
+    /**
+     * Do the registration
+     *
+     * @return \Illuminate\View\View
+     *
+     */
+    public function doSignin()
+    {
         // create our user data for the authentication
         $userdata = array(
             'username' => Input::get('username'),
@@ -130,8 +153,14 @@ class UtentiController extends BaseController {
             return Redirect::to('signin')->withErrors($errors)->withInput(Input::except('password', 'password_c')); // send back the input (not the password) so that we can repopulate the form
         }
     }
-
-    public function confirmSignin($confirmationCode) {
+    /**
+     * Confirm the registration procedure through a code control
+     *
+     * @return \Illuminate\View\View
+     *
+     */
+    public function confirmSignin($confirmationCode)
+    {
         $confirmation_code = $confirmationCode;
         if (!$confirmation_code) {
             $data['conferma'] = Lang::choice('messages.errore_signin',0);
@@ -158,7 +187,12 @@ class UtentiController extends BaseController {
             return view('utenti.conferma', $data);
         }
     }
-
+    /**
+     * Confirm the reset password
+     *
+     * @return \Illuminate\View\View
+     *
+     */
     public function confirmResetPwd($confirmationCode) {
         $confirmation_code = $confirmationCode;
         if (!$confirmation_code) {
@@ -183,8 +217,14 @@ class UtentiController extends BaseController {
             return view('utenti.conferma', $data);
         }
     }
-
-    public function updatePassword() {
+    /**
+     * Update password for specified user
+     *
+     * @return \Illuminate\View\View
+     *
+     */
+    public function updatePassword()
+    {
         $userdata = array(
             'username' => Input::get('username'),
             'password' => Input::get('password'),
@@ -205,8 +245,14 @@ class UtentiController extends BaseController {
             return redirect()->back()->withInput(Input::except('password', 'password_c'))->withErrors($errors); 
         }
     }
-
-    public function doResetPassword() {
+    /**
+     * Do the reset of the password for specified user
+     *
+     * @return \Illuminate\View\View
+     *
+     */
+    public function doResetPassword()
+    {
         $username = Input::get('username');
         $codice = str_random(30);
         $userdata = array(
@@ -231,32 +277,44 @@ class UtentiController extends BaseController {
             return redirect()->back()->withInput()->withErrors($errors); 
         }
     }
-
-    public function resetPassword() {
+    /**
+     * Return the view of the reset password
+     *
+     * @return \Illuminate\View\View
+     *
+     */
+    public function resetPassword()
+    {
         return view('utenti.reset');
     }
-
-    /*
-     *  RESTful per utenti 
-     *      
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\View\View
      */
-
-    public function index() {
-
-        //$this->layout = View::make('template.back');
-        /* recupero tutti gli utenti dalla classe modello */
+    public function index()
+    {
         $data['utenti_lista'] = $this->utente->where('cancellato', '=', 'false')->orderBy('username', 'asc')->paginate(10);
-        /* creo la vista per la visualizzazione della lista degli utenti */
         return view('utenti.index', $data);
     }
-
-    public function create() {
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function create()
+    {
         $ruolo = New RuoloUtente();
         $data['ruolo'] = $ruolo->where('cancellato', '=', 'false')->lists('ruolo', 'id');
         return view('utenti.create', $data);
     }
-
-    public function store() {
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Redirect
+     */
+    public function store()
+    {
         $userdata = array(
             'username' => Input::get('username'),
             'username_c' => Input::get('username_c'),
@@ -275,8 +333,14 @@ class UtentiController extends BaseController {
             return redirect()->back()->withInput(Input::except('password', 'password_c'))->withErrors($errors); 
         }
     }
-
-    public function edit($id) {
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function edit($id)
+    {
         $ruolo = New RuoloUtente();
         $data['ruolo'] = $ruolo->where('cancellato', '=', 'false')->lists('ruolo', 'id');
         $data['utente'] = $this->utente->find($id);
@@ -284,13 +348,18 @@ class UtentiController extends BaseController {
         //$this->layout->content = View::make('utenti.edit', $data);
         return view('utenti.edit', $data);
     }
-
-    public function update($id) {
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function update($id)
+    {
         $userdata = array(
             'username' => Input::get('username'),
             'ruolo_utente' => Input::get('ruolo_utente')
         );
-
         $utente = $this->utente->find($id);
         if ($this->utente->validate($userdata)) {
             $utente->refresh($userdata);
@@ -300,28 +369,27 @@ class UtentiController extends BaseController {
             return Redirect::action('UtentiController@edit', [$id])->withInput()->withErrors($errors);
         }
     }
-
-    public function disable($id) {
-        $utente = $this->utente->find($id);
-        $result = $utente->disable();
+    /**
+     * Toggle the user status enable/disable
+     *
+     * @param  int  $id, boolean $status
+     * @return Response
+     *
+     */
+    public function toggle($id,$status)
+    {
+        $this->utente->find($id)->toggle($status);
         return Redirect::action('UtentiController@index');
     }
-
-    public function enable($id) {
-        $utente = $this->utente->find($id);
-        $result = $utente->enable();
-        return Redirect::action('UtentiController@index');
-    }
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id) {
-        $utente = $this->utente->find($id);
-        $result = $utente->trash();
+    public function destroy($id)
+    {
+        $result = $this->utente->find($id)->trash();
         if ($result) {
             return Response::json(array(
                         'code' => '200', //OK

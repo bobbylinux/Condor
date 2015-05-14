@@ -1,46 +1,64 @@
-<?php namespace App\Http\Controllers;
+<?php
+namespace App\Http\Controllers;
 
-use App\Http\Requests;
 use Illuminate\Support\Facades\Input as Input;
-use App\Http\Controllers\Controller;
-use App\Models\Immagine as Immagine;
 use Illuminate\Support\Facades\Response as Response;
 use Illuminate\Http\Request;
 
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use App\Models\Immagine as Immagine;
+
 class ImmaginiController extends Controller
 {
-
     private $immagine;
-
-    public function __construct(Immagine $immagine) {
+    /**
+     * Constructor for Dipendency Injection
+     *
+     * @return none
+     *
+     */
+    public function __construct(Immagine $immagine)
+    {
         $this->immagine = $immagine;
     }
-
-    public function getImageInstance(Immagine $immagine) {
+    /**
+     * Setter for Dipendency Injection
+     *
+     * @return none
+     *
+     */
+    public function setInjection(Carrello $carrello)
+    {
+        $this->carrello = $carrello;
+    }
+    /**
+     * Get a new instance of an elemente Immagine
+     *
+     * @return Response
+     */
+    public function getImageInstance(Immagine $immagine)
+    {
         return new $immagine;
     }
-
-
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return none
      */
     public function index()
     {
         //
     }
-
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return none
      */
     public function create()
     {
 
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -77,11 +95,9 @@ class ImmaginiController extends Controller
                     'nome' => $nome_file,
                     'url' => $url_file,
                     'tipo' => $tipo_file);
-
                 $immagine = $this->getImageInstance($this->immagine); //questo è un utilizzo casareccio della Dependency Injection, almeno come io l'ho concepita....
                 $immagine->store($data_img, $file);
                 array_push($idx_imgs,$immagine->id);
-                //$this->prodotto->immagini()->attach($id);
             }
             return Response::json(array(
                 'code' => '200', //OK
@@ -93,7 +109,6 @@ class ImmaginiController extends Controller
                 'msg' => 'no file in input'));
         }
     }
-
     /**
      * Display the specified resource.
      *
@@ -104,7 +119,6 @@ class ImmaginiController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -113,9 +127,8 @@ class ImmaginiController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
 
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -124,9 +137,8 @@ class ImmaginiController extends Controller
      */
     public function update($id)
     {
-        //
-    }
 
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -135,6 +147,15 @@ class ImmaginiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = $this->immagine->find($id)->trash();
+        if ($result) {
+            return Response::json(array(
+                'code' => '200', //OK
+                'msg' => 'OK'));
+        } else {
+            return Response::json(array(
+                'code' => '500', //KO
+                'msg' => 'KO'));
+        }
     }
 }

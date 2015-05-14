@@ -11,16 +11,15 @@
   |
  */
 
-/* INfo php */
-Route::get('/info', function() {
-    phpinfo();
-});
+/* Info page */
+Route::get('/info','HomeController@showInfo');
 
-/* Test php */
+/* Test page */
 Route::get('/test', function() {
     return view('test');
 });
 
+/*set the specified language*/
 Route::get('/language/{lang}', function($lang) {
     Session::put('lang', $lang);
     App::setLocale($lang);
@@ -33,10 +32,6 @@ Route::get('/signin', ['middleware' => 'guest', 'uses' =>'UtentiController@showS
 /* effettua la registrazione */
 Route::post('/signin', ['middleware' => 'guest', 'uses' =>'UtentiController@doSignIn']);
 /* conferma la registrazione */
-/*Route::get('signin/verify/{confirmationCode}', array(
-    'uses' => 'UtentiController@confirmSignin')
-);*/
-
 Route::get('signin/verify/{confirmationCode}', ['middleware' => 'guest', 'uses' => 'UtentiController@confirmSignin']);
 
 /* Reset Password */
@@ -118,6 +113,5 @@ Route::group(array('middleware' => 'admin'), function() {
     /* aggiornamento prodotto del lisino_detail */
     Route::post('listini/{id}/prodotto/aggiorna', 'ListiniController@updateDetail');
     /* abilita / disabilita utenti */
-    Route::get('utenti/{id}/disable', 'UtentiController@disable');
-    Route::get('utenti/{id}/enable', 'UtentiController@enable');
+    Route::post('utenti/{id}/status/{status}', 'UtentiController@toggle');
 });

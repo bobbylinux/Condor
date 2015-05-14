@@ -1,4 +1,5 @@
-<?php namespace App\Http\Controllers;
+<?php
+namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Session as Session;
 use Illuminate\Support\Facades\Input as Input; 
@@ -12,37 +13,36 @@ use App\Models\Valuta as Valuta;
 use App\Models\Carrello as Carrello;
 use App\Models\ListinoDetail as ListinoDetail;
 
-class CarrelliController extends BaseController {
-
-    //public $layout = 'template.front';
+class CarrelliController extends BaseController
+{
     protected $carrello;
-
     /**
      * Constructor for Dipendency Injection
      * 
      * @return none
      *          
      */
-    public function __construct(Carrello $carrello) {
+    public function __construct(Carrello $carrello)
+    {
         $this->carrello = $carrello;
     }
-
     /**
      * Setter for Dipendency Injection
      * 
      * @return none
      *          
      */
-    public function setInjection(Carrello $carrello) {
+    public function setInjection(Carrello $carrello)
+    {
         $this->carrello = $carrello;
     }
-
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
-    public function index() {
+    public function index()
+    {
         $utente_id = Session::get('utente_id');
         $categoria = new Categoria;
         $carrello = new Carrello;
@@ -52,22 +52,22 @@ class CarrelliController extends BaseController {
         $data['carrello_lista'] = $carrello->showCarrello($utente_id);
         return view('carrello.index',$data);
     }
-
     /**
      * Show the form for creating a new resource.
      *
      * @return Response
      */
-    public function create() {
-        //
-    }
+    public function create()
+    {
 
+    }
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
-    public function store() {
+    public function store()
+    {
         $data = array(
             'utente' => Session::get('utente_id'),
             'prodotto' => Input::get('prodotto_id'),
@@ -99,7 +99,8 @@ class CarrelliController extends BaseController {
      *
      * @return Response
      */
-    public function show() {
+    public function show()
+    {
         return true;
     }
     /**
@@ -108,17 +109,18 @@ class CarrelliController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function edit($id) {
-        //
-    }
+    public function edit($id)
+    {
 
+    }
     /**
      * Update the specified resource in storage.
      *
      * @param  int  $id
      * @return Response
      */
-    public function update($id) {
+    public function update($id)
+    {
         $data = array(
             'quantita' => Input::get("quantita"),
         );
@@ -141,7 +143,8 @@ class CarrelliController extends BaseController {
             return Response::json(array(
                         'code' => '200', //OK
                         'msg' => 'OK'));
-        } else {/* recuper la quantità originale e lo rispedisco al mittente */
+        } else {
+            /* recuper la quantità originale e lo rispedisco al mittente */
             $quantita = $this->carrello->find($id)->quantita;
             $errors = $this->carrello->getErrors();
             $msg = $errors->first("quantita");
@@ -151,14 +154,14 @@ class CarrelliController extends BaseController {
                         'quantita' => $quantita));
         }
     }
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $carrello = $this->carrello->find($id);
         $result = $carrello->trash();
         if ($result) {
@@ -172,5 +175,4 @@ class CarrelliController extends BaseController {
                         'msg' => 'KO'));
         }
     }
-
 }
