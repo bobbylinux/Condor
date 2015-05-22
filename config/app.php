@@ -136,7 +136,7 @@ return [
         'Illuminate\Translation\TranslationServiceProvider',
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
-
+        'App\Providers\StorageServiceProvider',// -- Repos --
         /*
          * Application Service Providers...
          */

@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller as BaseController;
-use App\Models\Categoria as Categoria;
+use App\Lib\Storage\Categoria\CategoriaRepository as Categoria;
 
 class CategorieController extends BaseController
 {
@@ -18,25 +18,13 @@ class CategorieController extends BaseController
         $this->categoria = $categoria;
     }
     /**
-     * Setter for Dipendency Injection
-     * 
-     * @return none
-     *          
-     */
-    public function setInjection(Categoria $categoria)
-    {
-        $this->categoria = $categoria;
-    }
-    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\View\View
      */
     public function index()
     {
-        /* recupero tutte le categoria dalla classe modello */
-        $data['categorie_lista'] = $this->categoria->where('cancellato', '=', 'false')->orderBy('nome', 'asc')->paginate(10);
-        /* creo la vista per la visualizzazione della lista di categorie */
+        $data['categorie_lista'] = $this->categoria->index();
         return view('categorie.index',$data);
     }
     /**
@@ -46,8 +34,8 @@ class CategorieController extends BaseController
      */
     public function create()
     {
-        $data['categorie_padre'] = $this->categoria->where('cancellato', '=', 'false')->orderBy('nome', 'asc')->lists('nome', 'id');
-        return view('categorie.create',$data);//$this->layout->content = View::make('categorie.create', $data);
+        $data['categorie_padre'] = $this->categoria->getAllActivesList();
+        return view('categorie.create',$data);
     }
     /**
      * Store a newly created resource in storage.
@@ -56,18 +44,7 @@ class CategorieController extends BaseController
      */
     public function store()
     {
-        $data = array(
-            'nome' => \Input::get('nome_categoria'),
-            'descrizione' => \Input::get('descrizione_categoria'),
-            'padre' => \Input::get('padre_categoria')
-        );
-        if ($this->categoria->validate($data)) {
-            $result = $this->categoria->store($data);
-            return \Redirect::action('CategorieController@index');
-        } else {
-            $errors = $this->categoria->getErrors();
-            return \Redirect::action('CategorieController@create')->withInput()->withErrors($errors);
-        }
+        $this->categoria->store();
     }
     /**
      * Display the specified resource.
@@ -77,7 +54,6 @@ class CategorieController extends BaseController
      */
     public function show($id)
     {
-        
     }
     /**
      * Show the form for editing the specified resource.
@@ -87,9 +63,9 @@ class CategorieController extends BaseController
      */
     public function edit($id)
     {
-        $data['categorie_padre'] = $this->categoria->orderBy('nome', 'asc')->get()->lists('nome', 'id');
-        $data['categoria'] = $this->categoria->find($id);
-        return view('categorie.edit',$data);//$this->layout->content = View::make('categorie.edit', $data);
+        $data['categorie_padre'] = $this->categoria->getAllActivesList();
+        $data['categoria'] = $this->categoria->show($id);
+        return view('categorie.edit',$data);
     }
     /**
      * Update the specified resource in storage.
@@ -99,20 +75,7 @@ class CategorieController extends BaseController
      */
     public function update($id)
     {
-        $data = array(
-            'nome' => \Input::get('nome_categoria'),
-            'descrizione' => \Input::get('descrizione_categoria'),
-            'padre' => \Input::get('padre_categoria')
-        );
-
-        $categoria = $this->categoria->find($id);
-        if ($this->categoria->validate($data)) {
-            $categoria->refresh($data);
-            return \Redirect::action('CategorieController@index');
-        } else {
-            $errors = $this->categoria->getErrors();
-            return \Redirect::action('CategorieController@edit', [$id])->withInput()->withErrors($errors);
-        }
+        $this->categoria->update($id);
     }
     /**
      * Remove the specified resource from storage.
@@ -122,14 +85,13 @@ class CategorieController extends BaseController
      */
     public function destroy($id)
     {
-        $categoria = $this->categoria->find($id);
-        $result = $categoria->trash();
+        $result = $this->categoria->destroy($id);
         if ($result) {
-            return Response::json(array(
+            return \Response::json(array(
                         'code' => '200', //OK
                         'msg' => 'OK'));
         } else {
-            return Response::json(array(
+            return \Response::json(array(
                         'code' => '500', //KO
                         'msg' => 'KO'));
         }

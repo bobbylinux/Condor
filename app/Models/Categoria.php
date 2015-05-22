@@ -75,43 +75,7 @@ class Categoria extends BaseModel {
      * @data array
      */
     public function store($data) {
-        $this->nome = $data['nome'];
-        $this->descrizione = $data['descrizione'];
-        if ($data['padre'] == '') {
-            $data['padre'] = null;
-        }
-        $this->padre = $data['padre'];
-        self::save();
-        return true;
-    }
 
-    /**
-     * The function for update in database from view
-     *
-     * @data array
-     */
-    public function refresh($data) {
-        $this->nome = $data['nome'];
-        $this->descrizione = $data['descrizione'];
-        if ($data['padre'] == '') {
-            $data['padre'] = null;
-        }
-        $this->padre = $data['padre'];
-        $this->save();
-        return true;
-    }
-
-    /**
-     * The function for delete in database from view
-     *
-     * @data array
-     */
-    public function trash() {
-        $this->now = date('Y-m-d H:i:s');
-        $this->cancellato = true;
-        $this->data_cancellazione = $this->now;
-        $this->save();
-        return true;
     }
 
     public function getActives() {
