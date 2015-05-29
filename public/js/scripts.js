@@ -166,36 +166,6 @@ $(document).ready(function () {
 
         });
     }
-
-    function startCropper($avatarPreview) {
-        var _this = this;
-
-        if (this.active) {
-            this.$img.cropper('replace', this.url);
-        } else {
-            this.$img = $('<img src="' + this.url + '">');
-            this.$avatarWrapper.empty().html(this.$img);
-            this.$img.cropper({
-                aspectRatio: 1,
-                preview: $avatarPreview.selector,
-                strict: false,
-                crop: function (data) {
-                    var json = [
-                        '{"x":' + data.x,
-                        '"y":' + data.y,
-                        '"height":' + data.height,
-                        '"width":' + data.width,
-                        '"rotate":' + data.rotate + '}'
-                    ].join();
-
-                    _this.$avatarData.val(json);
-                }
-            });
-
-            this.active = true;
-        }
-    }
-
     /*gestione eventi*/
     /*click su bottone "Elimina" in lista oggetti*/
     $(document).on("click", ".btn-cancella", function (event) {
@@ -582,7 +552,7 @@ $(document).ready(function () {
         $("#search-form").submit();
     });
     /*click sul pulsante di toggle dell'utente*/
-    $(document).on("click",".btn-toggle-usr",function(event){
+    $(document).on("click", ".btn-toggle-usr", function (event) {
         event.preventDefault();
         $.blockUI({message: $('#wait-msg')});
         var url = $(this).attr("href");
@@ -640,13 +610,44 @@ $(document).ready(function () {
     /*fine carousel*/
     $(document).on("click", ".btn-add-img", function (event) {
         event.preventDefault();
-        $(".avatar-view").trigger("click");
-        $("#avatar-modal").hide();
-        $("#avatarInput").trigger("click");
+        $("#input-img").trigger("click");
     });
     /*trigger dell'evento modale quando si seleziona una immagine in creazione immagini nei prodotti*/
-    $(document).on("change", "#avatarInput", function () {
-        $("#avatar-modal").show();
+    $(document).on("change", "#input-img", function (event) {
+        var files = event.target.files;
+        var $data = new FormData($("#form-prodotto")[0]);
+        var token = $(this).data("token");
+        var url = $(this).data("url");
+        $(function (token) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': token
+                }
+            });
+        });
+        
+        $.ajax({
+            context: this, /*used for pass object dom into ajax*/
+            url: url,
+            type: 'post',
+            cache: false,
+            data: {_method: 'post', _token: token, files: $data},
+            processData: false, // Don't process the files
+            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+            success: function (data)
+            {
+                if (data.code === "200") {
+                    location.reload();
+                } else {
+                    $(document).ajaxStop($.unblockUI);
+                }
+            },
+            error: function (data) {
+                $(document).ajaxStop($.unblockUI);
+            }
+        });
+
+        //$("#avatar-modal").modal('show');
     });
 
     $(document).on("click", ".btn-del-img", function (event) {
@@ -671,26 +672,5 @@ $(document).ready(function () {
          console.log(data);
          }
          });*/
-    });
-    /*click sul salvataggio del crop dell'immagine*/
-    $(document).on("click", ".avatar-save", function (event) {
-        event.preventDefault();
-        $.blockUI({message: $('#wait-msg')});
-        token = $(this).data('token');
-        url = $(this).data('url');
-        $.ajax({
-            url:  url,
-            type: 'post',
-            data: {_method: 'post', _token: token},
-            context: document.body,
-            cache: false,
-            success: function (data) {
-                $(document).ajaxStop($.unblockUI);
-            },
-            error: function (data) {
-                $(document).ajaxStop($.unblockUI);
-                console.log(data);
-            }
-        });
     });
 });

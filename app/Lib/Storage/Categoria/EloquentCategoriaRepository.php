@@ -36,10 +36,10 @@ class EloquentCategoriaRepository implements CategoriaRepository
             }
             $this->categoria->padre = $data['padre'];
             $this->categoria->save();
-            return \Redirect::action('CategorieController@index');
+            return \Redirect::action('CategorieController@index')->send();
         } else {
             $errors = $this->categoria->getErrors();
-            return \Redirect::action('CategorieController@create')->withInput()->withErrors($errors);
+            return \Redirect::action('CategorieController@create')->withInput()->withErrors($errors)->send();
         }
 
     }
@@ -65,10 +65,10 @@ class EloquentCategoriaRepository implements CategoriaRepository
             }
             $categoria->padre = $data['padre'];
             $categoria->save();
-            return \Redirect::action('CategorieController@index');
+            return \Redirect::action('CategorieController@index')->send();
         } else {
             $errors = $this->categoria->getErrors();
-            return \Redirect::action('CategorieController@edit', [$id])->withInput()->withErrors($errors);
+            return \Redirect::action('CategorieController@edit', [$id])->withInput()->withErrors($errors)->send();
         }
     }
 

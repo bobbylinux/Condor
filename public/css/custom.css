@@ -9,8 +9,7 @@ and open the template in the editor.
 */
 
 body {
-    //background-color: #ececff;
-    padding: 1%;
+    
 }
 
 .ui-autocomplete-loading {
@@ -102,7 +101,8 @@ textarea {
 
 .address-change,
 .travel-change, 
-.payment-change
+.payment-change,
+.input-img-div
 {
     display: none;
 }

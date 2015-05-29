@@ -19,6 +19,13 @@ Route::get('/test', function() {
     return view('test');
 });
 
+/* Test page */
+Route::get('/upload', function() {
+    return view('upload');
+});
+Route::post('/immagini/upload', 'ImmaginiController@imgUpload');
+/*fine test*/
+
 /*set the specified language*/
 Route::get('/language/{lang}', function($lang) {
     Session::put('lang', $lang);
