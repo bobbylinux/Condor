@@ -47,6 +47,33 @@
 </div>
 @endforeach
 <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+        <div class="form-group">
+            {!! Form::label('tag_prodotto', Lang::choice('messages.tag_prodotto',0)) !!}
+            <div class="input-group">
+                {!! Form::text('tag_prodotto', '', array('class'=>'form-control','id'=>'tag-input')) !!}
+                <span class="input-group-addon btn btn-default" id="add-tag">{!!Lang::choice('messages.aggiungi_tag_prodotto',0)!!}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2" >
+        <div class="panel panel-default">
+            <div class="panel-body" id="tag-container">
+                
+            </div>
+        </div>
+    </div>
+</div>
+@foreach($errors->get('tag') as $message)
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <p class="bg-danger">{!! $message !!}</p>
+    </div>
+</div>
+@endforeach
+<div class="row">
     <div class="col-xs-12 col-sm-2 col-sm-offset-2">
         <div class="form-group">
             {!! Form::label('quantita_prodotto', Lang::choice('messages.quantita_prodotto',0)) !!}
@@ -61,6 +88,8 @@
     </div>
 </div>
 @endforeach
+
+
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="form-group">
@@ -122,7 +151,7 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-body">
-                
+
             </div>
         </div>
     </div>

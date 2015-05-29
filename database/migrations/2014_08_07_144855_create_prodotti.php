@@ -13,8 +13,8 @@ class CreateProdotti extends Migration {
     public function up() {
         Schema::create('prodotti', function(Blueprint $table) {
             $table->increments('id'); //chiave primaria
-            $table->string('codice', 32)->unique();//codice del prodotto
-            $table->string('titolo', 128)->unique(); //titolo del prodotto
+            $table->string('codice', 32);//codice del prodotto
+            $table->string('titolo', 255);//titolo del prodotto
             $table->text('descrizione')->nullable(); //descrizione del prodotto dettagliata
             $table->integer('quantita')->nullable(); //quantita del prodotto in magazzino
             $table->boolean('spedizione')->default(true); //flag di spedizione fisica del prodotto: true = cancellato, false = non cancellato, default = false

@@ -104,6 +104,8 @@ return array(
     'codice_prodotto'=> 'Product Code',
     'nome_prodotto' => 'Product Name',
     'descrizione_prodotto' => 'Product Description',
+    'tag_prodotto' => 'Tags For Product',
+    'aggiungi_tag_prodotto' => 'Add',
     'quantita_prodotto' => 'Items In Stock',
     'categoria_prodotto' => 'Product Category',
     'spedizione_prodotto' => 'Product Consignment',

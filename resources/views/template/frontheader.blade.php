@@ -1,9 +1,15 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
-        <div class="navbar-header">            
-            <a class="navbar-brand" href="{!! url('/')!!}">{!!env('TITLE', 'Condor')!!}</a>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">{!!env('TITLE', 'Condor')!!}</a>
         </div>
-        <div class="navbar-collapse collapse" id="searchbar">
+        <div class="navbar-collapse collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 @if(!Auth::check())                
                 <li><a href="{!! URL::to('login') !!}"><span class="glyphicon glyphicon-play-circle"></span> {!!Lang::choice('messages.accedi',0)!!}</a></li>

@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="{!! url('js/jquery-ui-1.10.4/themes/base/jquery.ui.all.css') !!}" rel="stylesheet" media="screen">
         <link href="{!! url('bs/css/bootstrap.min.css') !!}" rel="stylesheet" media="screen">
-        <link href="{!! url('css/custom.css') !!}" rel="stylesheet" media="screen">	
+        <link href="{!! url('metro-bs/css/metro-bootstrap.min.css') !!}" rel="stylesheet" media="screen">
         <link href="{!! url('js/vbox/venobox.css') !!}" rel="stylesheet" media="screen">
+        <link href="{!! url('css/custom.css') !!}" rel="stylesheet" media="screen">	
     </head>
     <body style="background-color: <?php echo env('BG_COLOR', '#ffffff')?>">        
         <div class="container-fluid">

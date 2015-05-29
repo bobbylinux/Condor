@@ -103,6 +103,8 @@ return array(
     'codice_prodotto'=> 'Codice Prodotto',
     'nome_prodotto' => 'Titolo Prodotto',
     'descrizione_prodotto' => 'Descrizione Prodotto',
+    'tag_prodotto' => 'Tags Prodotto',
+    'aggiungi_tag_prodotto' => 'Aggiungi',
     'quantita_prodotto' => 'Quantità In Magazzino',
     'categoria_prodotto' => 'Categoria Prodotto',
     'spedizione_prodotto' => 'Spedizione Prodotto',

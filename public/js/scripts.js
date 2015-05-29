@@ -625,7 +625,7 @@ $(document).ready(function () {
                 }
             });
         });
-        
+
         $.ajax({
             context: this, /*used for pass object dom into ajax*/
             url: url,
@@ -672,5 +672,38 @@ $(document).ready(function () {
          console.log(data);
          }
          });*/
+    });
+
+    $(document).on("click", "#add-tag", function (event) {
+        event.preventDefault();
+        var $tagcontent = $("#tag-input").val();
+        var $tagtmpl = '';
+        var $count = $("#tag-container span").length;
+        if ($tagcontent != "" && $tagcontent != null) {
+            var $module = $count%6;
+            switch ($module) {
+                case 0:
+                    $tagtmpl = '<span class="label label-default">' + $tagcontent + '</span>';
+                    break;
+                case 1:
+                    $tagtmpl = '<span class="label label-primary">' + $tagcontent + '</span>';
+                    break;
+                case 2:
+                    $tagtmpl = '<span class="label label-success">' + $tagcontent + '</span>';
+                    break;
+                case 3:
+                    $tagtmpl = '<span class="label label-info">' + $tagcontent + '</span>';
+                    break;
+                case 4:
+                    $tagtmpl = '<span class="label label-warning">' + $tagcontent + '</span>';
+                    break;
+                case 5:
+                    $tagtmpl = '<span class="label label-danger">' + $tagcontent + '</span><br><br>';
+                    break;
+            }
+            $tagtmpl +='<input type="hidden" name="tags[]" value="'+$tagcontent+'" />'; 
+            $("#tag-container").append($tagtmpl);
+        }
+
     });
 });

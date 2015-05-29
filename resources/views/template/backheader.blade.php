@@ -1,36 +1,36 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only"></span>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+                
             </button>
             <a class="navbar-brand" href="/">{!!env('TITLE', 'Condor')!!}</a>
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <?php                    
-                    $language = Session::get('lang','it');                     
+                    <?php
+                    $language = Session::get('lang', 'it');
                     ?>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="flag-img" src="{!!url('img/flags/' . $language . '.png')!!}"></a>
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="flag-img" src="{!!url('img/flags/' . $language . '.png')!!}"></a>
                     <ul class="dropdown-menu" role="menu" id="ul-notify">
                         <li><a href="{!!url('/language/en')!!}"><img class="flag-img" src="{!!url('img/flags/en.png')!!}">English</a></li>
                         <li><a href="{!!url('/language/es')!!}"><img class="flag-img" src="{!!url('img/flags/es.png')!!}">Español</a></li>
                         <li><a href="{!!url('/language/it')!!}"><img class="flag-img" src="{!!url('img/flags/it.png')!!}">Italiano</a></li>
                         
-                    </ul>
+                    </ul>-->
                 </li>
             </ul> 
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{!!Lang::choice('messages.amministra',0)!!}<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{!!url('/categorie/')!!}">{!!Lang::choice('messages.categorie',0)!!}</a></li>
+                        <li><a class="dropdown-toggle" href="{!!url('/categorie/')!!}">{!!Lang::choice('messages.categorie',0)!!}</a></li>
                         <li><a href="{!!url('/prodotti/')!!}">{!!Lang::choice('messages.prodotti',0)!!}</a></li>
                         <li><a href="{!!url('/listini/')!!}">{!!Lang::choice('messages.listini_prezzo',0)!!}</a></li>
                         <li><a href="{!!url('/pagamenti/')!!}">{!!Lang::choice('messages.metodi_pagamento',0)!!}</a></li>
