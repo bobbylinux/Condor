@@ -614,40 +614,43 @@ $(document).ready(function () {
     });
     /*trigger dell'evento modale quando si seleziona una immagine in creazione immagini nei prodotti*/
     $(document).on("change", "#input-img", function (event) {
-        var files = event.target.files;
-        var $data = new FormData($("#form-prodotto")[0]);
-        var token = $(this).data("token");
-        var url = $(this).data("url");
-        $(function (token) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-Token': token
-                }
-            });
-        });
-
-        $.ajax({
-            context: this, /*used for pass object dom into ajax*/
-            url: url,
-            type: 'post',
+       var $token = $(this).data("token");
+       var $url = $(this).data("url");
+       var $data = new FormData();
+       var $file = $('#input-img')[0].files;
+       jQuery.each($file, function (i, file) {
+           $data.append('file-' + i, file);
+       });
+       $.ajax({
+            type: 'POST',
+            url: $url,
+            data: { data: $data, _token: $token,_method: "post"},
+//            dataType: "json",
             cache: false,
-            data: {_method: 'post', _token: token, files: $data},
-            processData: false, // Don't process the files
-            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-            success: function (data)
-            {
-                if (data.code === "200") {
-                    location.reload();
-                } else {
-                    $(document).ajaxStop($.unblockUI);
+            contentType: false,
+            processData: false,
+            beforeSend: function (xhr) {
+            	$.blockUI({message: $('#wait-msg')});
+                $('body').css('cursor', 'progress');
+                var token = this.data._token;
+                if (token) {
+                    return xhr.setRequestHeader('X-XSRF-TOKEN', token);
                 }
             },
-            error: function (data) {
+            success: function (msg)
+            {
+                console.log(msg);
+                $('body').css('cursor', 'default');
                 $(document).ajaxStop($.unblockUI);
+            },
+            error: function (msg)
+            {
+                $('body').css('cursor', 'default');
+                $(document).ajaxStop($.unblockUI);
+                console.log(msg);
+                alert("Chiamata fallita, si prega di riprovare...");
             }
         });
-
-        //$("#avatar-modal").modal('show');
     });
 
     $(document).on("click", ".btn-del-img", function (event) {
@@ -680,7 +683,7 @@ $(document).ready(function () {
         var $tagtmpl = '';
         var $count = $("#tag-container span").length;
         if ($tagcontent != "" && $tagcontent != null) {
-            var $module = $count%6;
+            var $module = $count % 6;
             switch ($module) {
                 case 0:
                     $tagtmpl = '<span class="label label-default">' + $tagcontent + '</span>';
@@ -701,7 +704,7 @@ $(document).ready(function () {
                     $tagtmpl = '<span class="label label-danger">' + $tagcontent + '</span><br><br>';
                     break;
             }
-            $tagtmpl +='<input type="hidden" name="tags[]" value="'+$tagcontent+'" />'; 
+            $tagtmpl += '<input type="hidden" name="tags[]" value="' + $tagcontent + '" />';
             $("#tag-container").append($tagtmpl);
         }
 

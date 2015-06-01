@@ -38,20 +38,18 @@
         }
 
         if (formdata) {
-
-            $(function () {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-Token': $("#btn").data("token")
-                    }
-                });
-            });
             $.ajax({
                 url: $("#btn").data("url"),
                 type: "post",
                 data: {_data: formdata, _token: $("#btn").data("token"), _method: "post"},
                 processData: false,
                 contentType: false,
+                beforeSend: function (xhr) {
+                    var token = this.data._token;
+                    if (token) {
+                        return xhr.setRequestHeader('X-XSRF-TOKEN', token);
+                    }
+                },
                 success: function (res) {
                     document.getElementById("response").innerHTML = res;
                 }

@@ -1,8 +1,11 @@
 @extends('template.back')
 @section('content')
+<div class="page-header">
+    <h2>{!!Lang::choice('messages.modifica_spedizione',0)!!}</h2>
+</div>
 {!!Form::open(array('url'=>'spedizioni/'.$spedizione->id,'method'=>'PUT'))!!} 
 <div class="row">
-    <div class="col-sm-9 col-sm-offset-1">
+    <div class="col-sm-8 col-sm-offset-2">
         <div class="form-group">
             {!! Form::label('nome_spedizione', Lang::choice('messages.nome_spedizione',0)) !!}
             {!! Form::text('nome_spedizione', $spedizione->spedizione, array('class'=>'form-control')) !!} 
@@ -17,7 +20,7 @@
 </div>
 @endforeach
 <div class="row">
-    <div class="col-sm-9 col-sm-offset-1">
+    <div class="col-sm-8 col-sm-offset-2">
         <div class="form-group">
             {!! Form::label('note_spedizione', Lang::choice('messages.note_spedizione',0)) !!}
             {!! Form::textarea('note_spedizione', $spedizione->note, array('class'=>'form-control')) !!} 
@@ -32,7 +35,7 @@
 </div>
 @endforeach
 <div class="row">
-    <div class="col-sm-2 col-sm-offset-1">
+    <div class="col-sm-2 col-sm-offset-2">
         <div class="form-group">
             {!! Form::label('prezzo_spedizione', Lang::choice('messages.prezzo_spedizione',0)) !!}
             {!! Form::text('prezzo_spedizione', $spedizione->prezzo, array('class'=>'form-control')) !!} 
@@ -47,7 +50,7 @@
 </div>
 @endforeach
 <div class="row">
-    <div class="col-sm-6 col-sm-offset-1">
+    <div class="col-sm-6 col-sm-offset-2">
         <div class="form-group">
             {!! Form::submit(Lang::choice('messages.modifica_spedizione',0), array('class' =>'btn btn-success'))!!} 
         </div>

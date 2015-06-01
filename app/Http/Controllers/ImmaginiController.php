@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Input as Input;
 use Illuminate\Support\Facades\Response as Response;
-use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Immagine as Immagine;
 
@@ -68,9 +67,12 @@ class ImmaginiController extends Controller {
     public function store() {
         /* validazione immagini */
         $cartella_random = str_random(15);
-
-        $avatar_src = Input::get("_form");
+        
+        $debug = Input::toArray();
+        //$avatar_src = Input::file("input-img");
         $url_file = 'uploads/' . $cartella_random;
+        $index = "file-0";// . $i;
+        Input::file($index)->move($url_file);
         $idx_imgs = array(); //indici delle immagini appena inserite da collegare al prodotto una volta salvato quest'ultimo
         if (Input::hasFile('files')) {
             foreach (Input::file('files') as $file) {
@@ -162,6 +164,7 @@ class ImmaginiController extends Controller {
     }
 
     public function imgUpload() {
+        $debug = Input::toArray();
         foreach ($_FILES["images"]["error"] as $key => $error) {
             if ($error == UPLOAD_ERR_OK) {
                 $name = $_FILES["images"]["name"][$key];

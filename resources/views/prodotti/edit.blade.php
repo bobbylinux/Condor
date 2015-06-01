@@ -1,5 +1,8 @@
 @extends('template.back')
 @section('content')
+<div class="page-header">
+    <h2>{!!Lang::choice('messages.modifica_prodotto',0)!!}</h2>
+</div>
 {!!Form::open(array('url'=>'prodotti/'.$prodotto->id,'method'=>'PUT'))!!} 
 <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-2">

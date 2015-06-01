@@ -1,5 +1,8 @@
 @extends('template.back')
 @section('content')
+<div class="page-header">
+    <h2>{!!Lang::choice('messages.modifica_categoria',0)!!}</h2>
+</div>
 {!!Form::open(array('url'=>'categorie/'.$categoria->id,'method'=>'PUT'))!!} 
 <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
