@@ -22,5 +22,6 @@ class StorageServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('App\Lib\Storage\Categoria\CategoriaRepository', 'App\Lib\Storage\Categoria\EloquentCategoriaRepository');
+        $this->app->bind('App\Lib\Storage\Destinatario\DestinatarioRepository', 'App\Lib\Storage\Destinatario\EloquentDestinatarioRepository');
     }
 }

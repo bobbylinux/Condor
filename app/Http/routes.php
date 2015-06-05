@@ -80,6 +80,7 @@ Route::group(array('middleware' => 'auth'), function() {
     Route::get('order/confirm', 'OrdiniController@orderConfirm');
     Route::post('address/select', 'OrdiniController@chooseAddress');
     Route::post('address/store', 'OrdiniController@storeAddress');
+    Route::resource('destinatari', 'DestinatariController');
 });
 
 Route::group(array('middleware' => 'admin'), function() {

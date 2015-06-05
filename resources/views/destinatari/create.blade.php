@@ -1,4 +1,8 @@
+@extends('template.front')
 @section('content')
+<div class="page-header">
+    <h2>{!!Lang::choice('messages.crea_nuovo_destinatario',0)!!}</h2>
+</div>
 {!!Form::open(array('url'=>'address/store','method'=>'POST'))!!} 
 <div class="row">
     <div class="col-xs-8 col-xs-offset-2">

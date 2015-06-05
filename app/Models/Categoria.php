@@ -68,16 +68,11 @@ class Categoria extends BaseModel {
     public function getErrors() {
         return $this->errors;
     }
-
     /**
-     * The function for store in database from view
-     *
-     * @data array
+     * The function that get all actives categories
+     * 
+     * @errors array
      */
-    public function store($data) {
-
-    }
-
     public function getActives() {
         $this->now = date('Y-m-d H:i:s');
         $result = \DB::table('categorie')

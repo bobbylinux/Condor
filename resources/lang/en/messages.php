@@ -46,6 +46,7 @@ return array(
     'carrello' => 'Cart',
     'mio_account' => 'My Account',
     'miei_ordini' => 'My Orders',
+    'miei_dati' => 'My Informations',
     
     /*carrello*/
     'aggiungi_al_carrello' => 'Add to Cart',
@@ -87,6 +88,12 @@ return array(
     'gestisci' => 'Manage',
     'pannello_admin' => 'Administator Tools',
     'pannello_super' => 'SuperUser Tools',
+    
+    /*anagrafe miei dati*/
+    'nuovo_indirizzo' => 'New Address',
+    'titolo_index_indirizzo_nome' => 'Address',
+    'crea_nuovo_destinatario' => 'New Destination',
+    'modifica_destinatario' => 'Edit Destination',
     
     /*anagrafica categoria*/
     'nuova_categoria' => 'New Category',

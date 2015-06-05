@@ -18,7 +18,6 @@ class EloquentCategoriaRepository implements CategoriaRepository
     public function index()
     {
         return $this->categoria->where('cancellato', '=', 'false')->orderBy('nome', 'asc')->paginate(10);
-        //return Categoria::all();
     }
 
     public function store()

@@ -12,7 +12,8 @@ use App\Models\OrdineDetail as OrdineDetail;
 use App\Models\Valuta as Valuta;
 use App\Models\Carrello as Carrello;
 use App\Models\Spedizione as Spedizione;
-use App\Models\Destinatario as Destinatario;
+//use App\Models\Destinatario as Destinatario;
+use App\Lib\Storage\Destinatario\DestinatarioRepository as Destinatario;
 use App\Models\Pagamento as Pagamento;
 use App\Models\ListinoDetail as ListinoDetail;
 use App\Models\StatoOrdine as StatoOrdine;
@@ -21,6 +22,7 @@ class OrdiniController extends BaseController
 {
     protected $ordine_master;
     protected $ordine_detail;
+    protected $destinatario;
     /**
      * Constructor for Dipendency Injection
      *
@@ -28,10 +30,13 @@ class OrdiniController extends BaseController
      * @return none
      *          
      */
-    public function __construct(OrdineMaster $ordine_master, OrdineDetail $ordine_detail)
+    public function __construct(OrdineMaster $ordine_master, 
+                                OrdineDetail $ordine_detail,
+                                Destinatario $destinatario)
     {
         $this->ordine_master = $ordine_master;
         $this->ordine_detail = $ordine_detail;
+        $this->destinatario = $destinatario;
     }
     /**
      * Setter for Dipendency Injection
@@ -204,8 +209,7 @@ class OrdiniController extends BaseController
      */
     public function chooseAddress()
     {
-        $destinatario = new Destinatario;
-        $data['indirizzi_lista'] = $destinatario->where('utente', '=', Auth::user()->id)->where('cancellato', '=', false)->get();
+        $data['indirizzi_lista'] = $this->destinatario->index();
         return view('destinatari.index', $data);
     }
     /**
@@ -247,13 +251,14 @@ class OrdiniController extends BaseController
             'paese' => $paese,
             'recapito' => $recapito);
 
-        if ($destinatario->validate($data)) {
+        /*if ($destinatario->validate($data)) {
             $destinatario->store($data);
             return Redirect::action('OrdiniController@orderConfirm');
         } else {
             $errors = $destinatario->getErrors();
             return Redirect::action('OrdiniController@newAddress')->withInput()->withErrors($errors);
-        }
+        }*/
+        $destinatario->store($data);
     }
     /**
      * Let show the view for the travel choise
@@ -275,14 +280,13 @@ class OrdiniController extends BaseController
      */
     public function orderConfirm()
     {
-        $destinatario = new Destinatario;
         $spedizione = new Spedizione;
         $pagamento = new Pagamento;
         $valuta = new Valuta;
         $carrello = new Carrello;
         $data['totale_carrello'] = $carrello->getCartPrice(Auth::user()->id);
         $data['valuta'] = $valuta->getValuta();
-        $data['indirizzi_lista'] = $destinatario->where('utente', '=', Auth::user()->id)->where('cancellato', '=', false)->get();
+        $data['indirizzi_lista'] = $this->destinatario->index();//$destinatario->where('utente', '=', Auth::user()->id)->where('cancellato', '=', false)->get();
         $data['spedizione_lista'] = $spedizione->where('cancellato', '=', false)->get();
         $data['pagamento_lista'] = $pagamento->where('cancellato', '=', false)->get();
         return view('ordini.confirm', $data);

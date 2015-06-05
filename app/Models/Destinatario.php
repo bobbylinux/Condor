@@ -72,22 +72,11 @@ class Destinatario extends BaseModel {
     }
 
     public function store($data) {
-        $this->utente = Auth::user()->id;
-        $this->cognome = strtoupper(trim($data['cognome']));
-        $this->nome = strtoupper(trim($data['nome']));
-        $this->indirizzo = strtolower(trim($data['indirizzo']));
-        $this->note = $data['note'];
-        $this->citta = strtoupper(trim($data['citta']));
-        $this->cap = strtoupper(trim($data['cap']));
-        $this->provincia = strtoupper(trim($data['provincia']));
-        $this->paese = strtoupper(trim($data['paese']));
-        $this->recapito = $data['recapito'];
-        $result = self::save();
-        return $result;
+        
     }
     
     public function refresh($data) {
-                $this->utente = Auth::user()->id;
+        $this->utente = Auth::user()->id;
         $this->cognome = strtoupper(trim($data['cognome']));
         $this->nome = strtoupper(trim($data['nome']));
         $this->indirizzo = strtolower(trim($data['indirizzo']));

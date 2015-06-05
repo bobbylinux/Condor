@@ -23,7 +23,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {!!Lang::choice('messages.mio_account',0)!!}<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{!!url('order/history')!!}">{!!Lang::choice('messages.miei_ordini',0)!!}</a></li>
-                        <li class="divider"></li>
+                        <li><a href="{!!url('destinatari')!!}">{!!Lang::choice('messages.miei_dati',0)!!}</a></li>
                     </ul>
                 </li>
                 <li><a href="{!! URL::to('logout') !!}"><span class="glyphicon glyphicon-off"></span> {!!Lang::choice('messages.esci',0)!!}</a></li>
