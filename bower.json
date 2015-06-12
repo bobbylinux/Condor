@@ -1,0 +1,23 @@
+{
+  "name": "Condor",
+  "version": "2.0.0",
+  "main": "public/css/custom.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "blueimp-file-upload": "~9.10"
+  },
+  "homepage": "https://github.com/bobbylinux/Condor",
+  "authors": [
+    "bobbylinux <roberto.bani@gmail.com>"
+  ],
+  "license": "MIT"
+}

@@ -67,11 +67,11 @@ class ImmaginiController extends Controller {
     public function store() {
         /* validazione immagini */
         $cartella_random = str_random(15);
-        
+
         $debug = Input::toArray();
         //$avatar_src = Input::file("input-img");
         $url_file = 'uploads/' . $cartella_random;
-        $index = "file-0";// . $i;
+        $index = "file-0"; // . $i;
         Input::file($index)->move($url_file);
         $idx_imgs = array(); //indici delle immagini appena inserite da collegare al prodotto una volta salvato quest'ultimo
         if (Input::hasFile('files')) {
@@ -163,16 +163,26 @@ class ImmaginiController extends Controller {
         }
     }
 
-    public function imgUpload() {
-        $debug = Input::toArray();
-        foreach ($_FILES["images"]["error"] as $key => $error) {
-            if ($error == UPLOAD_ERR_OK) {
-                $name = $_FILES["images"]["name"][$key];
-                move_uploaded_file($_FILES["images"]["tmp_name"][$key], "uploads/" . $_FILES['images']['name'][$key]);
+    public function imageUpload() {
+
+        $file = Input::file('file');
+        if ($file) {
+            $destinationPath = public_path() . '/uploads/';
+            $filename = $file->getClientOriginalName();
+            $upload_success = Input::file('file')->move($destinationPath, $filename);
+
+            if ($upload_success) {
+                // resizing an uploaded file
+                Image::make($destinationPath . $filename)->resize(100, 100)->save($destinationPath . "100x100_" . $filename);
+                return Response::json('success', 200);
+            } else {
+                return Response::json('error', 400);
             }
         }
+    }
 
-        echo "<h2>Successfully Uploaded Images</h2>";
+    public function imageDelete() {
+        
     }
 
 }

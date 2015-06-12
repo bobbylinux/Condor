@@ -23,7 +23,7 @@ Route::get('/test', function() {
 Route::get('/upload', function() {
     return view('upload');
 });
-Route::post('/immagini/upload', 'ImmaginiController@imgUpload');
+Route::post('/immagini/upload', 'ImmaginiController@imageUpload');
 /*fine test*/
 
 /*set the specified language*/

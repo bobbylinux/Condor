@@ -38,14 +38,20 @@
         }
 
         if (formdata) {
+            var data = new FormData();
+            $.each(formdata, function (key, value)
+            {
+                data.append(key, value);
+            });
+
             $.ajax({
                 url: $("#btn").data("url"),
                 type: "post",
-                data: {_data: formdata, _token: $("#btn").data("token"), _method: "post"},
+                data: data,/*{_data: formdata, _token: $("#btn").data("token"), _method: "post"},*/
                 processData: false,
                 contentType: false,
                 beforeSend: function (xhr) {
-                    var token = this.data._token;
+                    var token = $("#btn").data("token");//this.data._token;
                     if (token) {
                         return xhr.setRequestHeader('X-XSRF-TOKEN', token);
                     }
