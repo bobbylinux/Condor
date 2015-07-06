@@ -68,8 +68,6 @@ class ImmaginiController extends Controller {
         /* validazione immagini */
         $cartella_random = str_random(15);
 
-        $debug = Input::toArray();
-        //$avatar_src = Input::file("input-img");
         $url_file = 'uploads/' . $cartella_random;
         $index = "file-0"; // . $i;
         Input::file($index)->move($url_file);

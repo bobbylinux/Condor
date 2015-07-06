@@ -14,6 +14,11 @@
 /* Info page */
 Route::get('/info','HomeController@showInfo');
 
+/* Privacy page */
+Route::get('/privacy',function() {
+    return view('privacy');
+});
+
 /* Test page */
 Route::get('/test', function() {
     return view('test');

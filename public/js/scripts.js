@@ -607,75 +607,6 @@ $(document).ready(function () {
     $(document).on("click", ".img-carousel", function (event) {
         event.preventDefault();
     });
-    /*fine carousel*/
-    $(document).on("click", ".btn-add-img", function (event) {
-        event.preventDefault();
-        $("#input-img").trigger("click");
-    });
-    /*trigger dell'evento modale quando si seleziona una immagine in creazione immagini nei prodotti*/
-    $(document).on("change", "#input-img", function (event) {
-       var $token = $(this).data("token");
-       var $url = $(this).data("url");
-       var $data = new FormData();
-       var $file = $('#input-img')[0].files;
-       jQuery.each($file, function (i, file) {
-           $data.append('file-' + i, file);
-       });
-       $.ajax({
-            type: 'POST',
-            url: $url,
-            data: { data: $data, _token: $token,_method: "post"},
-//            dataType: "json",
-            cache: false,
-            contentType: false,
-            processData: false,
-            beforeSend: function (xhr) {
-            	$.blockUI({message: $('#wait-msg')});
-                $('body').css('cursor', 'progress');
-                var token = this.data._token;
-                if (token) {
-                    return xhr.setRequestHeader('X-XSRF-TOKEN', token);
-                }
-            },
-            success: function (msg)
-            {
-                console.log(msg);
-                $('body').css('cursor', 'default');
-                $(document).ajaxStop($.unblockUI);
-            },
-            error: function (msg)
-            {
-                $('body').css('cursor', 'default');
-                $(document).ajaxStop($.unblockUI);
-                console.log(msg);
-                alert("Chiamata fallita, si prega di riprovare...");
-            }
-        });
-    });
-
-    $(document).on("click", ".btn-del-img", function (event) {
-        event.preventDefault();
-        /*$.blockUI({message: $('#wait-msg')});
-         url_delete = $(this).attr("href");
-         token = $(this).data('token');
-         $.ajax({
-         url: url_delete,
-         type: 'post',
-         data: {_method: 'delete', _token: token},
-         context: document.body,
-         cache: false,
-         success: function (data)
-         {
-         $(document).ajaxStop($.unblockUI);*/
-        //location.reload();
-        $(this).closest(".item").remove();
-        /*},
-         error: function (data)
-         {
-         console.log(data);
-         }
-         });*/
-    });
 
     $(document).on("click", "#add-tag", function (event) {
         event.preventDefault();
@@ -706,7 +637,58 @@ $(document).ready(function () {
             }
             $tagtmpl += '<input type="hidden" name="tags[]" value="' + $tagcontent + '" />';
             $("#tag-container").append($tagtmpl);
+            $("#tag-input").val("");
         }
 
     });
+
+    /*cookies law*/
+    $.cookieBar({
+        acceptText: 'Continua',
+        policyButton: true,
+        policyURL: '/privacy',
+        effect: 'slide',
+        message: "Questo sito utilizza cookies, anche di terze parti. Chiudendo questo banner, scorrendo questa pagina o cliccando qualunque suo elemento, acconsenti al loro impiego in conformità alla nostra Cookie Policy."
+    });
+
+    /*dropzone image uploader*/
+    // myDropzone is the configuration for the element that has an id attribute
+    // with the value my-dropzone (or myDropzone)
+    Dropzone.options.myDropzone = {
+        dictDefaultMessage: "Trascina l'immagine qua per caricarla, oppure fai click per caricarla da una directory",
+        headers: {"X-XSRF-TOKEN": "{!! csrf_token() !!}"},
+        init: function () {
+            this.on("addedfile", function (file) {
+                var removeButton = Dropzone.createElement('<a class="dz-remove">Remove file</a>');
+                var _this = this;
+                removeButton.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var fileInfo = new Array();
+                    fileInfo['name'] = file.name;
+                    $.ajax({
+                        type: "POST",
+                        url: "{!! url('/immagini/delete') !!}",
+                        data: {file: file.name},
+                        beforeSend: function () {
+                            // before send
+                        },
+                        success: function (response) {
+
+                            if (response == 'success')
+                                alert('deleted');
+                        },
+                        error: function () {
+                            alert("error");
+                        }
+                    });
+                    _this.removeFile(file);
+                    // If you want to the delete the file on the server as well,
+                    // you can do the AJAX request here.
+                });
+                // Add the button to the file preview element.
+                file.previewElement.appendChild(removeButton);
+            });
+        }
+    };
 });

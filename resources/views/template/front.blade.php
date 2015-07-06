@@ -8,6 +8,7 @@
         <link href="{!! url('metro-bs/css/metro-bootstrap.min.css') !!}" rel="stylesheet" media="screen">
         <link href="{!! url('js/vbox/venobox.css') !!}" rel="stylesheet" media="screen">
         <link href="{!! url('css/custom.css') !!}" rel="stylesheet" media="screen">	
+        <link href="{!! url('css/jquery.cookiebar.css') !!}" rel="stylesheet" media="screen">	
     </head>
     <body style="background-color: <?php echo env('BG_COLOR', '#ffffff')?>">        
         <div class="container-fluid">
@@ -23,6 +24,7 @@
             </div> 
         </div>
         <script src="{!! url('http://code.jquery.com/jquery.js') !!}"></script>
+        <script src="{!! url('js/jquery.cookiebar.js') !!}"></script>
         <script src="{!! url('js/jquery-ui-1.10.4/ui/jquery.ui.core.js') !!}"></script>
         <script src="{!! url('js/jquery-ui-1.10.4/ui/jquery.ui.widget.js') !!}"></script>
         <script src="{!! url('js/jquery-ui-1.10.4/ui/jquery.ui.dialog.js') !!}"></script>	

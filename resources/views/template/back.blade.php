@@ -8,7 +8,9 @@
         <link href="{!! url('bs/css/bootstrap.min.css') !!}" rel="stylesheet" media="screen">
         <link href="{!! url('metro-bs/css/metro-bootstrap.min.css') !!}" rel="stylesheet" media="screen">
         <link href="{!! url('js/vbox/venobox.css') !!}" rel="stylesheet" media="screen">
+        <link href="{!! url('css/jquery.cookiebar.css') !!}" rel="stylesheet" media="screen">	
         <link href="{!! url('css/custom.css') !!}" rel="stylesheet" media="screen">	
+        <link href="{!! url('css/dropzone.css') !!}" rel="stylesheet" media="screen">                
     </head>    
     <body style="background-color: <?php echo env('BG_COLOR', '#ffffff') ?>">    
         <div class="container-fluid">            
@@ -42,11 +44,13 @@
             <h3>{!!Lang::choice('messages.attendere',0)!!}</h3> 
         </div> 
         <script src="{!! url('http://code.jquery.com/jquery.js') !!}"></script>
+        <script src="{!! url('js/jquery.cookiebar.js') !!}"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <script src="{!! url('js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-it.js') !!}"></script>
         <script src="{!! url('bs/js/bootstrap.min.js') !!}"></script>
         <script src="{!! url('js/blockui.js') !!}" ></script>
         <script src="{!! url('js/vbox/venobox.min.js') !!}"></script>
+        <script src="{!! url('js/dropzone.js') !!}"></script>  
         <script src="{!! url('js/scripts.js') !!}"></script>
     </body>
 </html>

@@ -64,7 +64,7 @@
     <div class="col-xs-12 col-sm-8 col-sm-offset-2" >
         <div class="panel panel-default">
             <div class="panel-body" id="tag-container">
-                
+
             </div>
         </div>
     </div>
@@ -137,24 +137,24 @@
         {!! Form::label('immagini_prodotto', Lang::choice('messages.immagine_prodotto',0)) !!}
     </div>
 </div>
+{!!Form::close()!!}
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="form-group">
-            <div class="crop-avatar">
-                {!! Form::submit(Lang::choice('messages.pulsante_aggiungi_immagine',0), array('class' =>'btn
-                btn-primary btn-add-img'))!!}
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <div class="input-img-div" >
-            <input type="file" name="input-img" id="input-img" data-url="{!!url('/immagini')!!}" data-token="{!!  csrf_token() !!}">
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-body">
-
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="dropzone">
+                        {!! Form::open(array('url' => url('immagini/upload'), 'class'=>'dropzone', 'id'=>'my-dropzone')) !!}
+                        <!-- Single file upload 
+                        <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+                        -->
+                        <!-- Multiple file upload-->
+                        <div class="fallback">
+                            <input name="file" class="img-loader" type="file" multiple />
+                        </div>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -166,28 +166,6 @@
         </div>
     </div>
 </div>
-{!!Form::close()!!}
-<!-- Cropping modal -->
-<div class="modal fade" id="avatar-modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title">{!!Lang::choice('messages.carica_immagine',0)!!}</h4>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-annulla">{!!Lang::choice('messages.pulsante_annulla',0)!!}</button>
-                <button type="button" class="btn btn-primary" id="btn-conferma">{!!Lang::choice('messages.pulsante_conferma',0)!!}</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
 </div>
-<!-- Cropping modal-->
 @stop
 

@@ -2,10 +2,456 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc8c98e7-e64e-4ce2-841d-753677fa22b5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Lib/Storage/Categoria/EloquentCategoriaRepository.php" afterPath="$PROJECT_DIR$/app/Lib/Storage/Categoria/EloquentCategoriaRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ImmaginiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImmaginiController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/app/.gitignore" afterPath="$PROJECT_DIR$/storage/app/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/.gitignore" afterPath="$PROJECT_DIR$/storage/framework/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/cache/.gitignore" afterPath="$PROJECT_DIR$/storage/framework/cache/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" afterPath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/.gitignore" afterPath="$PROJECT_DIR$/storage/framework/views/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/logs/.gitignore" afterPath="$PROJECT_DIR$/storage/logs/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/.jshintrc" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/.jshintrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/errors/503.blade.php" afterPath="$PROJECT_DIR$/resources/views/errors/503.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/ExampleTest.php" afterPath="$PROJECT_DIR$/tests/ExampleTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/TestCase.php" afterPath="$PROJECT_DIR$/tests/TestCase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/carrello/added.blade.php" afterPath="$PROJECT_DIR$/resources/views/carrello/added.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/alerts.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/alerts.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/alerts.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/alerts.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/app.less" afterPath="$PROJECT_DIR$/resources/assets/less/app.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/back.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/back.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/background-variant.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/background-variant.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/backheader.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/backheader.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/badges.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/badges.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/blade.xml" afterPath="$PROJECT_DIR$/.idea/blade.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/bootstrap.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/bootstrap.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/border-radius.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/border-radius.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/breadcrumbs.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/breadcrumbs.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/button-groups.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/button-groups.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/buttons.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/buttons.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/buttons.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/buttons.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/carousel.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/carousel.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/center-block.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/center-block.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/clearfix.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/clearfix.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/close.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/close.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/code.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/code.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/component-animations.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/component-animations.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/utenti/conferma.blade.php" afterPath="$PROJECT_DIR$/resources/views/utenti/conferma.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/ordini/confirm.blade.php" afterPath="$PROJECT_DIR$/resources/views/ordini/confirm.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/categorie/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/categorie/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/destinatari/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/destinatari/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/listini/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/listini/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pagamenti/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/pagamenti/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/prodotti/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/prodotti/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/spedizioni/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/spedizioni/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/utenti/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/utenti/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/valute/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/valute/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/listini/detail.blade.php" afterPath="$PROJECT_DIR$/resources/views/listini/detail.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/ordini/detail.blade.php" afterPath="$PROJECT_DIR$/resources/views/ordini/detail.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/dropdowns.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/dropdowns.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/categorie/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/categorie/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/destinatari/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/destinatari/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/listini/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/listini/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pagamenti/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/pagamenti/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/prodotti/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/prodotti/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/spedizioni/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/spedizioni/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/utenti/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/utenti/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/valute/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/valute/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/forms.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/forms.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/forms.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/forms.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/front.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/front.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/frontheader.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/frontheader.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/glyphicons.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/glyphicons.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/gradients.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/gradients.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/grid-framework.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/grid-framework.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/grid.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/grid.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/grid.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/grid.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/headercategories.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/headercategories.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/hide-text.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/hide-text.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/image.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/image.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/carrello/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/carrello/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/categorie/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/categorie/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/configurazione/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/configurazione/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/destinatari/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/destinatari/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/listini/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/listini/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/ordini/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/ordini/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pagamenti/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/pagamenti/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/prodotti/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/prodotti/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/spedizioni/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/spedizioni/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/utenti/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/utenti/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/valute/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/valute/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/info.blade.php" afterPath="$PROJECT_DIR$/resources/views/info.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/input-groups.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/input-groups.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery-ui-i18n.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery-ui-i18n.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery-ui-i18n.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery-ui-i18n.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery-ui.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery-ui.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery-ui.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery-ui.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery-ui.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery-ui.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery-ui.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery-ui.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.accordion.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.accordion.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.accordion.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.accordion.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.accordion.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.accordion.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.accordion.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.accordion.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.all.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.all.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.autocomplete.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.autocomplete.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.autocomplete.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.autocomplete.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.autocomplete.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.autocomplete.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.autocomplete.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.autocomplete.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.base.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.base.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.button.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.button.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.button.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.button.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.button.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.button.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.button.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.button.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.core.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.core.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.core.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.core.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.core.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.core.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.core.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.core.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-af.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-af.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-af.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-af.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ar-DZ.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ar-DZ.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ar-DZ.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ar-DZ.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ar.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ar.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ar.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-az.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-az.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-az.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-az.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-be.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-be.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-be.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-be.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-bg.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-bg.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-bg.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-bg.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-bs.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-bs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-bs.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-bs.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ca.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ca.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ca.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ca.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-cs.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-cs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-cs.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-cs.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-cy-GB.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-cy-GB.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-cy-GB.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-cy-GB.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-da.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-da.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-da.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-da.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-de.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-de.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-de.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-de.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-el.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-el.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-el.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-el.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-en-AU.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-en-AU.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-en-AU.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-en-AU.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-en-GB.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-en-GB.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-en-GB.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-en-GB.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-en-NZ.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-en-NZ.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-en-NZ.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-en-NZ.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-eo.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-eo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-eo.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-eo.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-es.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-es.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-es.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-es.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-et.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-et.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-et.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-et.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-eu.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-eu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-eu.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-eu.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-fa.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-fa.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-fa.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-fa.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-fi.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-fi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-fi.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-fi.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-fo.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-fo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-fo.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-fo.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-fr-CA.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-fr-CA.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-fr-CA.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-fr-CA.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-fr-CH.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-fr-CH.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-fr-CH.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-fr-CH.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-fr.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-fr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-fr.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-fr.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-gl.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-gl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-gl.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-gl.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-he.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-he.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-he.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-he.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-hi.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-hi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-hi.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-hi.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-hr.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-hr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-hr.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-hr.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-hu.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-hu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-hu.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-hu.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-hy.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-hy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-hy.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-hy.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-id.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-id.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-id.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-id.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-is.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-is.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-is.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-is.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-it.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-it.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-it.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-it.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ja.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ja.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ja.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ja.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ka.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ka.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ka.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ka.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-kk.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-kk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-kk.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-kk.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-km.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-km.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-km.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-km.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ko.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ko.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ko.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ko.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ky.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ky.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ky.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ky.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-lb.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-lb.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-lb.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-lb.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-lt.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-lt.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-lt.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-lt.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-lv.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-lv.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-lv.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-lv.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-mk.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-mk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-mk.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-mk.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ml.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ml.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ml.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ml.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ms.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ms.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ms.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ms.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-nb.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-nb.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-nb.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-nb.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-nl-BE.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-nl-BE.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-nl-BE.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-nl-BE.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-nl.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-nl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-nl.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-nl.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-nn.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-nn.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-nn.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-nn.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-no.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-no.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-no.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-no.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-pl.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-pl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-pl.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-pl.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-pt-BR.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-pt-BR.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-pt-BR.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-pt-BR.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-pt.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-pt.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-pt.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-pt.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-rm.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-rm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-rm.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-rm.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ro.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ro.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ro.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ro.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ru.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ru.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ru.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ru.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-sk.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-sk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-sk.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-sk.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-sl.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-sl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-sl.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-sl.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-sq.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-sq.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-sq.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-sq.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-sr-SR.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-sr-SR.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-sr-SR.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-sr-SR.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-sr.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-sr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-sr.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-sr.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-sv.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-sv.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-sv.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-sv.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ta.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-ta.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ta.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-ta.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-th.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-th.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-th.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-th.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-tj.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-tj.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-tj.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-tj.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-tr.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-tr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-tr.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-tr.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-uk.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-uk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-uk.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-uk.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-vi.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-vi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-vi.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-vi.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-zh-CN.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-zh-CN.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-zh-CN.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-zh-CN.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-zh-HK.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-zh-HK.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-zh-HK.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-zh-HK.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-zh-TW.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/i18n/jquery.ui.datepicker-zh-TW.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-zh-TW.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/i18n/jquery.ui.datepicker-zh-TW.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.datepicker.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.datepicker.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.datepicker.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.datepicker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.datepicker.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.datepicker.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.datepicker.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.datepicker.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.dialog.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.dialog.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.dialog.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.dialog.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.dialog.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.dialog.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.dialog.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.dialog.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.draggable.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.draggable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.draggable.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.draggable.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.droppable.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.droppable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.droppable.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.droppable.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-blind.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-blind.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-blind.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-blind.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-bounce.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-bounce.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-bounce.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-bounce.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-clip.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-clip.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-clip.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-clip.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-drop.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-drop.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-drop.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-drop.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-explode.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-explode.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-explode.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-explode.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-fade.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-fade.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-fade.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-fade.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-fold.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-fold.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-fold.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-fold.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-highlight.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-highlight.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-highlight.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-highlight.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-pulsate.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-pulsate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-pulsate.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-pulsate.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-scale.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-scale.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-scale.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-scale.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-shake.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-shake.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-shake.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-shake.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-slide.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-slide.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-slide.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-slide.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-transfer.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect-transfer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-transfer.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect-transfer.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.effect.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.effect.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.menu.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.menu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.menu.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.menu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.menu.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.menu.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.menu.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.menu.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.mouse.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.mouse.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.mouse.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.mouse.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.position.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.position.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.position.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.position.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.progressbar.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.progressbar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.progressbar.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.progressbar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.progressbar.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.progressbar.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.progressbar.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.progressbar.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.resizable.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.resizable.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.resizable.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.resizable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.resizable.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.resizable.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.resizable.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.resizable.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.selectable.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.selectable.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.selectable.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.selectable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.selectable.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.selectable.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.selectable.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.selectable.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.slider.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.slider.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.slider.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.slider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.slider.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.slider.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.slider.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.slider.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.sortable.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.sortable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.sortable.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.sortable.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.spinner.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.spinner.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.spinner.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.spinner.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.spinner.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.spinner.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.spinner.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.spinner.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.tabs.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.tabs.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.tabs.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.tabs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.tabs.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.tabs.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.tabs.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.tabs.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.theme.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.theme.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.theme.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.theme.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.tooltip.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/jquery.ui.tooltip.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.tooltip.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.tooltip.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.tooltip.min.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/themes/base/minified/jquery.ui.tooltip.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.tooltip.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.tooltip.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.widget.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/jquery.ui.widget.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.widget.min.js" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui/minified/jquery.ui.widget.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/jumbotron.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/jumbotron.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/labels.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/labels.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/labels.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/labels.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/languages.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/languages.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/list-group.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/list-group.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/list-group.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/list-group.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/utenti/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/utenti/login.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/main.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/main.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/media.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/media.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/messages.php" afterPath="$PROJECT_DIR$/resources/lang/en/messages.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/es/messages.php" afterPath="$PROJECT_DIR$/resources/lang/es/messages.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/it/messages.php" afterPath="$PROJECT_DIR$/resources/lang/it/messages.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/adds/modal.warning.blade.php" afterPath="$PROJECT_DIR$/resources/views/adds/modal.warning.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/modals.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/modals.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/nav-divider.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/nav-divider.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/nav-vertical-align.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/nav-vertical-align.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/navbar.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/navbar.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/navs.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/navs.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/normalize.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/normalize.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/opacity.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/opacity.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/pager.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/pager.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/pagination.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/pagination.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/pagination.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/pagination.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/pagination.php" afterPath="$PROJECT_DIR$/resources/lang/en/pagination.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/es/pagination.php" afterPath="$PROJECT_DIR$/resources/lang/es/pagination.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/it/pagination.php" afterPath="$PROJECT_DIR$/resources/lang/it/pagination.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/panels.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/panels.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/panels.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/panels.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/password.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/password.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/password.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/password.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" afterPath="$PROJECT_DIR$/resources/lang/en/passwords.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/ordini/payment.blade.php" afterPath="$PROJECT_DIR$/resources/views/ordini/payment.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/popovers.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/popovers.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/print.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/print.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/catalogo/prodotto.blade.php" afterPath="$PROJECT_DIR$/resources/views/catalogo/prodotto.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/progress-bar.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/progress-bar.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/progress-bars.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/progress-bars.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/auth/reminder.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/auth/reminder.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/reminders.php" afterPath="$PROJECT_DIR$/resources/lang/en/reminders.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/es/reminders.php" afterPath="$PROJECT_DIR$/resources/lang/es/reminders.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/it/reminders.php" afterPath="$PROJECT_DIR$/resources/lang/it/reminders.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/reset-filter.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/reset-filter.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/reset.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/reset.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/reset.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/reset.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/utenti/reset.blade.php" afterPath="$PROJECT_DIR$/resources/views/utenti/reset.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/resize.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/resize.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/responsive-embed.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/responsive-embed.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/responsive-utilities.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/responsive-utilities.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/responsive-visibility.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/responsive-visibility.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/robots.txt" afterPath="$PROJECT_DIR$/public/robots.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/scaffolding.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/scaffolding.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/scripts.js" afterPath="$PROJECT_DIR$/public/js/scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.php" afterPath="$PROJECT_DIR$/server.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/utenti/signin.blade.php" afterPath="$PROJECT_DIR$/resources/views/utenti/signin.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/size.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/size.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/ordini/spedizione.blade.php" afterPath="$PROJECT_DIR$/resources/views/ordini/spedizione.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/ordini/stati.blade.php" afterPath="$PROJECT_DIR$/resources/views/ordini/stati.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/tab-focus.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/tab-focus.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/table-row.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/table-row.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/tables.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/tables.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/test.blade.php" afterPath="$PROJECT_DIR$/resources/views/test.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/text-emphasis.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/text-emphasis.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/text-overflow.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/text-overflow.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/theme.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/theme.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/thumbnails.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/thumbnails.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/tooltip.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/tooltip.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/type.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/type.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.accordion.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.accordion.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.autocomplete.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.autocomplete.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.button.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.button.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.core.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.core.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.datepicker.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.datepicker.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.dialog.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.dialog.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.draggable.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.draggable.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.droppable.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.droppable.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-blind.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-blind.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-bounce.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-bounce.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-clip.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-clip.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-drop.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-drop.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-explode.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-explode.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-fade.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-fade.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-fold.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-fold.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-highlight.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-highlight.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-pulsate.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-pulsate.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-scale.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-scale.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-shake.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-shake.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-slide.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-slide.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-transfer.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect-transfer.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.effect.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.menu.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.menu.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.mouse.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.mouse.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.position.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.position.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.progressbar.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.progressbar.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.resizable.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.resizable.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.selectable.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.selectable.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.slider.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.slider.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.sortable.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.sortable.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.spinner.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.spinner.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.tabs.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.tabs.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.tooltip.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.tooltip.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.widget.jquery.json" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/ui.widget.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/upload.blade.php" afterPath="$PROJECT_DIR$/resources/views/upload.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/upload.js" afterPath="$PROJECT_DIR$/public/js/upload.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/ordini/userlist.blade.php" afterPath="$PROJECT_DIR$/resources/views/ordini/userlist.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/utilities.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/utilities.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/es/validation.php" afterPath="$PROJECT_DIR$/resources/lang/es/validation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/it/validation.php" afterPath="$PROJECT_DIR$/resources/lang/it/validation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/variables.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/variables.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/vendor-prefixes.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/mixins/vendor-prefixes.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/verify.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/verify.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/tests/visual/visual.css" afterPath="$PROJECT_DIR$/public/js/jquery-ui-1.10.4/tests/visual/visual.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/wells.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/wells.less" />
     </list>
     <ignored path="Condor2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,11 +479,9 @@
       <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="11263" max-vertical-offset="11934">
-              <caret line="684" column="60" selection-start-line="684" selection-start-column="60" selection-end-line="684" selection-end-column="60" />
-              <folding>
-                <marker date="1432543935327" expanded="true" signature="1710:1723" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="10260" max-vertical-offset="10755">
+              <caret line="684" column="55" selection-start-line="684" selection-start-column="55" selection-end-line="684" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -45,7 +489,7 @@
       <file leaf-file-name="ImmaginiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ImmaginiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5138122" vertical-offset="826" max-vertical-offset="2771">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="2850">
               <caret line="71" column="39" selection-start-line="71" selection-start-column="39" selection-end-line="71" selection-end-column="39" />
               <folding />
             </state>
@@ -112,10 +556,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.5" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-372" />
+    <option name="y" value="-1080" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -147,152 +591,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Condor2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Providers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Condor2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -361,6 +659,9 @@
       <BehatRunner />
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -368,9 +669,6 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="1">
@@ -433,28 +731,28 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-372" y="-1080" width="1920" height="1080" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937106" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294271" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294271" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23938507" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294271" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294271" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17571884" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294271" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32786885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937106" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294271" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -477,9 +775,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24011713" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294271" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294271" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -521,6 +819,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ImmaginiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2850">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/template/back.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38801712" vertical-offset="85" max-vertical-offset="1037">
@@ -567,13 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33188722" vertical-offset="51" max-vertical-offset="4029">
           <caret line="21" column="22" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/cropper/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8603696" vertical-offset="1757" max-vertical-offset="2278">
-          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -841,9 +1140,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="47.73077" vertical-offset="1326" max-vertical-offset="1785">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#39#93#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -851,7 +1147,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33426967" vertical-offset="1190" max-vertical-offset="1972">
           <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -859,7 +1154,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.397482" vertical-offset="0" max-vertical-offset="556">
           <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -867,25 +1161,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.06115108" vertical-offset="68" max-vertical-offset="1581">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#44#82#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="11263" max-vertical-offset="11934">
-          <caret line="684" column="60" selection-start-line="684" selection-start-column="60" selection-end-line="684" selection-end-column="60" />
-          <folding>
-            <marker date="1432543935327" expanded="true" signature="1710:1723" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="10260" max-vertical-offset="10755">
+          <caret line="684" column="55" selection-start-line="684" selection-start-column="55" selection-end-line="684" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ImmaginiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5138122" vertical-offset="826" max-vertical-offset="2771">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="2850">
           <caret line="71" column="39" selection-start-line="71" selection-start-column="39" selection-end-line="71" selection-end-column="39" />
           <folding />
         </state>
