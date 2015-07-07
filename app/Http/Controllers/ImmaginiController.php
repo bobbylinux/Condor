@@ -165,13 +165,13 @@ class ImmaginiController extends Controller {
 
         $file = Input::file('file');
         if ($file) {
-            $destinationPath = public_path() . '/uploads/';
+            $destinationPath = public_path() . '/uploads/temp';
             $filename = $file->getClientOriginalName();
             $upload_success = Input::file('file')->move($destinationPath, $filename);
 
             if ($upload_success) {
                 // resizing an uploaded file
-                Image::make($destinationPath . $filename)->resize(100, 100)->save($destinationPath . "100x100_" . $filename);
+                //Image::make($destinationPath . $filename)->resize(100, 100)->save($destinationPath . "100x100_" . $filename);
                 return Response::json('success', 200);
             } else {
                 return Response::json('error', 400);
