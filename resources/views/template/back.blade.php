@@ -10,7 +10,7 @@
         <link href="{!! url('js/vbox/venobox.css') !!}" rel="stylesheet" media="screen">
         <link href="{!! url('css/jquery.cookiebar.css') !!}" rel="stylesheet" media="screen">	
         <link href="{!! url('css/custom.css') !!}" rel="stylesheet" media="screen">	
-        <link href="{!! url('css/dropzone.css') !!}" rel="stylesheet" media="screen">                
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/dropzone.css" rel="stylesheet" media="screen">                
     </head>    
     <body style="background-color: <?php echo env('BG_COLOR', '#ffffff') ?>">    
         <div class="container-fluid">            
@@ -50,7 +50,7 @@
         <script src="{!! url('bs/js/bootstrap.min.js') !!}"></script>
         <script src="{!! url('js/blockui.js') !!}" ></script>
         <script src="{!! url('js/vbox/venobox.min.js') !!}"></script>
-        <script src="{!! url('js/dropzone.js') !!}"></script>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/dropzone.js"></script>  
         <script src="{!! url('js/scripts.js') !!}"></script>
     </body>
 </html>

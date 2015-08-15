@@ -161,22 +161,45 @@ class ImmaginiController extends Controller {
         }
     }
 
-    public function imageUpload() {
-
-        $file = Input::file('file');
-        if ($file) {
-            $destinationPath = public_path() . '/uploads/temp';
-            $filename = $file->getClientOriginalName();
-            $upload_success = Input::file('file')->move($destinationPath, $filename);
-
-            if ($upload_success) {
-                // resizing an uploaded file
-                //Image::make($destinationPath . $filename)->resize(100, 100)->save($destinationPath . "100x100_" . $filename);
-                return Response::json('success', 200);
-            } else {
-                return Response::json('error', 400);
-            }
+    public function imageUpload(Request $request) {
+        /* valido le immagini qualora arrivasse una richiesta da cmd */
+        $file = $request->file('file');
+        $nome_file = $file->getClientOriginalName();
+        $tipo_file = $file->guessClientExtension();
+        $url_file = public_path() . '/uploads/temp';
+        $dim_file = $file->getSize();
+        
+        $data_img = array(
+            'nome' => $nome_file,
+            'url' => $url_file,
+            'tipo' => $tipo_file,
+            'file' => $file,
+            'dimensione' => $dim_file);
+        
+        if (!$this->immagine->validate($data_img)) {
+            $errors = $this->immagine->getErrors();
+            return Response::json(array(
+                        'code' => '500', //KO
+                        'msg' => 'KO',
+                        'errors' => $errors));
         }
+        
+        $this->immagine->addTemp($file);
+
+        /* $file = Input::file('file');
+          if ($file) {
+          $destinationPath = public_path() . '/uploads/temp';
+          $filename = $file->getClientOriginalName();
+          $upload_success = Input::file('file')->move($destinationPath, $filename);
+
+          if ($upload_success) {
+          // resizing an uploaded file
+          //Image::make($destinationPath . $filename)->resize(100, 100)->save($destinationPath . "100x100_" . $filename);
+          return Response::json('success', 200);
+          } else {
+          return Response::json('error', 400);
+          }
+          } */
     }
 
     public function imageDelete() {

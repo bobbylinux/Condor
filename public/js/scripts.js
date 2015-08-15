@@ -655,6 +655,8 @@ $(document).ready(function () {
     // myDropzone is the configuration for the element that has an id attribute
     // with the value my-dropzone (or myDropzone)
     Dropzone.options.myDropzone = {
+        acceptedFiles: '.jpg, .jpeg, .png',
+        maxFilesize: 2,
         dictDefaultMessage: "Trascina l'immagine qua per caricarla, oppure fai click per caricarla da una directory",
         headers: {"X-XSRF-TOKEN": "{!! csrf_token() !!}"},
         init: function () {
