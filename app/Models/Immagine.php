@@ -122,6 +122,8 @@ class Immagine extends BaseModel {
         $name = time() . $file->getClientOriginalName();
          
         $file->move(public_path() . $this->tempDir, $name);
+
+        return $this->tempDir . '/' . $name;
     }
 
     // DEFINE RELATIONSHIPS --------------------------------------------------

@@ -184,7 +184,12 @@ class ImmaginiController extends Controller {
                         'errors' => $errors));
         }
         
-        $this->immagine->addTemp($file);
+        $tmpFileName = $this->immagine->addTemp($file);
+
+        return Response::json(array(
+            'code' => '200', //OK
+            'msg' => 'OK',
+            'src' => $tmpFileName));
 
         /* $file = Input::file('file');
           if ($file) {

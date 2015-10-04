@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2068352207">
+    <data-source source="LOCAL" name="PostgreSQL - condor@localhost" uuid="e5a7e2b3-35e2-4f2e-87c9-baadd14ee509">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/condor</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

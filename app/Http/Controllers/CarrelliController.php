@@ -87,7 +87,7 @@ class CarrelliController extends BaseController
                 $result = $carrello->store($data);
             }
             if ($result) {
-                return view('carrello.added');//$this->layout->content = View::make('carrello.added');
+                return view('carrello.added');
             }
         } else {
             $errors = $this->carrello->getErrors();

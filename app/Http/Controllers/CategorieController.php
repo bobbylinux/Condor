@@ -24,8 +24,8 @@ class CategorieController extends BaseController
      */
     public function index()
     {
-        $data['categorie_lista'] = $this->categoria->index();
-        return view('categorie.index',$data);
+        $categorie_lista =  $this->categoria->index();
+        return view('categorie.index',compact('categorie_lista'));
     }
     /**
      * Show the form for creating a new resource.
@@ -34,8 +34,8 @@ class CategorieController extends BaseController
      */
     public function create()
     {
-        $data['categorie_padre'] = $this->categoria->getAllActivesList();
-        return view('categorie.create',$data);
+        $categorie_padre = $this->categoria->getAllActivesList();
+        return view('categorie.create',compact('categorie_padre'));
     }
     /**
      * Store a newly created resource in storage.
@@ -63,9 +63,9 @@ class CategorieController extends BaseController
      */
     public function edit($id)
     {
-        $data['categorie_padre'] = $this->categoria->getAllActivesList();
-        $data['categoria'] = $this->categoria->show($id);
-        return view('categorie.edit',$data);
+        $categorie_padre = $this->categoria->getAllActivesList();
+        $categoria = $this->categoria->show($id);
+        return view('categorie.edit',compact('categorie_padre','categoria'));
     }
     /**
      * Update the specified resource in storage.

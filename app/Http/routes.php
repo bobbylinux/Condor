@@ -121,6 +121,7 @@ Route::group(array('middleware' => 'admin'), function() {
     Route::post('prodotto/ricerca/titolo/{type}', 'ProdottiController@searchByTitle');
     Route::delete('listini/{id}/detail/{detail}', 'ListiniController@deleteDetail');
     Route::delete('prodotto/{idProduct}/immagine/{idImage}', 'ProdottiController@detachImage');
+    Route::get('prodotti/{idProduct}/immagini/lista', 'ProdottiController@getImagesList');
     /* aggiunta prodotto a lisino_detail */
     Route::post('listini/{id}/prodotto/aggiungi', 'ListiniController@storeDetail');
     /* aggiornamento prodotto del lisino_detail */

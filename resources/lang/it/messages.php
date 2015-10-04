@@ -244,6 +244,6 @@ return array(
     'modale_testo' => "Si &egrave; sicuri di voler cancellare? <br>Questa operazione &egrave; irreversibile",
 
     /*pop-modale carica immagine*/
-    'carica_immagine' => 'Carica Immagine'
+    'crop_img_title' => 'Ritaglia Immagine'
     
 );

@@ -117,32 +117,6 @@ if (!$prodotto->spedizione) {
 </div>
 <div class="row">
     <div class="col-xs-12 col-md-8 col-sm-offset-2">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="form-group">
-                    <div class="carousel slide" id="myCarousel">
-                        <div class="carousel-inner">
-                            @foreach($prodotto->immagini as $immagine)
-                            <div class="item active">
-                                <div class="col-md-4">
-                                    <div class="thumbnail">        
-                                        <img src="{!! url($immagine->url . '/' . $immagine->nome)!!}" class="img-responsive img-carousel">
-                                        <div class="caption">
-                                            <p><a href="{!!url('/prodotto/'.$prodotto->id.'/immagine/'.$immagine->id)!!}" data-token="<?= csrf_token() ?>" class="btn btn-danger btn-del-img" role="button"><span class="glyphicon glyphicon-trash btn-del-img"></span></a> </p>
-                                        </div>
-                                    </div>
-                                </div>                                
-                            </div>
-                            @endforeach
-                            @if ($prodotto->immagini->count() > 3) 
-                            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-                            <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 @foreach($errors->get('quantita') as $message)
@@ -152,12 +126,33 @@ if (!$prodotto->spedizione) {
     </div>
 </div>
 @endforeach
+{!!Form::close()!!}
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="form-group">
-            {!! Form::submit(Lang::choice('messages.modifica_prodotto',0), array('class' =>'btn btn-success'))!!} 
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="dropzone">
+                        {!! Form::open(array('url' => url('immagini/upload'), 'class'=>'dropzone', 'id'=>'my-dropzone')) !!}
+                        <!-- Single file upload
+                        <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+                        -->
+                        <!-- Multiple file upload-->
+                        <div class="fallback">
+                            <input name="file" class="img-loader" type="file" multiple />
+                        </div>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-{!!Form::close()!!} 
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="form-group">
+            {!! Form::submit(Lang::choice('messages.modifica_prodotto',0), array('class' =>'btn btn-success'))!!}
+        </div>
+    </div>
+</div>
 @stop

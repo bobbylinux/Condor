@@ -244,6 +244,8 @@ return array(
     'modale_titolo' => 'Warning',
     'modale_testo' => "Are you sure to want to delete? <br>This operation can't be undone",
 
+    /**/
+
     /*pop-modale carica immagine*/
-    'carica_immagine' => 'Upload Image'
+    'crop_img_title' => 'Cut Image'
 );

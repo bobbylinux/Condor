@@ -209,4 +209,16 @@ class ProdottiController extends BaseController {
         }
     }
 
+    public function getImagesList() {
+        $prodotto = $this->prodotto->with('immagini')->find(5); //debug
+        foreach($prodotto->immagini as $immagine) {
+            $images['name'] = $immagine->nome;
+            $images['size'] = 251;//filesize(url($immagine->url . '/' . $immagine->nome));
+            $images['url'] = url($immagine->url . '/' . $immagine->nome);
+            $result[] = $images;
+        }
+        header('Content-Type: application/json',"X-XSRF-TOKEN: " . csrf_token() );
+        return Response::json($result); // now you have a json response which you can use in client side
+    }
+
 }
