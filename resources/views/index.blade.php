@@ -8,19 +8,17 @@ $idx = 1;
 @if ($id != $prodotto->id)
 @if ($idx%7==0 || $idx==1)
 <div class="row">
-    @endif
+@endif
     <div class="item active">
-        <div class="col-xs-4">
+        <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="thumbnail">        
-                <a href="/catalogo/prodotto/{!!$prodotto->id!!}"><img src="{!!url($prodotto->url_img .'/'. $prodotto->nome_img)!!}" class="fixed-width"/></a>    
-                <div class="caption">
+                <a href="/catalogo/prodotto/{!!$prodotto->id!!}"><img src="{!!url($prodotto->url_img .'/'. $prodotto->nome_img)!!}" class="fixed-width img-thumbnail"/></a>    
                     <p> 
-                        {!!$prodotto->titolo!!}                
+                        <strong>{!!$prodotto->titolo!!}</strong>          
                     </p>
                     <p class="prezzo">
                         {!!number_format((float)$prodotto->prezzo, 2, '.', '')!!} {!!$valuta->simbolo!!}
                     </p>
-                </div>
             </div>
         </div>                                
     </div>

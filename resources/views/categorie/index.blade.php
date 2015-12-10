@@ -10,7 +10,7 @@
 </div>
 <div class='row'>
     <div class="col-xs-8 col-xs-offset-2">
-        {{ $categorie_lista->render() }}
+        {!! $categorie_lista->render() !!}
     </div>
 </div>
 <div class="row">

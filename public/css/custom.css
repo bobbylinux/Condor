@@ -115,9 +115,21 @@ textarea {
 .carousel-control.left,.carousel-control.right {background-image:none;}
 
 .fixed-width {
-  height: 100%;
-  width: 50%;
+  height: 300px;
+  width: 300px;
 }
 
+div.div-img{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
+img.item-product-edit {
+    width: 100px;
+    height: 80px;
+    overflow: auto;
+}
 
+.thumbnail {
+    text-align: center; 
+}

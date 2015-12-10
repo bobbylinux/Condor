@@ -70,7 +70,6 @@ class Immagine extends BaseModel {
             $this->errors = $validation->errors();
             return false;
         }
-
         return true;
     }
 
@@ -88,14 +87,11 @@ class Immagine extends BaseModel {
      *
      * @data array
      */
-    public function store($data, $file) {
+    public function store($data) {
         $this->nome = $data['nome'];
         $this->url = $data['url'];
         $this->tipo = $data['tipo'];
         $result = self::save();
-        if ($result) {
-            $file->move($data['url'], $data['nome']);
-        }
     }
 
     /**

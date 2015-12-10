@@ -3,7 +3,7 @@
 <div class="page-header">
     <h2>{!!Lang::choice('messages.modifica_prodotto',0)!!}</h2>
 </div>
-{!!Form::open(array('url'=>'prodotti/'.$prodotto->id,'method'=>'PUT'))!!} 
+{!!Form::open(array('url'=>'prodotti/'.$prodotto->id,'files' => true,'method'=>'PUT'))!!} 
 <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-2">
         <div class="form-group">
@@ -105,47 +105,24 @@ if (!$prodotto->spedizione) {
 @endforeach
 <div class="row">
     <div class="col-xs-12 col-sm-2 col-sm-offset-2">
-        {!! Form::label('immagini_prodotto', Lang::choice('messages.immagine_prodotto',0)) !!}
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <div class="form-group">
-            {!! Form::submit(Lang::choice('messages.pulsante_aggiungi_immagine',0), array('class' =>'btn btn-primary btn-add-img'))!!} 
+        <div class="form-group div-img-container">
+            {!! Form::label('immagini_prodotto', Lang::choice('messages.immagine_prodotto',0)) !!}            
+            <button class="btn btn-xs btn-success btn-add-img"><i class="glyphicon glyphicon-plus"></i></button>
+            <div class="div-img">
+                <input type="file" id="img-1" name="img-1" class="file-input">
+            </div>
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-xs-12 col-md-8 col-sm-offset-2">
-    </div>
-</div>
-@foreach($errors->get('quantita') as $message)
-<div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-        <p class="bg-danger">{!! $message !!}</p>
-    </div>
-</div>
-@endforeach
-{!!Form::close()!!}
-<div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <div class="form-group">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div id="dropzone">
-                        {!! Form::open(array('url' => url('immagini/upload'), 'class'=>'dropzone', 'id'=>'my-dropzone')) !!}
-                        <!-- Single file upload
-                        <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
-                        -->
-                        <!-- Multiple file upload-->
-                        <div class="fallback">
-                            <input name="file" class="img-loader" type="file" multiple />
-                        </div>
-                        {!! Form::close() !!}
-                    </div>
-                </div>
-            </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @foreach($prodotto->immagini as $immagine)
+            <img src="{!!url($immagine->url.'/'.$immagine->nome)!!}" class="img-thumbnail item-product-edit">
+            @endforeach
         </div>
+    </div>
     </div>
 </div>
 <div class="row">
@@ -155,4 +132,6 @@ if (!$prodotto->spedizione) {
         </div>
     </div>
 </div>
+{!!Form::close()!!}
+
 @stop

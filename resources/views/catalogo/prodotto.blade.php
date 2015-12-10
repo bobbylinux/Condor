@@ -13,14 +13,14 @@
     <div class="panel-body">
         <div class='row'>
             <div class="col-xs-4 image-row">
-                <a class="venobox" href="{!!url($prodotto->url_img .'/'. $prodotto->nome_img)!!}"><img src="{!!url($prodotto->url_img .'/'. $prodotto->nome_img)!!}" class="fixed-width" /></a>
+                <a class="venobox" href="{!!url($prodotto->url_img .'/'. $prodotto->nome_img)!!}"><img src="{!!url($prodotto->url_img .'/'. $prodotto->nome_img)!!}" class="fixed-width img-thumbnail" /></a>
             </div>
             <div class="col-xs-8">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group">      
                             <h3>
-                                {!!$prodotto->titolo!!}
+                                <strong>{!!$prodotto->titolo!!}</strong>
                             </h3>
                         </div>
                     </div>

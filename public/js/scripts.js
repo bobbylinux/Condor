@@ -642,83 +642,15 @@ $(document).ready(function () {
 
     });
 
-    /*cookies law*/
-    $.cookieBar({
-        acceptText: 'Continua',
-        policyButton: true,
-        policyURL: '/privacy',
-        effect: 'slide',
-        message: "Questo sito utilizza cookies, anche di terze parti. Chiudendo questo banner, scorrendo questa pagina o cliccando qualunque suo elemento, acconsenti al loro impiego in conformità alla nostra Cookie Policy."
+    $(document).on("click",".btn-add-img",function(event){
+        event.preventDefault();
+        //conto gli elementi
+        var $rows = $(".file-input").length;
+        var $idx = $rows+1;
+        var $id = "img-"+$idx;
+        var $element = '<div class="div-img"><input type="file" id="'+$id+'" name="'+$id+'" class="file-input"></div>';
+        $(".div-img-container").append($element);
     });
-    /*cropimg plugin di crop della immagine dei prodotti*/
-    $('img.cropimg').cropimg({
-        resultWidth:300,
-        resultHeight:300,
-        onChange: function() {
-            $('#preview-info').hide();
-            $('#preview-container').show();
-        }
-    });
-    /*dropzone image uploader*/
-    // myDropzone is the configuration for the element that has an id attribute
-    // with the value my-dropzone (or myDropzone)
-    Dropzone.options.myDropzone = {
-        acceptedFiles: '.jpg, .jpeg, .png',
-        maxFilesize: 2,
-        dictDefaultMessage: "Trascina l'immagine qua per caricarla, oppure fai click per caricarla da una directory",
-        headers: {"X-XSRF-TOKEN": "{!! csrf_token() !!}"},
-        thumbnailWidth: 100,
-        thumbnailHeight: 100,
-        init: function () {
+    
 
-            var thisDropzone = this;
-            /*$.getJSON('immagini/lista', function(data) { // get the json response
-             $.each(data, function(key,value){ //loop through it
-             var mockFile = { name: value.name, size: value.size }; // here we get the file name and size as response
-             thisDropzone.options.addedfile.call(thisDropzone, mockFile);
-             thisDropzone.options.thumbnail.call(thisDropzone, mockFile, value.url);//uploadsfolder is the folder where you have all those uploaded files
-             });
-             
-             });*/
-
-            this.on("addedfile", function (file) {
-                var removeButton = Dropzone.createElement('<a class="dz-remove">Remove file</a>');
-                var _this = this;
-                removeButton.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    var fileInfo = new Array();
-                    fileInfo['name'] = file.name;
-                    $.ajax({
-                        type: "POST",
-                        url: "{!! url('/immagini/delete') !!}",
-                        data: {file: file.name},
-                        beforeSend: function () {
-                            // before send
-                        },
-                        success: function (response) {
-
-                            if (response == 'success')
-                                alert('deleted');
-                        },
-                        error: function () {
-                            alert("error");
-                        }
-                    });
-                    _this.removeFile(file);
-                    // If you want to the delete the file on the server as well,
-                    // you can do the AJAX request here.
-                });
-                // Add the button to the file preview element.
-                file.previewElement.appendChild(removeButton);
-            });
-            this.on("complete", function (file) {
-                if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
-                    var tmp = JSON.parse(file.xhr.response);
-                    $('#msg-load-img img').attr('src',tmp.src);
-                    $('#msg-load-img').modal('show');
-                }
-            });
-        }
-    };
 });

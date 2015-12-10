@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input as Input;
 use Illuminate\Support\Facades\Redirect as Redirect;
 use Illuminate\Support\Facades\Response as Response;
@@ -45,6 +47,10 @@ class ProdottiController extends BaseController {
         return new $categoria;
     }
 
+    public function getImageInstance(Immagine $immagine) {
+        return new $immagine;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -73,19 +79,29 @@ class ProdottiController extends BaseController {
      *
      * @return Response
      */
-    public function store() {
+    public function store(Request $request) {
         $data = array(
-            'codice' => Input::get('codice_prodotto'),
-            'titolo' => Input::get('titolo_prodotto'),
-            'descrizione' => Input::get('descrizione_prodotto'),
-            'quantita' => Input::get('quantita_prodotto'),
-            'spedizione' => Input::get('spedizione_prodotto'),
-            'categoria' => Input::get('categoria_prodotto'),
+            'codice' => $request->get('codice_prodotto'),
+            'titolo' => $request->get('titolo_prodotto'),
+            'descrizione' => $request->get('descrizione_prodotto'),
+            'quantita' => $request->get('quantita_prodotto'),
+            'spedizione' => $request->get('spedizione_prodotto'),
+            'categoria' => $request->get('categoria_prodotto')
         );
 
         if ($this->prodotto->validate($data)) {
-            $this->prodotto->store($data);
-            return Redirect::action('ProdottiController@index');
+            $idx_imgs = array();
+            if ($this->storeImage($request->file(),$idx_imgs)){
+                $this->prodotto->store($data);
+                $id_prod = $this->prodotto->id;
+                foreach($idx_imgs as $id_img) {
+                    $this->attachImage($id_prod,$id_img);
+                }
+                return Redirect::action('ProdottiController@index');
+            } else {
+                $errors = $this->immagine->getErrors();
+                return Redirect::action('ProdottiController@create')->withInput()->withErrors($errors);
+            } 
         } else {
             $errors = $this->prodotto->getErrors();
             return Redirect::action('ProdottiController@create')->withInput()->withErrors($errors);
@@ -134,13 +150,22 @@ class ProdottiController extends BaseController {
         );
 
         $prodotto = $this->prodotto->find($id);
-        if ($prodotto->validate($data)) {
-            $result = $prodotto->refresh($data);
-
-            return Redirect::action('ProdottiController@index');
+        if ($this->prodotto->validate($data)) {
+            $idx_imgs = array();
+            if ($this->storeImage(Input::file(),$idx_imgs)){
+                $prodotto->refresh($data);
+                $id_prod = $prodotto->id;
+                foreach($idx_imgs as $id_img) {
+                    $this->attachImage($id_prod,$id_img);
+                }
+                return Redirect::action('ProdottiController@index');
+            } else {
+                $errors = $this->immagine->getErrors();
+                return Redirect::action('ProdottiController@edit')->withInput()->withErrors($errors);
+            } 
         } else {
-            $errors = $prodotto->getErrors();
-            return Redirect::action('ProdottiController@edit', [$id])->withInput()->withErrors($errors);
+            $errors = $this->prodotto->getErrors();
+            return Redirect::action('ProdottiController@edit')->withInput()->withErrors($errors);
         }
     }
 
@@ -152,6 +177,7 @@ class ProdottiController extends BaseController {
      */
     public function destroy($id) {
         $prodotto = $this->prodotto->find($id);
+        $this->detachAllImages($id);
         $result = $prodotto->trash();
         if ($result) {
             return Response::json(array(
@@ -189,6 +215,46 @@ class ProdottiController extends BaseController {
         return $result;
     }
 
+    public function storeImage($images, &$idx_imgs) {
+        $count = count($images);
+
+        for ($i = 1; $i<=$count;$i++) {
+            $cartella_random = str_random(15);
+            $url_file = 'uploads/' . $cartella_random;
+            $index = "img-". $i;
+
+            $nome_file = $images[$index]->getClientOriginalName();
+            $tipo_file = $images[$index]->getMimeType();
+            $dim_file = $images[$index]->getSize();
+
+            $data_img = array(
+                'nome' => $nome_file,
+                'url' => $url_file,
+                'tipo' => $tipo_file,
+                'dimensione' => $dim_file,
+                'file' => $images[$index]);
+
+            if (!$this->immagine->validate($data_img)) {
+                return false;
+            }
+
+            $images[$index]->move($url_file,$nome_file);
+            $immagine = $this->getImageInstance($this->immagine); //questo è un utilizzo casareccio della Dependency Injection, almeno come io l'ho concepita....
+            $immagine->store($data_img);
+            array_push($idx_imgs, $immagine->id);
+        }  
+        return true;
+    }
+
+    /**
+     * Detatch image from product
+     *
+     * 
+     * @return null
+     */
+    public function attachImage($idProduct, $idImage) {
+        $this->prodotto->find($idProduct)->immagini()->attach($idImage);
+    }
     /**
      * Detatch image from product
      *
@@ -209,8 +275,23 @@ class ProdottiController extends BaseController {
         }
     }
 
-    public function getImagesList() {
-        $prodotto = $this->prodotto->with('immagini')->find(5); //debug
+    /**
+     * Detatch image from product
+     *
+     * 
+     * @return null
+     */
+    public function detachAllImages($idProduct) {
+        $result = $this->prodotto->find($idProduct)->immagini()->detach();
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getImagesList($idProduct) {
+        $prodotto = $this->prodotto->with('immagini')->find($idProduct); 
         foreach($prodotto->immagini as $immagine) {
             $images['name'] = $immagine->nome;
             $images['size'] = 251;//filesize(url($immagine->url . '/' . $immagine->nome));

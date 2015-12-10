@@ -83,7 +83,7 @@
                                 {!!Lang::choice('messages.articolo',0)!!} @endif): {!!number_format((float)$totale,
                             2,'.','')!!} {!! $valuta->simbolo !!}</h4>
                     </div>
-                    <div class="col-xs-2 col-xs-offset-5">
+                    <div class="col-xs-2 col-xs-offset-5 procedi-acquisto">
                         {!! Form::submit(Lang::choice('messages.procedi_all_acquisto',0), array('class' =>'btn
                         btn-success'))!!}
                     </div>

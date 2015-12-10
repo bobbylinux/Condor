@@ -5,7 +5,7 @@
 </div>
 {!!Form::open(array('url'=>'prodotti','method'=>'POST','files' => true,'id'=>'form-prodotto' ))!!}
 <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+    <div class="col-xs-12 col-sm-2 col-sm-offset-2">
         <div class="form-group">
             {!! Form::label('codice_prodotto', Lang::choice('messages.codice_prodotto',0)) !!}
             {!! Form::text('codice_prodotto', '', array('class'=>'form-control')) !!}
@@ -91,8 +91,6 @@
     </div>
 </div>
 @endforeach
-
-
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="form-group">
@@ -125,7 +123,25 @@
     </div>
 </div>
 @endforeach
-@foreach($errors->get('immagine') as $message)
+<div class="row">
+    <div class="col-xs-12 col-sm-2 col-sm-offset-2">
+        <div class="form-group div-img-container">
+            {!! Form::label('immagini_prodotto', Lang::choice('messages.immagine_prodotto',0)) !!}            
+            <button class="btn btn-xs btn-success btn-add-img"><i class="glyphicon glyphicon-plus"></i></button>
+            <div class="div-img">
+                <input type="file" id="img-1" name="img-1" class="file-input">
+            </div>
+        </div>
+    </div>
+</div>
+@foreach($errors->get('file') as $message)
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <p class="bg-danger">{!! $message !!}</p>
+    </div>
+</div>
+@endforeach
+@foreach($errors->get('dimensione') as $message)
 <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
         <p class="bg-danger">{!! $message !!}</p>
@@ -133,39 +149,12 @@
 </div>
 @endforeach
 <div class="row">
-    <div class="col-xs-12 col-sm-2 col-sm-offset-2">
-        {!! Form::label('immagini_prodotto', Lang::choice('messages.immagine_prodotto',0)) !!}
-    </div>
-</div>
-{!!Form::close()!!}
-<div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <div class="form-group">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div id="dropzone">
-                        {!! Form::open(array('url' => url('immagini/upload'), 'class'=>'dropzone', 'id'=>'my-dropzone')) !!}
-                        <!-- Single file upload 
-                        <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
-                        -->
-                        <!-- Multiple file upload-->
-                        <div class="fallback">
-                            <input name="file" class="img-loader" type="file" multiple />
-                        </div>
-                        {!! Form::close() !!}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="form-group">
             {!! Form::submit(Lang::choice('messages.aggiungi_prodotto',0), array('class' =>'btn btn-success'))!!}
         </div>
     </div>
 </div>
-</div>
+{!!Form::close()!!}
 @stop
 

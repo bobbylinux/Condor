@@ -214,7 +214,7 @@ class Prodotto extends BaseModel {
                                         join categorie_prodotti cp on cp.prodotto = pr.id
                                         join listini_detail ld on ld.prodotto = pr.id
                                         join listini_master lm on lm.id = ld.listino
-                                        join (select min(immagini.id) as id,min(url) as url,min(nome) as nome,immagini_prodotti.prodotto as prodotto from immagini join immagini_prodotti on immagini.id = immagini_prodotti.immagine where immagini.cancellato = false group by prodotto) im on im.prodotto = pr.id
+                                        join (select min(immagini.id) as id,url as url,nome as nome,immagini_prodotti.prodotto as prodotto from immagini join immagini_prodotti on immagini.id = immagini_prodotti.immagine where immagini.cancellato = false group by prodotto,nome,url) im on im.prodotto = pr.id
                                         where pr.cancellato = false
                                         and   cp.cancellato = false
                                         and   ld.cancellato = false
