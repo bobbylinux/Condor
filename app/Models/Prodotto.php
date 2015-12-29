@@ -214,13 +214,21 @@ class Prodotto extends BaseModel {
                                         join categorie_prodotti cp on cp.prodotto = pr.id
                                         join listini_detail ld on ld.prodotto = pr.id
                                         join listini_master lm on lm.id = ld.listino
-                                        join (select min(immagini.id) as id,url as url,nome as nome,immagini_prodotti.prodotto as prodotto from immagini join immagini_prodotti on immagini.id = immagini_prodotti.immagine where immagini.cancellato = false group by prodotto,nome,url) im on im.prodotto = pr.id
+                                        join (select im_pr.immagine,immagini.url as url,immagini.nome as nome, im_pr.prodotto from (
+                                        select  max(immagini.id) as immagine, immagini_prodotti.prodotto as prodotto
+                                        from immagini
+                                        join immagini_prodotti 
+                                        on immagini.id = immagini_prodotti.immagine
+                                        where immagini.cancellato = false
+                                        and   immagini_prodotti.cancellato = false
+                                        group by immagini_prodotti.prodotto) im_pr
+                                        join immagini
+                                        on immagini.id = im_pr.immagine) im on im.prodotto = pr.id
                                         where pr.cancellato = false
                                         and   cp.cancellato = false
                                         and   ld.cancellato = false
                                         and   lm.cancellato = false
-                                        and   (current_timestamp) between lm.data_inizio and lm.data_fine 
-                                    "));
+                                        and   (current_timestamp) between lm.data_inizio and lm.data_fine"));
         return $result;
     }
 
